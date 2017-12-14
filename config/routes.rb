@@ -1,7 +1,14 @@
 Rails.application.routes.draw do
 
 
+  get 'reviews/index'
+
+  get 'reviews/new'
+
   devise_for :users, controllers: { sessions: 'users/sessions' }
+  resources :users do      
+    resource :reviews
+  end
 
   devise_scope :user do
     get 'sign_in', to: 'devise/sessions#new'
@@ -9,7 +16,9 @@ Rails.application.routes.draw do
 
   root 'itineraries#new'
 
-  resources :itineraries
-  
+  resources :itineraries do
+    resources :reviews
+  end
+
 
 end
