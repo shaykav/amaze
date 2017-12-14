@@ -14,6 +14,7 @@ class Itinerary < ApplicationRecord
           if parsed_loc.present? and parsed_loc.key?(:lat) and parsed_loc.key?(:lng)
             location.latitude = parsed_loc[:lat]
             location.longitude = parsed_loc[:lng]
+            # location.photo = 
           end
         end
         location.save
