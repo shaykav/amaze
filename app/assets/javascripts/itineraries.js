@@ -85,6 +85,7 @@ function initMap(field) {
       
       var lat = place.geometry.location.lat();
       var lng = place.geometry.location.lng();
+      // var photo = place.
       
       console.log(lat, lng)
       var $input = $(this.gm_accessors_.place.Kc.gm_accessors_.input.Kc.b),
