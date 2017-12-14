@@ -1,9 +1,9 @@
 class ItinerariesController < ApplicationController
+  before_action :set_product, only: [:show]
   before_action :authenticate_user!, only: [:new]
 
   def show
-    @itinerary = Itinerary.last
-    @locations = Itinerary.last.locations
+    # @locations = @itinerary.locations
   end
 
   def index
@@ -33,6 +33,11 @@ class ItinerariesController < ApplicationController
 
 
   private
+
+  def set_product
+    @itinerary = Itinerary.find(params[:id])
+  end
+
   def itinerary_params
     params.require(:itinerary).permit(:content, :title, :description)
   end
