@@ -45,13 +45,13 @@
 <div id='map'></div>
 <div id='features'>
 
-  <% @locations.each do |location| %>
+  <% @itinerary.locations.each do |location| %>
 
 
   <section id='<%= location.title %>' class='active'>
     <h3><%= location.title %></h3>
     <p><%= location.description %></p>
-    <p>[<%= (@locations.first.latitude).to_f %>, <%= (@locations.first.longitude).to_f %> ]</p>
+    <p>[<%= (@itinerary.locations.first.latitude).to_f %>, <%= (@itinerary.locations.first.longitude).to_f %> ]</p>
   </section>
 
   <% end %>
@@ -63,7 +63,7 @@
   var map = new mapboxgl.Map({
     container: 'map',
     style: 'mapbox://styles/mapbox/streets-v9',
-    center: [<%= (@locations.first.longitude).to_f %>, <%= (@locations.first.latitude).to_f %>],
+    center: [<%= (@itinerary.locations.first.longitude).to_f %>, <%= (@itinerary.locations.first.latitude).to_f %>],
     zoom: 15.5,
     bearing: 27,
     pitch: 45
@@ -72,12 +72,12 @@
 
   var chapters = {
 
-    <% @locations.each do |location| %>
+    <% @itinerary.locations.each do |location| %>
 
 
     '<%= location.title %>': {
       bearing: 27,
-      center: [<%= (location.longitude).to_f %>, <%= (location.latitude).to_f %>],
+      center: [<%= location.longitude.to_f %>, <%= location.latitude.to_f %>],
       zoom: 15.5,
       pitch: 20
     },

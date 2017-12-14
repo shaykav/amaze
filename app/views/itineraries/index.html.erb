@@ -1,0 +1,17 @@
+<h1>Mazes</h1>
+
+
+<% @itineraries.each do |itinerary| %>
+  
+  <%= link_to itinerary_path(itinerary) do %>
+<p><%= itinerary.title %></p>
+  <% end %>
+<p><%= itinerary.description %></p>
+
+<hr>
+<% end %>
+
+
+<%= link_to "Back", root_path %>
+
+
