@@ -1,5 +1,5 @@
 class ItinerariesController < ApplicationController
-  before_action :authenticate_user!, only: [:create]
+  before_action :authenticate_user!, only: [:new]
 
   def show
     @itinerary = Itinerary.last
