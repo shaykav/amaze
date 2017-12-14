@@ -1,9 +1,12 @@
 class ItinerariesController < ApplicationController
   before_action :set_product, only: [:show]
-  before_action :authenticate_user!, only: [:new]
+  before_action :authenticate_user!, only: [:new, :create]
 
   def show
-    # @locations = @itinerary.locations
+  end
+
+  def manage_itineraries
+    @itineraries = Itinerary.where(user: current_user).order("created_at DESC")
   end
 
   def index
@@ -17,11 +20,11 @@ class ItinerariesController < ApplicationController
 
   def create
     @itinerary = Itinerary.new(itinerary_params)
+    @itinerary.user_id = current_user.id
 
     if @itinerary.save
       # TODO add strong params
       locations = params[:itinerary][:content]
-      byebug
 
       Itinerary.location_parse_save(locations, @itinerary)
 

@@ -77,7 +77,7 @@
 
     '<%= location.title %>': {
       bearing: 27,
-      center: [<%= (location.longitude).to_f %>, <%= (location.latitude).to_f %>],
+      center: [<%= location.longitude.to_f %>, <%= location.latitude.to_f %>],
       zoom: 15.5,
       pitch: 20
     },
