@@ -10,7 +10,10 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171214015924) do
+
+
+ActiveRecord::Schema.define(version: 20171214041428) do
+
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -31,5 +34,27 @@ ActiveRecord::Schema.define(version: 20171214015924) do
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
+
+
+  create_table "itineraries", force: :cascade do |t|
+    t.string "title"
+    t.text "description"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "locations", force: :cascade do |t|
+    t.string "title"
+    t.text "description"
+    t.integer "length_of_time"
+    t.string "latitude"
+    t.string "longitude"
+    t.bigint "itinerary_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["itinerary_id"], name: "index_locations_on_itinerary_id"
+  end
+
+  add_foreign_key "locations", "itineraries"
 
 end
