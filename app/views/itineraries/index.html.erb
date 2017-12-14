@@ -3,7 +3,7 @@
 
 <% @itineraries.each do |itinerary| %>
   
-  <%= link_to itinerary_path(itinerary) do %>
+  <%= link_to maze_intro_path(itinerary) do %>
 <p><%= itinerary.title %></p>
   <% end %>
 <p><%= itinerary.description %></p>

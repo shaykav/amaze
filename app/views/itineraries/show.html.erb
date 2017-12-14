@@ -1,50 +1,7 @@
-<!DOCTYPE html>
-<html>
-<head>
-  <meta charset='utf-8' />
-  <title>Fly to a location based on scroll position</title>
-  <meta name='viewport' content='initial-scale=1,maximum-scale=1,user-scalable=no' />
-  <script src='https://api.tiles.mapbox.com/mapbox-gl-js/v0.42.2/mapbox-gl.js'></script>
-  <link href='https://api.tiles.mapbox.com/mapbox-gl-js/v0.42.2/mapbox-gl.css' rel='stylesheet' />
-  <style>
-  body { margin:0; padding:0; }
-  #map { position:absolute; top:0; bottom:0; width:100%; }
-</style>
-</head>
-<body>
-
-
-  <style>
-  #map {
-    position: fixed;
-    width:50%;
-  }
-  #features {
-    width: 50%;
-    margin-left: 50%;
-    font-family: sans-serif;
-    overflow-y: scroll;
-    background-color: #fafafa;
-  }
-  section {
-    padding:  25px 50px;
-    line-height: 25px;
-    border-bottom: 1px solid #ddd;
-    opacity: 0.25;
-    font-size: 13px;
-  }
-  section.active {
-    opacity: 1;
-  }
-  section:last-child {
-    border-bottom: none;
-    margin-bottom: 200px;
-  }
-</style>
-
-<div id='map'></div>
-<div id='features'>
-
+<span class="map-container">
+  <div id='map'></div>
+  <div id='features'>
+  </span>
   <% @itinerary.locations.each do |location| %>
 
 
@@ -56,9 +13,10 @@
 
   <% end %>
 </div>
+
 <script>
 
-  mapboxgl.accessToken = 'pk.eyJ1Ijoia2V2aW5zY2hhZmZ0ZXIiLCJhIjoiY2piNm96NGt2MHZxZTJ3bXo3bG5uN2RwMiJ9.mJexXrURcgBO8qfnCsoYkQ';
+  mapboxgl.accessToken = 'pk.eyJ1Ijoia2V2aW5zY2hhZmZ0ZXIiLCJhIjoiY2piNnNkMmQ2OTBiZzMzcnpzM252OGttdSJ9.vp7HQwPNr--uNONxICdJzg';
 
   var map = new mapboxgl.Map({
     container: 'map',
@@ -68,6 +26,66 @@
     bearing: 27,
     pitch: 45
   });
+
+  // Adds route layer to map
+
+  map.on('load', function() {
+    getRoute();
+  });
+
+  function getRoute() {
+    var start = [<%= (@itinerary.locations.first.longitude).to_f %>, <%= (@itinerary.locations.first.latitude).to_f %>];
+    var end = [<%= (@itinerary.locations.last.longitude).to_f %>, <%= (@itinerary.locations.last.latitude).to_f %>];
+    var directionsRequest = 'https://api.mapbox.com/directions/v5/mapbox/walking/' + start[0] + ',' + start[1] + ';' + end[0] + ',' + end[1] + '?geometries=geojson&access_token=' + mapboxgl.accessToken;
+    $.ajax({
+      method: 'GET',
+      url: directionsRequest,
+    }).done(function(data) {
+      var route = data.routes[0].geometry;
+      map.addLayer({
+        id: 'route',
+        type: 'line',
+        source: {
+          type: 'geojson',
+          data: {
+            type: 'Feature',
+            geometry: route
+          }
+        },
+        paint: {
+          'line-width': 2
+        }
+      });
+      map.addLayer({
+        id: 'start',
+        type: 'circle',
+        source: {
+          type: 'geojson',
+          data: {
+            type: 'Feature',
+            geometry: {
+              type: 'Point',
+              coordinates: start
+            }
+          }
+        }
+      });
+      map.addLayer({
+        id: 'end',
+        type: 'circle',
+        source: {
+          type: 'geojson',
+          data: {
+            type: 'Feature',
+            geometry: {
+              type: 'Point',
+              coordinates: end
+            }
+          }
+        }
+      });
+    });
+  }
 
 
   var chapters = {
@@ -118,6 +136,3 @@ function isElementOnScreen(id) {
 }
 
 </script>
-
-</body>
-</html>

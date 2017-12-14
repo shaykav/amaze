@@ -4,6 +4,8 @@ Rails.application.routes.draw do
 
   get 'pages/home'
 
+  get '/maze/:id', to: 'itineraries#intro', as: 'maze_intro'
+
   devise_for :users
 
   devise_scope :user do

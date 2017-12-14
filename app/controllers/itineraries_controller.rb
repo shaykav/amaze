@@ -1,8 +1,11 @@
 class ItinerariesController < ApplicationController
-  before_action :set_product, only: [:show]
+  before_action :set_product, only: [:show, :intro]
   before_action :authenticate_user!, only: [:new, :create]
 
   def show
+  end
+
+  def intro
   end
 
   def manage_itineraries
@@ -32,6 +35,11 @@ class ItinerariesController < ApplicationController
     else
       render :new
     end
+  end
+
+  def destroy
+    @itinerary.destroy
+    redirect_to itineraries_path, notice: 'Product was successfully destroyed.'
   end
 
 
