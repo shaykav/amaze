@@ -2,12 +2,16 @@ Rails.application.routes.draw do
 
   root 'pages#home'
 
-  get 'pages/home'
-
   devise_for :users
+  
+  resources :users do      
+    resource :reviews
+  end
 
-  devise_scope :user do
-    get 'sign_in', to: 'devise/sessions#new'
+  get 'pages/home'
+  
+  resources :itineraries do
+    resources :reviews
   end
 
   resources :itineraries

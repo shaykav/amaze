@@ -1,6 +1,10 @@
 class Itinerary < ApplicationRecord
   has_many :locations
+
+  has_many :reviews, as: :reviewable
+  
   belongs_to :user
+
   attr_accessor :content
 
 
