@@ -5,6 +5,7 @@ class ItinerariesController < ApplicationController
 
   def show
     @itinerary = Itinerary.last
+    @locations = Itinerary.last.locations
   end
 
   def new
