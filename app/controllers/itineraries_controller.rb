@@ -1,4 +1,5 @@
 class ItinerariesController < ApplicationController
+  before_action :authenticate_user!, only: [:create]
 
   def show
     @itinerary = Itinerary.last
@@ -32,7 +33,7 @@ class ItinerariesController < ApplicationController
 
 
   private
-  def itinerary_params 
+  def itinerary_params
     params.require(:itinerary).permit(:content, :title, :description)
   end
 

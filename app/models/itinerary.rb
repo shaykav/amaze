@@ -1,5 +1,6 @@
 class Itinerary < ApplicationRecord
   has_many :locations
+  belongs_to :user
   attr_accessor :content
 
 
@@ -8,7 +9,7 @@ class Itinerary < ApplicationRecord
       locations.each do |lo|
         location = itinerary.locations.build
         location.title = lo['title']
-        location.description = lo["description"] 
+        location.description = lo["description"]
         unless lo["location"].empty?
           parsed_loc = JSON.parse(lo["location"]).symbolize_keys!
           if parsed_loc.present? and parsed_loc.key?(:lat) and parsed_loc.key?(:lng)
