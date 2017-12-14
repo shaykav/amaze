@@ -1,11 +1,12 @@
 class ItinerariesController < ApplicationController
 
-
-
-
   def show
     @itinerary = Itinerary.last
     @locations = Itinerary.last.locations
+  end
+
+  def index
+    @itineraries = Itinerary.all
   end
 
   def new
