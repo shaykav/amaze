@@ -1,24 +1,21 @@
 Rails.application.routes.draw do
 
+  root 'pages#home'
 
-  get 'reviews/index'
+  get '/maze/:id', to: 'itineraries#intro', as: 'maze_intro'
 
-  get 'reviews/new'
-
-  devise_for :users, controllers: { sessions: 'users/sessions' }
+  devise_for :users
+  
   resources :users do      
     resource :reviews
   end
 
-  devise_scope :user do
-    get 'sign_in', to: 'devise/sessions#new'
-  end
-
-  root 'itineraries#new'
-
+  get 'pages/home'
+  
   resources :itineraries do
     resources :reviews
   end
 
-
+  resources :itineraries
+  
 end

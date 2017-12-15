@@ -81,12 +81,22 @@ function initMap(field) {
       infowindow.close();
       marker.setVisible(false);
       var place = autocomplete.getPlace();
+      var photo = place.photos[0].getUrl({
+        maxWidth: 400
+        });
+
+
       console.log(place)
+      console.log(place.photos[0].getUrl({
+        maxWidth: 400
+        }));
+
       
       var lat = place.geometry.location.lat();
       var lng = place.geometry.location.lng();
+      // var photo = place
       
-      console.log(lat, lng)
+      
       var $input = $(this.gm_accessors_.place.Kc.gm_accessors_.input.Kc.b),
           isNewWrapper = ($input.attr("data-is-new") === "true");
 
@@ -96,6 +106,9 @@ function initMap(field) {
         locations.push({timestamp: Number(tStamp), lat, lng})
         $input.closest(".new-wrapper").find("[name='itinerary[content][][location]']")
               .val(JSON.stringify({lat, lng}))
+
+        $input.closest(".new-wrapper").find("[name='itinerary[content][][photo]']")
+              .val(photo)
 
       }else {
         locations.push({timestamp: (+new Date), lat, lng})
