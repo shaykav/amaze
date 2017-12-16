@@ -1,3 +1,4 @@
 class Neighborhood < ApplicationRecord
-  belongs_to :itinerary
+  has_many :neighborhood_itineraries
+  has_many :itineraries, through: :neighborhood_itineraries
 end
