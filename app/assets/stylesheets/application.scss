@@ -1,0 +1,107 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, or any plugin's
+ * vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any other CSS/SCSS
+ * files in this directory. Styles in this file should be added after the last require_* statement.
+ * It is generally better to create a new file per style scope.
+ *
+ *= require_tree .
+ *= require_self
+ */
+
+
+
+
+.home-container {
+  // margin-bottom: 100px;
+  margin-top: 80px !important;
+}
+
+.padding {
+    padding: 60px;
+  }
+  @media (max-width: 980px) {
+    body {
+      padding-top: 0;
+    }
+  }
+
+
+
+
+/*Styling for notification bar*/
+
+ .alert {
+   position:fixed; 
+   top: 80px; 
+   width: 75%;
+   position: fixed;
+   left: 50%;
+   margin-left: -37.5%;
+   z-index:9999; 
+ }
+
+ .cursor {
+  cursor: pointer;
+}
+
+
+/* Navbar */
+
+.navbar-brand {
+  margin-top: 11px;
+}
+
+.sign-up-btn > .btn:hover {
+  background: green !important;
+  transition: none !important;
+}
+
+.btn .fa {
+    margin-left: 3px;
+}
+.top-nav-collapse {
+    background-color: #424f95 !important;
+}
+.navbar:not(.top-nav-collapse) {
+    background: transparent !important;
+}
+@media (max-width: 768px) {
+    .navbar:not(.top-nav-collapse) {
+        background: #424f95 !important;
+    }
+}
+
+.navbar a,
+.navbar a:hover {
+  color: #FFF;
+}
+
+@media (max-width: 768px) {
+    .navbar:not(.top-nav-collapse) {
+        background: #82b1ff !important;
+    } 
+}
+
+h5 {
+    letter-spacing: 3px;
+}
+
+// Homepage icons
+
+section{
+  opacity: 1;
+}
+
+section:last-child{
+  margin-bottom: 0px;
+}
+
+        
+
+

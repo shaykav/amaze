@@ -1,14 +1,14 @@
 class Itinerary < ApplicationRecord
   has_many :locations
-
   has_many :reviews, as: :reviewable
-
   belongs_to :user
 
   has_many :neighborhood_itineraries
   has_many :neighborhoods, through: :neighborhood_itineraries
 
   attr_accessor :content
+
+  validates :title, :description, presence: true
 
 
   def self.location_parse_save(locations, itinerary)
@@ -17,12 +17,12 @@ class Itinerary < ApplicationRecord
         location = itinerary.locations.build
         location.title = lo['title']
         location.description = lo["description"]
+        location.photo = lo['photo']
         unless lo["location"].empty?
           parsed_loc = JSON.parse(lo["location"]).symbolize_keys!
           if parsed_loc.present? and parsed_loc.key?(:lat) and parsed_loc.key?(:lng)
             location.latitude = parsed_loc[:lat]
             location.longitude = parsed_loc[:lng]
-            # location.photo =
           end
         end
         location.save

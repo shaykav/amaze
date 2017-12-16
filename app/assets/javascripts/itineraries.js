@@ -94,8 +94,6 @@ function initMap(field) {
 
       var lat = place.geometry.location.lat();
       var lng = place.geometry.location.lng();
-      // var photo = place
-
 
       var $input = $(this.gm_accessors_.place.Kc.gm_accessors_.input.Kc.b),
           isNewWrapper = ($input.attr("data-is-new") === "true");
@@ -107,14 +105,14 @@ function initMap(field) {
         $input.closest(".new-wrapper").find("[name='itinerary[content][][location]']")
               .val(JSON.stringify({lat, lng}))
 
-        $input.closest(".new-wrapper").find("[name='itinerary[content][][photo]']")
-              .val(photo)
-
       }else {
         locations.push({timestamp: (+new Date), lat, lng})
         $input.closest('.form-container').find("[name='itinerary[content][][location]']")
               .val(JSON.stringify({lat, lng}))
       }
+      
+      $input.closest('.form-container').find("[name='itinerary[content][][photo]']")
+            .val(photo)
 
       if (!place.geometry) {
         // User entered the name of a Place that was not suggested and

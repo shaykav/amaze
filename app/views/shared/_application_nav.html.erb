@@ -1,0 +1,42 @@
+<nav class="navbar navbar-expand-lg navbar-dark fixed-top scrolling-navbar
+<% if controller.action_name != 'home' %> top-nav-collapse <% end %>" >
+    <div class="container">
+        <h3><%= link_to 'Amaze', root_path, class: 'navbar-brand' %></h3>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent-7" aria-controls="navbarSupportedContent-7" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent-7">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item">
+                    <%= link_to "Home", root_path, class: 'nav-link' %>
+                </li>
+                <li class="nav-item">
+                    <%= link_to "Mazes", itineraries_path, class: 'nav-link' %>
+                </li>
+            </ul>
+            <form class="form-inline">
+                <% if user_signed_in? %>
+                    <div class="nav-item dropdown">
+                      <a class="nav-link dropdown-toggle" href="http://example.com" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true"
+                              aria-expanded="false">
+                         <%= fa_icon "user" %> My Account
+                      </a>
+                      <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                        <%#= link_to "Manage Listings", my_account_path , class: 'dropdown-item' %>
+                        <%#= link_to "Sell Item", new_product_path, class: 'dropdown-item' %>
+                        <%#= link_to "Account Settings", edit_user_registration_path, class: 'dropdown-item' %>
+                        <%= link_to "Log out", destroy_user_session_path, method: :delete, class: 'dropdown-item' %>
+
+                      </div>
+                    </div>
+
+                <% else %>
+                <%= link_to "Login", new_user_session_path, class: 'nav-link nav-item' %>
+                <span class="sign-up-btn">
+                  <button class="btn btn-secondary" type="button"><%= link_to "Sign Up", new_user_registration_path %> </button>
+              </span>
+              <% end %>
+          </form>
+      </div>
+  </div>
+</nav>

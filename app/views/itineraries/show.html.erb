@@ -8,6 +8,9 @@
   <section id='<%= location.title %>' class='active'>
     <h3><%= location.title %></h3>
     <p><%= location.description %></p>
+    <% if location.photo.present? %>
+      <%= image_tag location.photo, width: '500px' %>
+    <% end %>
     <p>[<%= (@itinerary.locations.first.latitude).to_f %>, <%= (@itinerary.locations.first.longitude).to_f %> ]</p>
   </section>
 

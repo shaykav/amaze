@@ -72,6 +72,8 @@ GEM
     erubi (1.7.0)
     execjs (2.7.0)
     ffi (1.9.18)
+    font-awesome-rails (4.7.0.2)
+      railties (>= 3.2, < 5.2)
     globalid (0.4.1)
       activesupport (>= 4.2.0)
     hirb (0.7.3)
@@ -103,6 +105,7 @@ GEM
       mini_portile2 (~> 2.3.0)
     orm_adapter (0.5.0)
     pg (0.21.0)
+    popper_js (1.12.5)
     public_suffix (3.0.1)
     puma (3.11.0)
     rack (2.0.3)
@@ -197,11 +200,13 @@ DEPENDENCIES
   capybara (~> 2.13)
   coffee-rails (~> 4.2)
   devise
+  font-awesome-rails
   hirb
   jbuilder (~> 2.5)
   jquery-rails
   listen (>= 3.0.5, < 3.2)
   pg (~> 0.18)
+  popper_js (~> 1.12.3)
   puma (~> 3.7)
   rails (~> 5.1.4)
   sass-rails (~> 5.0)
