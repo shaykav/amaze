@@ -14,12 +14,12 @@ class Itinerary < ApplicationRecord
         location = itinerary.locations.build
         location.title = lo['title']
         location.description = lo["description"]
+        location.photo = lo['photo']
         unless lo["location"].empty?
           parsed_loc = JSON.parse(lo["location"]).symbolize_keys!
           if parsed_loc.present? and parsed_loc.key?(:lat) and parsed_loc.key?(:lng)
             location.latitude = parsed_loc[:lat]
             location.longitude = parsed_loc[:lng]
-            # location.photo = 
           end
         end
         location.save
