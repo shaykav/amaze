@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171214192010) do
+ActiveRecord::Schema.define(version: 20171216182847) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -27,13 +27,31 @@ ActiveRecord::Schema.define(version: 20171214192010) do
   create_table "locations", force: :cascade do |t|
     t.string "title"
     t.text "description"
-    t.integer "length_of_time"
+    t.string "photo"
     t.string "latitude"
     t.string "longitude"
     t.bigint "itinerary_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["itinerary_id"], name: "index_locations_on_itinerary_id"
+  end
+
+  create_table "neighborhoods", force: :cascade do |t|
+    t.string "name"
+    t.bigint "itinerary_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["itinerary_id"], name: "index_neighborhoods_on_itinerary_id"
+  end
+
+  create_table "reviews", force: :cascade do |t|
+    t.text "body"
+    t.string "reviewable_type"
+    t.bigint "reviewable_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["reviewable_id", "reviewable_type"], name: "index_reviews_on_reviewable_id_and_reviewable_type"
+    t.index ["reviewable_type", "reviewable_id"], name: "index_reviews_on_reviewable_type_and_reviewable_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -55,4 +73,5 @@ ActiveRecord::Schema.define(version: 20171214192010) do
 
   add_foreign_key "itineraries", "users"
   add_foreign_key "locations", "itineraries"
+  add_foreign_key "neighborhoods", "itineraries"
 end

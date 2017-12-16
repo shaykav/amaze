@@ -1,6 +1,7 @@
 class Itinerary < ApplicationRecord
   has_many :locations
   belongs_to :user
+  has_one :neighborhood
   attr_accessor :content
 
 
