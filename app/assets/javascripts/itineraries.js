@@ -15,20 +15,20 @@ $(document).on('turbolinks:load', function() {
   $(document).on('click', ".submit-itinerary", function(e){
     // $('#itinerary_locations').val(JSON.stringify(locations));
   });
-  
+
 });
 
 var locations = []
 
-var maze = { 
+var maze = {
   appendForm: function(){
     var formContainer = $("template").html(),
       clonedForm = $(formContainer);
-    
+
     clonedForm.find(".remove-form").attr('data-id', +new Date)
     $('.maze-form').append(clonedForm)
     initMap( clonedForm.find(".pac-input:visible") )
-  }, 
+  },
   deleteForm: function(el){
     var timeStamp = Number($(el).attr('data-id'))
     if (locations.length > 0) {
@@ -41,7 +41,7 @@ var maze = {
     }else {
       $(el).closest(".new-wrapper").remove();
     }
-  }, 
+  },
   remove: function(array, element) {
       const index = array.indexOf(element);
       array.splice(index, 1);
@@ -58,7 +58,7 @@ function initMap(field) {
     center: {lat: -33.8688, lng: 151.2195},
     zoom: 13
   });
-  
+
   if (field instanceof jQuery) {
     var inputs = field.get();
   }else{
@@ -76,8 +76,8 @@ function initMap(field) {
       anchorPoint: new google.maps.Point(0, -29)
     });
 
-    autocomplete.addListener('place_changed', function(event,hh) {
-      
+    autocomplete.addListener('place_changed', function(event) {
+
       infowindow.close();
       marker.setVisible(false);
       var place = autocomplete.getPlace();
@@ -91,11 +91,10 @@ function initMap(field) {
         maxWidth: 400
         }));
 
-      
+
       var lat = place.geometry.location.lat();
       var lng = place.geometry.location.lng();
-      
-      
+
       var $input = $(this.gm_accessors_.place.Kc.gm_accessors_.input.Kc.b),
           isNewWrapper = ($input.attr("data-is-new") === "true");
 
@@ -129,4 +128,3 @@ function initMap(field) {
     })
   });
 }
-

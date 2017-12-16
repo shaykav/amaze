@@ -3,6 +3,9 @@ class Itinerary < ApplicationRecord
   has_many :reviews, as: :reviewable
   belongs_to :user
 
+  has_many :neighborhood_itineraries
+  has_many :neighborhoods, through: :neighborhood_itineraries
+
   attr_accessor :content
 
   validates :title, :description, presence: true
