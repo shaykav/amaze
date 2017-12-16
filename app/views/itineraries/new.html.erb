@@ -1,3 +1,16 @@
+<% if @itinerary.errors.any? %>
+  <div id="error_explanation">
+    <h2><%= pluralize(@itinerary.errors.count, "error") %> prohibited this product from being saved:</h2>
+
+    <ul>
+    <% @itinerary.errors.full_messages.each do |message| %>
+      <li><%= message %></li>
+    <% end %>
+    </ul>
+  </div>
+<% end %>
+
+
 <%= form_for @itinerary do |f| %>
 
 <%= f.label :title %>

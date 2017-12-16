@@ -1,11 +1,11 @@
 class Itinerary < ApplicationRecord
   has_many :locations
-
   has_many :reviews, as: :reviewable
-  
   belongs_to :user
 
   attr_accessor :content
+
+  validates :title, :description, presence: true
 
 
   def self.location_parse_save(locations, itinerary)
