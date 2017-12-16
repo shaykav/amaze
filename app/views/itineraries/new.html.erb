@@ -12,11 +12,11 @@
     <% 3.times do |num| %>
       <%= render partial: 'itineraries/components/location_form', locals: {f:f} %>
     <% end %>
-    
+
   </div>
 
   <a href="#" data-added="false" class="add-maze-btn"> Add Another</a>
-  
+
   <template>
     <div class="new-wrapper">
       <%= render partial: 'itineraries/components/location_form', locals: {f:f, is_new: true } %>
