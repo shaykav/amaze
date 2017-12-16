@@ -15,8 +15,14 @@
 //= require turbolinks
 //= require_tree .
 
-document.addEventListener('DOMContentLoaded', function(){
+
+
+$(document).on('turbolinks:load', function() {
+
   setTimeout(function(){
     document.querySelector('.close').click()
   }, 2250);
-})
+
+});
+
+

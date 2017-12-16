@@ -9,13 +9,21 @@
     <h3><%= location.title %></h3>
     <p><%= location.description %></p>
     <% if location.photo.present? %>
-      <%= image_tag location.photo, width: '500px' %>
+      <%= image_tag location.photo, width: '500px', class: "maze-photos" %>
     <% end %>
     <p>[<%= (@itinerary.locations.first.latitude).to_f %>, <%= (@itinerary.locations.first.longitude).to_f %> ]</p>
   </section>
 
   <% end %>
 </div>
+
+
+<div class="fixed-action-btn" style="bottom: 60px; right: 24px;">
+  <a class="btn-floating btn-lg red" href="<%= maze_intro_path %>">
+    <%= fa_icon "arrow-left" %>
+  </a>
+</div>
+
 
 <script>
 
@@ -45,6 +53,7 @@
       url: directionsRequest,
     }).done(function(data) {
       var route = data.routes[0].geometry;
+      
       map.addLayer({
         id: 'route',
         type: 'line',
@@ -59,6 +68,7 @@
           'line-width': 2
         }
       });
+      
       map.addLayer({
         id: 'start',
         type: 'circle',
