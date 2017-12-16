@@ -1,0 +1,11 @@
+<h1>Reviews#index</h1>
+
+<div id="reviews">
+  <%@reviews.each do |r| %>
+
+  <div class="review">
+    <%= simple_format r.content %>
+
+  </div>
+<% end %>
+</div>
