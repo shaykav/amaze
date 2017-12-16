@@ -2,8 +2,11 @@ class Itinerary < ApplicationRecord
   has_many :locations
 
   has_many :reviews, as: :reviewable
-  
+
   belongs_to :user
+
+  has_many :neighborhood_itineraries
+  has_many :neighborhoods, through: :neighborhood_itineraries
 
   attr_accessor :content
 
@@ -19,7 +22,7 @@ class Itinerary < ApplicationRecord
           if parsed_loc.present? and parsed_loc.key?(:lat) and parsed_loc.key?(:lng)
             location.latitude = parsed_loc[:lat]
             location.longitude = parsed_loc[:lng]
-            # location.photo = 
+            # location.photo =
           end
         end
         location.save
