@@ -3,6 +3,7 @@ class ItinerariesController < ApplicationController
   before_action :authenticate_user!, only: [:new, :create]
 
   def show
+    render :layout => 'maze'
   end
 
   def intro
