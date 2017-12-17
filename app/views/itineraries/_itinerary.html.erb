@@ -1,0 +1,43 @@
+<div class="row">
+  <div class="col-md-4">
+
+    <%= link_to maze_intro_path(itinerary) do %>
+    <div class="card">
+
+        <!--Card image-->
+        <div class="view overlay hm-white-slight">
+            <img src="https://mdbootstrap.com/img/Photos/Others/food.jpg" class="img-fluid" alt="">
+            
+            <div class="mask"></div>
+            
+        </div>
+        <!--/.Card image-->
+
+        <!--Button-->
+        <div class="btn-floating btn-action"><i class="fa fa-chevron-right"></i></div>
+
+        <!--Card content-->
+        <div class="card-body">
+            <!--Title-->
+            <h4 class="card-title"><%= itinerary.title %></h4>
+            <hr>
+            <!--Text-->
+            <p class="card-text"><%= itinerary.description %></p>
+        </div>
+        <!--/.Card content-->
+
+        <!-- Card footer -->
+        <div class="card-data">
+            <ul>
+                <li><i class="fa fa-clock-o"></i> 05/10/2015</li>
+                <li><a href="#"><i class="fa fa-comments-o"></i>12</a></li>
+                <li><a href="#"><i class="fa fa-facebook"> </i>21</a></li>
+                <li><a href="#"><i class="fa fa-twitter"> </i>5</a></li>
+            </ul>
+        </div>
+        <!-- Card footer -->
+
+    </div>
+    <% end %>
+</div>
+</div>

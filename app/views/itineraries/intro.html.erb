@@ -3,19 +3,21 @@
   <hr>
   <br>
   <p><%= @itinerary.description %></p>
-  
-  
-  <div id='map' class="intro-map"></div>
 
   <%= link_to "Enter Maze", @itinerary, class: "btn btn-secondary" %>
   
 </div>
 
+  <div id='map' class="intro-map"></div>
 
 
-<div id='map' class="intro-map"></div>
+<div class="row">
+  <% @itinerary.locations.each do |location| %>
+  <div class="col-md-4">
+    <%= image_tag location.photo %>
+  </div>
 
-
+  <% end %>
 </div>
 
 <script>

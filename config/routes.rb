@@ -4,6 +4,8 @@ Rails.application.routes.draw do
 
   get '/maze/:id', to: 'itineraries#intro', as: 'maze_intro'
 
+  get '/manage', to: 'itineraries#manage_itineraries', as: 'manage'
+
   devise_for :users
   
   resources :users do      

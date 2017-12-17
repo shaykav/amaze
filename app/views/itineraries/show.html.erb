@@ -13,11 +13,11 @@
       <%= image_tag location.icon, width: '25px' %>
     <% end %>
       </h2>
-    <p class="address">
+    
     <% if location.address.present? %>
-      <%= location.address %></p>
+      <p class="address-text"><%= location.address %></p>
     <% end %>
-      <%= location.address %></p>
+    </p>
     <hr class="section-divide">
     <p><%= location.description %></p>
 
