@@ -1,5 +1,5 @@
 class ItinerariesController < ApplicationController
-  before_action :set_product, only: [:show, :intro, :edit, :update]
+  before_action :set_product, only: [:show, :intro, :edit, :update, :destroy]
   before_action :authenticate_user!, only: [:new, :create]
   before_action :check_user, only: [:edit, :update, :destroy]
 
@@ -27,6 +27,7 @@ class ItinerariesController < ApplicationController
 
 
   def create
+
     @itinerary = Itinerary.new(itinerary_params)
     @itinerary.user_id = current_user.id
 
@@ -69,7 +70,7 @@ class ItinerariesController < ApplicationController
   end
 
   def itinerary_params
-    params.require(:itinerary).permit(:content, :title, :description)
+    params.require(:itinerary).permit(:content, :title, :description, :image)
   end
 
   def check_user
