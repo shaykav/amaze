@@ -19,6 +19,8 @@ class ItinerariesController < ApplicationController
 
   def new
     @itinerary = Itinerary.new
+    @neighborhoods = Neighborhood.all
+    @neighborhood = Neighborhood.new
   end
 
 

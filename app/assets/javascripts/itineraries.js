@@ -1,6 +1,14 @@
+$( document ).ready(function() {
+  $('select').selectpicker();
+});
+
 
 
 $(document).on('turbolinks:load', function() {
+
+
+  $('.mdb-select').material_select();
+
 
   $(document).on('click', ".add-maze-btn", function(e){
     e.preventDefault();
@@ -110,7 +118,7 @@ function initMap(field) {
         $input.closest('.form-container').find("[name='itinerary[content][][location]']")
               .val(JSON.stringify({lat, lng}))
       }
-      
+
       $input.closest('.form-container').find("[name='itinerary[content][][photo]']")
             .val(photo)
 

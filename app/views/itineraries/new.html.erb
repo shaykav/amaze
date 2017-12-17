@@ -10,8 +10,14 @@
   </div>
 <% end %>
 
-
 <%= form_for @itinerary do |f| %>
+
+<h4>Pick Your Neighborhood</h4>
+<%= f.select 'neighborhood_id', options_from_collection_for_select(@neighborhoods, 'id', 'name'), {}, {class: 'masthead-select mdb-select colorful-select dropdown-primary side' 'selectpicker'} %>
+
+
+
+<%#= select_tag :neighborhood_id, options_for_select(@categories), class: 'masthead-select mdb-select colorful-select dropdown-primary side', prompt: "Select Instrument" %>
 
 <%= f.label :title %>
 <%= f.text_field :title %>
