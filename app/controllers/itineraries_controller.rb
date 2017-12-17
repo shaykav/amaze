@@ -1,7 +1,7 @@
 class ItinerariesController < ApplicationController
   before_action :set_product, only: [:show, :intro, :edit, :update]
   before_action :authenticate_user!, only: [:new, :create]
-  # before_action :check_user, only: [:edit, :update, :destroy]
+  before_action :check_user, only: [:edit, :update, :destroy]
 
   def show
     render :layout => 'maze'
@@ -73,7 +73,7 @@ class ItinerariesController < ApplicationController
   end
 
   def check_user
-    if current_user.id != @itineraries.user_id
+    if current_user.id != @itinerary.user_id
       redirect_to root_url, alert: "Sorry, this listing belongs to someone else"
     end
   end
