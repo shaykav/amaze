@@ -10247,7 +10247,7 @@ input[type=range] {
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
-  min-height: 1000px; }
+  min-height: 100vh; }
 
 .side-nav {
   position: fixed;

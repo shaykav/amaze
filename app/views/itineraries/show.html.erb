@@ -9,7 +9,7 @@
   
   <section id='<%= location.title %>' class='active'>
     <h2 class="maze-header"><%= location.title %> <%= image_tag location.icon, width: '25px' %></h2>
-    <p class="address-text"><%= location.address %></p>
+    <p class="address"><%= location.address %></p>
     <hr class="section-divide">
     <p><%= location.description %></p>
 
@@ -120,9 +120,8 @@
           }
         },
         paint: {
-          'line-width': 6,
-          'color': red,
-        },
+          'line-width': 6
+        }
       });
       
       map.addLayer({
