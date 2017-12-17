@@ -6,6 +6,8 @@
   <% @itinerary.locations.each do |location| %>
 
 <div class="maze-sections">
+
+  <div id="steps"></div>
   
   <section id='<%= location.title %>' class='active'>
     <h2 class="maze-header"><%= location.title %> 
@@ -103,33 +105,61 @@
                 'fill-extrusion-opacity': .6
             }
         }, labelLayerId);
+
+
     });
 
 
 
   function getRoute() {
+
     var start = [<%= (@itinerary.locations.first.longitude).to_f %>, <%= (@itinerary.locations.first.latitude).to_f %>];
     var end = [<%= (@itinerary.locations.last.longitude).to_f %>, <%= (@itinerary.locations.last.latitude).to_f %>];
-    var directionsRequest = 'https://api.mapbox.com/directions/v5/mapbox/walking/' + start[0] + ',' + start[1] + ';' + end[0] + ',' + end[1] + '?geometries=geojson&access_token=' + mapboxgl.accessToken;
+    
+
+    var directionsRequest = 'https://api.mapbox.com/optimized-trips/v1/mapbox/walking/' + 
+    <% location_size = @itinerary.locations.size %>
+    <% @itinerary.locations.each_with_index do |location, ix| %>
+    '<%=location.longitude%>' + ',' + '<%=location.latitude%><%= (ix + 1 == location_size) ? "" : ";" %>' + 
+    <% end %>  '?geometries=geojson' + '&steps=true&source=first&destination=last' + '&access_token=' + mapboxgl.accessToken;
+
+    console.log(directionsRequest)
+    
+
     $.ajax({
       method: 'GET',
       url: directionsRequest,
     }).done(function(data) {
-      var route = data.routes[0].geometry;
+      var route = data.trips[0].geometry.coordinates;
+      var steps = Math.ceil(data.trips[0].distance)
+
+      $('#steps').append(`<h1 class="steps-number"> ${steps} Steps </h1>`);
+
+      console.log(steps)
       
-      map.addLayer({
-        id: 'route',
-        type: 'line',
-        source: {
-          type: 'geojson',
-          data: {
-            type: 'Feature',
-            geometry: route
+        map.addLayer({
+          "id": "route",
+          "type": "line",
+          "source": {
+            "type": "geojson",
+            "data": {
+              "type": "Feature",
+              "properties": {},
+              "geometry": {
+                "type": "LineString",
+                "coordinates": route
+              }
+            }
+          },
+          "layout": {
+            "line-join": "round",
+            "line-cap": "round"
+          },
+          "paint": {
+            "line-color": "#888",
+            "line-width": 8
           }
-        },
-        paint: {
-          'line-width': 6
-        }
+        });
       });
       
       map.addLayer({
@@ -161,7 +191,6 @@
           }
         }
       });
-    });
   }
 
 
