@@ -1,7 +1,5 @@
-<% @itineraries.each do |itinerary| %>
+<% content_for :body_class, 'offwhite-background' %>
 
-<p><%= itinerary.title %></p>
-
-<p><%= itinerary.description %></p>
-
-<% end %>
+<div class="row">
+  <%= render partial: "manage_cards"  %>
+</div>
