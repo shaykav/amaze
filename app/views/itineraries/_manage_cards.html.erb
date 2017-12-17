@@ -1,0 +1,24 @@
+<% @itineraries.each do |itinerary| %>
+
+<div class="col-md-4">
+  <div class="card">
+  
+    <img class="img-fluid" src="https://mdbootstrap.com/img/Photos/Horizontal/Nature/4-col/img%20%282%29.jpg" alt="Card image cap">
+  
+    <div class="card-body">
+  
+      <h4 class="card-title"><%= itinerary.title %></h4>
+      
+      <p class="card-text"><%= itinerary.description %></p>
+      <div class="button-container">
+        <div class="dropdown-divider"></div>
+        <%= link_to "View", itinerary, class: 'btn btn-primary btn-md' %>
+        <%= link_to "Edit", edit_itinerary_path(itinerary), class: 'btn btn-amber btn-md' %>
+        <%= link_to 'Delete', itinerary, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-danger btn-md'  %>
+      </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<% end %>

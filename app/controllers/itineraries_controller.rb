@@ -1,5 +1,5 @@
 class ItinerariesController < ApplicationController
-  before_action :set_product, only: [:show, :intro]
+  before_action :set_product, only: [:show, :intro, :edit, :update]
   before_action :authenticate_user!, only: [:new, :create]
   before_action :check_user, only: [:edit, :update, :destroy]
 
@@ -12,6 +12,9 @@ class ItinerariesController < ApplicationController
 
   def manage_itineraries
     @itineraries = Itinerary.where(user: current_user).order("created_at DESC")
+  end
+
+  def edit
   end
 
   def index
@@ -41,6 +44,20 @@ class ItinerariesController < ApplicationController
     end
   end
 
+  def update
+    if @itinerary.update(itinerary_params)
+
+      locations = params[:itinerary][:content]
+
+      Itinerary.location_parse_save(locations, @itinerary)
+
+      redirect_to @itinerary, notice: 'Product was successfully updated.' 
+    else
+      render :edit
+    end
+  end
+
+
   def destroy
     @itinerary.destroy
     redirect_to itineraries_path, notice: 'Product was successfully destroyed.'
@@ -58,7 +75,7 @@ class ItinerariesController < ApplicationController
   end
 
   def check_user
-    if current_user.id != @itineraries.user_id
+    if current_user.id != @itinerary.user_id
       redirect_to root_url, alert: "Sorry, this listing belongs to someone else"
     end
   end
