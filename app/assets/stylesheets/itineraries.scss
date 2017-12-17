@@ -87,3 +87,14 @@ p {
   margin-left: none;
   float: right;
 }
+
+.steps-number {
+  color:white;
+  font-size: 2.3em;
+}
+
+#steps:first-child {
+  background: #2c3e50;
+  height: 50px;
+  padding-top: 3px;
+}
