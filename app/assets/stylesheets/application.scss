@@ -58,7 +58,6 @@
 }
 
 .sign-up-btn > .btn:hover {
-  background: green !important;
   transition: none !important;
 }
 
@@ -102,6 +101,57 @@ section:last-child{
   margin-bottom: 0px;
 }
 
-        
+
+/* Card */
+
+.sign-up {
+  margin: auto;
+  margin-top: 100px;
+
+}
+.sign-up-header {
+  margin: 30px;
+  color: #2c3e50;
+}
+
+.card-container {
+  margin-right: auto;
+  margin-left: auto;
+  padding-right: 25px;
+  padding-left: 25px;
+  width: 100%;
+}
+
+.devise-shared {
+  margin-top: 20px;
+}
+
+.login-padding {
+  margin-bottom: 20px;
+  margin-top: 22px;
+}
+
+.md-form {
+  margin-bottom: 1rem !important;
+}
+
+.login-background {
+  background-image: url('https://images.unsplash.com/photo-1484275367269-4e0b47b5afdd?auto=format&fit=crop&w=1778&q=80&ixid=dW5zcGxhc2guY29tOzs7Ozs%3D');
+  background-size: cover;
+
+  &:before {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background-image: linear-gradient(to bottom right,#002f4b,#dc4225);
+    opacity: .45; 
+  }
+}
+
+
+
 
 
