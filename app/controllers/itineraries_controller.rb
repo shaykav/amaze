@@ -1,6 +1,7 @@
 class ItinerariesController < ApplicationController
   before_action :set_product, only: [:show, :intro]
   before_action :authenticate_user!, only: [:new, :create]
+  before_action :check_user, only: [:edit, :update, :destroy]
 
   def show
     render :layout => 'maze'
@@ -54,6 +55,12 @@ class ItinerariesController < ApplicationController
 
   def itinerary_params
     params.require(:itinerary).permit(:content, :title, :description, :neighborhood_id)
+  end
+
+  def check_user
+    if current_user.id != @itineraries.user_id
+      redirect_to root_url, alert: "Sorry, this listing belongs to someone else"
+    end
   end
 
 end

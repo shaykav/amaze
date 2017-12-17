@@ -8,8 +8,16 @@
 <div class="maze-sections">
   
   <section id='<%= location.title %>' class='active'>
-    <h2 class="maze-header"><%= location.title %> <%= image_tag location.icon, width: '25px' %></h2>
-    <p class="address"><%= location.address %></p>
+    <h2 class="maze-header"><%= location.title %> 
+    <% if location.icon.present? %>
+      <%= image_tag location.icon, width: '25px' %>
+    <% end %>
+      </h2>
+    
+    <% if location.address.present? %>
+      <p class="address-text"><%= location.address %></p>
+    <% end %>
+    </p>
     <hr class="section-divide">
     <p><%= location.description %></p>
 
