@@ -53,7 +53,7 @@ class ItinerariesController < ApplicationController
   end
 
   def itinerary_params
-    params.require(:itinerary).permit(:content, :title, :description)
+    params.require(:itinerary).permit(:content, :title, :description, :neighborhood_id)
   end
 
 end

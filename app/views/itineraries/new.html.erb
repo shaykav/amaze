@@ -12,8 +12,7 @@
 
 <%= form_for @itinerary do |f| %>
 
-<h4>Pick Your Neighborhood</h4>
-<%= f.select 'neighborhood_id', options_from_collection_for_select(@neighborhoods, 'id', 'name'), {}, {class: 'masthead-select mdb-select colorful-select dropdown-primary side' 'selectpicker'} %>
+<%= f.select 'neighborhood_id', options_from_collection_for_select(@neighborhoods, 'id', 'name'),  { prompt: "pick your neighborhood"}, {class: 'mdb-select colorful-select dropdown-primary', searchable: 'Search here..' } %>
 
 
 

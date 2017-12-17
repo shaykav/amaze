@@ -1,7 +1,3 @@
-$( document ).ready(function() {
-  $('select').selectpicker();
-});
-
 
 
 $(document).on('turbolinks:load', function() {
