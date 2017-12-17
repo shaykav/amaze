@@ -1,4 +1,8 @@
 
+
+
+
+
 body { margin:0; padding:0; }
 #map { position:absolute; top:0; bottom:0; width:100%; }
 
@@ -28,6 +32,36 @@ section:last-child {
   margin-bottom: 1000px;
 }
 
+.maze-sections {
+  text-align: center;
+  border-bottom: 1px solid #ddd;
+}
+
+.maze-sections:last-child{
+  margin-bottom: 900px;
+}
+
+.maze-header {
+  font-size: 3.5em;
+}
+
+p {
+  font-size: 1.5em;
+}
+
 .maze-photos {
-  margin-left: 100px;
+  box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
+  margin: 30px 0px
+}
+
+.section-divide {
+    background-color: black;
+    border: 0 none;
+    color: black;
+    height: 1px;
+    max-width: 500px;
+}
+
+.address-text {
+  font-size: 1.2em;
 }

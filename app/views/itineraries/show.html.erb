@@ -2,17 +2,33 @@
   <div id='map'></div>
   <div id='features'>
   </span>
+
   <% @itinerary.locations.each do |location| %>
 
-
+<div class="maze-sections">
+  
   <section id='<%= location.title %>' class='active'>
-    <h3><%= location.title %></h3>
+    <h2 class="maze-header"><%= location.title %> <%= image_tag location.icon, width: '25px' %></h2>
+    <p class="address-text"><%= location.address %></p>
+    <hr class="section-divide">
     <p><%= location.description %></p>
-    <% if location.photo.present? %>
-      <%= image_tag location.photo, width: '500px', class: "maze-photos" %>
-    <% end %>
-    <p>[<%= (@itinerary.locations.first.latitude).to_f %>, <%= (@itinerary.locations.first.longitude).to_f %> ]</p>
-  </section>
+
+
+    <div>  <% if location.website.present? %>
+      <%= link_to "Website", location.website, class: 'btn btn-warning btn-rounded' %>
+      <% end %>
+
+    </div>
+
+    <div> <% if location.photo.present? %>
+     <%= image_tag location.photo, width: '500px', class: "maze-photos" %>
+     <% end %>
+
+   </div>
+      
+      
+    </section>
+</div>
 
   <% end %>
 </div>
@@ -33,16 +49,55 @@
     container: 'map',
     style: 'mapbox://styles/mapbox/streets-v9',
     center: [<%= (@itinerary.locations.first.longitude).to_f %>, <%= (@itinerary.locations.first.latitude).to_f %>],
-    zoom: 15.5,
-    bearing: 27,
-    pitch: 45
+    zoom: 18,
+    bearing: 1,
+    pitch: 100
   });
 
   // Adds route layer to map
 
   map.on('load', function() {
+
     getRoute();
-  });
+
+    var layers = map.getStyle().layers;
+
+    var labelLayerId;
+    for (var i = 0; i < layers.length; i++) {
+        if (layers[i].type === 'symbol' && layers[i].layout['text-field']) {
+            labelLayerId = layers[i].id;
+            break;
+        }
+    }
+
+    map.addLayer({
+            'id': '3d-buildings',
+            'source': 'composite',
+            'source-layer': 'building',
+            'filter': ['==', 'extrude', 'true'],
+            'type': 'fill-extrusion',
+            'minzoom': 15,
+            'paint': {
+                'fill-extrusion-color': '#aaa',
+
+                // use an 'interpolate' expression to add a smooth transition effect to the
+                // buildings as the user zooms in
+                'fill-extrusion-height': [
+                    "interpolate", ["linear"], ["zoom"],
+                    15, 0,
+                    15.05, ["get", "height"]
+                ],
+                'fill-extrusion-base': [
+                    "interpolate", ["linear"], ["zoom"],
+                    15, 0,
+                    15.05, ["get", "min_height"]
+                ],
+                'fill-extrusion-opacity': .6
+            }
+        }, labelLayerId);
+    });
+
+
 
   function getRoute() {
     var start = [<%= (@itinerary.locations.first.longitude).to_f %>, <%= (@itinerary.locations.first.latitude).to_f %>];
@@ -65,8 +120,9 @@
           }
         },
         paint: {
-          'line-width': 2
-        }
+          'line-width': 6,
+          'color': red,
+        },
       });
       
       map.addLayer({
@@ -83,6 +139,7 @@
           }
         }
       });
+
       map.addLayer({
         id: 'end',
         type: 'circle',
@@ -109,8 +166,8 @@
     '<%= location.title %>': {
       bearing: 27,
       center: [<%= location.longitude.to_f %>, <%= location.latitude.to_f %>],
-      zoom: 15.5,
-      pitch: 20
+      zoom: 18,
+      pitch: 100
     },
 
     <% end %>
