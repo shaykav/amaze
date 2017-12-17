@@ -121,7 +121,7 @@
     <% location_size = @itinerary.locations.size %>
     <% @itinerary.locations.each_with_index do |location, ix| %>
     '<%=location.longitude%>' + ',' + '<%=location.latitude%><%= (ix + 1 == location_size) ? "" : ";" %>' + 
-    <% end %>  '?geometries=geojson' + '&steps=true&source=first&destination=last' + '&access_token=' + mapboxgl.accessToken;
+    <% end %>  '?geometries=geojson' + '&steps=true&source=first&destination=last&roundtrip=false' + '&access_token=' + mapboxgl.accessToken;
 
     console.log(directionsRequest)
     

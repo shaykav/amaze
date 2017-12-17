@@ -1,5 +1,5 @@
 class Itinerary < ApplicationRecord
-  has_many :locations
+  has_many :locations, dependent: :destroy
   has_many :reviews, as: :reviewable
   belongs_to :user
 
@@ -9,6 +9,9 @@ class Itinerary < ApplicationRecord
   attr_accessor :content
 
   validates :title, :description, presence: true
+
+  has_attached_file :image, styles: { medium: "600x600>", thumb: "100x100>" }, default_url: "/images/:style/missing.png"
+  validates_attachment_content_type :image, content_type: /\Aimage\/.*\z/
 
 
   def self.location_parse_save(locations, itinerary)
