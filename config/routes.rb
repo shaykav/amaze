@@ -2,6 +2,7 @@ Rails.application.routes.draw do
 
   root 'pages#home'
   get 'pages/home'
+  get 'reviews/index'
 
   get '/maze/:id', to: 'itineraries#intro', as: 'maze_intro'
 
@@ -20,4 +21,5 @@ Rails.application.routes.draw do
 
   # resources :itineraries
   post '/pages/home' => 'reviews#create'
+
 end

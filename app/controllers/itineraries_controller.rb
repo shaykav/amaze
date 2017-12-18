@@ -4,7 +4,10 @@ class ItinerariesController < ApplicationController
   before_action :check_user, only: [:edit, :update, :destroy]
 
   def show
+    @reviews = Review.all
+
     render :layout => 'maze'
+    @review = Review.new
   end
 
   def intro
@@ -50,7 +53,7 @@ class ItinerariesController < ApplicationController
 
       Itinerary.location_parse_save(locations, @itinerary)
 
-      redirect_to @itinerary, notice: 'Product was successfully updated.' 
+      redirect_to @itinerary, notice: 'Product was successfully updated.'
     else
       render :edit
     end

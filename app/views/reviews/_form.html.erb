@@ -1,7 +1,7 @@
+<p>From inside the partial.</p>
 
-<table class="review-fields">
-<tr>
-  <th>Review</th>
-  <td> <%= f.text_area(:review) %> </td>
-</tr>
-</table>
+<%= form_for(new_itinerary_review_path(@itinerary), method: 'put') do |f| %>
+  <input type="hidden" value="22" name="itinerary">
+  <%= f.text_area(:body) %>
+  <%= f.submit value: 'submit' %>
+<% end %>
