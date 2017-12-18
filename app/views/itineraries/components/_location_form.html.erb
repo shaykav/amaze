@@ -1,10 +1,22 @@
 <div class="form-container">
   <!-- To do: Add location -->
-  <%= f.label :title %>
-  <%= text_field_tag "itinerary[content][][title]" %>
-  
-  <%= f.label :description %>
-  <%= text_area_tag "itinerary[content][][description]" %>
+
+  <div id="pac-container">
+    <input class="pac-input" type="text"
+        placeholder="Enter a location" data-is-new="<%= defined?(is_new) ? true : false %>">
+  </div>
+
+
+    <%#= f.label :title %>
+  <div class="md-form">
+    <%= text_field_tag "itinerary[content][][title]" %>
+  </div>
+
+  <div class="md-form">
+    <%= f.label :description %>
+    <%= text_area_tag("itinerary[content][][description]", '', {class: 'md-textarea'}) %>
+  </div>
+
 
   <%= hidden_field_tag "itinerary[content][][location]" %>
   <%= hidden_field_tag "itinerary[content][][photo]" %>
@@ -12,10 +24,6 @@
   <%= hidden_field_tag "itinerary[content][][address]" %>
   <%= hidden_field_tag "itinerary[content][][icon]" %>
 
-    <div id="pac-container">
-      <input class="pac-input" type="text"
-          placeholder="Enter a location" data-is-new="<%= defined?(is_new) ? true : false %>">
-    </div>
 
   <div id="map" style="display:none"></div>
 </div>
