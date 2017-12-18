@@ -1,10 +1,9 @@
 <%= form_for @itinerary do |f| %>
-
 <%= f.label :title %>
 <%= f.text_field :title %>
-
 <%= f.label :description %>
 <%= f.text_area :description %>
+
 
   <div class="maze-form">
 
@@ -12,11 +11,11 @@
     <% 3.times do |num| %>
       <%= render partial: 'itineraries/components/location_form', locals: {f:f} %>
     <% end %>
-    
+
   </div>
 
   <a href="#" data-added="false" class="add-maze-btn"> Add Another</a>
-  
+
   <template>
     <div class="new-wrapper">
       <%= render partial: 'itineraries/components/location_form', locals: {f:f, is_new: true } %>
