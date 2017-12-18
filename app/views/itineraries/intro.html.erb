@@ -1,3 +1,22 @@
+<div class="jumbo-container">
+  <div class="row mb-5">
+    <div class="col-md-12">
+      <div class="maze-intro-header">
+        <div class="text-white text-center d-flex align-items-center rgba-stylish-light py-5 px-4">
+          <div class="py-5 home-jumbo">
+            <h2 class="card-title pt-3 mb-5 font-bold jumbo-header"><%= @itinerary.title %></h2>
+            <div class="home-container">
+              <p class="px-5 pb-4 jumbo-subtext"><%= @itinerary.description %></p>
+              <%= link_to "Enter Maze", @itinerary, class: "btn btn-secondary" %>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
 <div class="intro-container">
   <h1 class="maze-intro-title"><%= @itinerary.title %></h1>
   <hr>
