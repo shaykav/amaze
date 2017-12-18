@@ -15,7 +15,9 @@
 
   <%= form_for @itinerary do |f| %>
 
+
     <div class="">
+
 
       <%= f.fields_for :neighborhood_itineraries, f.object.neighborhood_itineraries.build do |ni_form|  %>
         <%= ni_form.collection_select(:neighborhood_id, Neighborhood.all, :id, :name, { :prompt => 'Select Neighborhood' }, {class: 'mdb-select colorful-select dropdown-primary', searchable: 'Search here..'} ) %>
@@ -30,6 +32,10 @@
     <hr>
 
     <h3>Maze Info</h3>
+
+    <%= f.label :description %>
+    <%= f.text_area :description %>
+    <%= f.file_field :image %>
 
     <%= f.label :title %>
     <%= f.text_field :title %>
