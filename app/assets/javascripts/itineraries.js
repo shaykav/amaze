@@ -91,6 +91,7 @@ function initMap(field) {
       var website = place.website
       var address = place.formatted_address
       var icon = place.icon
+      var title = place.name
 
 
       console.log(place)
@@ -130,6 +131,9 @@ function initMap(field) {
 
       $input.closest('.form-container').find("[name='itinerary[content][][website]']")
       .val(website)
+
+      $input.closest('.form-container').find("[name='itinerary[content][][title]']")
+      .val(title)
 
       if (!place.geometry) {
         // User entered the name of a Place that was not suggested and

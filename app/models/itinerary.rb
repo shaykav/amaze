@@ -26,6 +26,7 @@ class Itinerary < ApplicationRecord
         location.icon = lo['icon']
         location.address = lo['address']
         location.website = lo['website']
+        location.title = lo['title']
         unless lo["location"].empty?
           parsed_loc = JSON.parse(lo["location"]).symbolize_keys!
           if parsed_loc.present? and parsed_loc.key?(:lat) and parsed_loc.key?(:lng)
