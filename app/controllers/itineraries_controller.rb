@@ -8,6 +8,7 @@ class ItinerariesController < ApplicationController
   end
 
   def intro
+    render :layout => 'maze-intro'
   end
 
   def manage_itineraries
