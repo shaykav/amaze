@@ -15,31 +15,13 @@ ActiveRecord::Schema.define(version: 20171217004509) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
-  create_table "create_neighborhood_itineraries", force: :cascade do |t|
-    t.bigint "neighborhood_id"
-    t.bigint "itinerary_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["itinerary_id"], name: "index_create_neighborhood_itineraries_on_itinerary_id"
-    t.index ["neighborhood_id"], name: "index_create_neighborhood_itineraries_on_neighborhood_id"
-  end
-
   create_table "itineraries", force: :cascade do |t|
     t.string "title"
     t.text "description"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.bigint "user_id"
-    t.bigint "neighborhood_id"
-    t.index ["neighborhood_id"], name: "index_itineraries_on_neighborhood_id"
     t.index ["user_id"], name: "index_itineraries_on_user_id"
-  end
-
-  create_table "itineraries_neighborhoods", id: false, force: :cascade do |t|
-    t.bigint "neighborhood_id"
-    t.bigint "itinerary_id"
-    t.index ["itinerary_id"], name: "index_itineraries_neighborhoods_on_itinerary_id"
-    t.index ["neighborhood_id"], name: "index_itineraries_neighborhoods_on_neighborhood_id"
   end
 
   create_table "locations", force: :cascade do |t|
@@ -99,12 +81,7 @@ ActiveRecord::Schema.define(version: 20171217004509) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
-  add_foreign_key "create_neighborhood_itineraries", "itineraries"
-  add_foreign_key "create_neighborhood_itineraries", "neighborhoods"
-  add_foreign_key "itineraries", "neighborhoods"
   add_foreign_key "itineraries", "users"
-  add_foreign_key "itineraries_neighborhoods", "itineraries"
-  add_foreign_key "itineraries_neighborhoods", "neighborhoods"
   add_foreign_key "locations", "itineraries"
   add_foreign_key "neighborhood_itineraries", "itineraries"
   add_foreign_key "neighborhood_itineraries", "neighborhoods"

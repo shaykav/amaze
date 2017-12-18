@@ -23,8 +23,6 @@ class ItinerariesController < ApplicationController
 
   def new
     @itinerary = Itinerary.new
-    @neighborhoods = Neighborhood.all
-    @neighborhood = Neighborhood.new
   end
 
 
@@ -51,7 +49,7 @@ class ItinerariesController < ApplicationController
 
       Itinerary.location_parse_save(locations, @itinerary)
 
-      redirect_to @itinerary, notice: 'Product was successfully updated.' 
+      redirect_to @itinerary, notice: 'Product was successfully updated.'
     else
       render :edit
     end
