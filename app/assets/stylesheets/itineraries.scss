@@ -1,8 +1,3 @@
-
-
-
-
-
 body { margin:0; padding:0; }
 #map { position:absolute; top:0; bottom:0; width:100%; }
 
@@ -67,6 +62,7 @@ p {
 }
 
 .intro-map{
+  box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
   position: static !important;
   height: 500px;
 }
@@ -108,11 +104,38 @@ p {
   background: #f7f7f7;
 }
 
-.maze-intro-header {
-  background-image: url('https://images.unsplash.com/photo-1484275367269-4e0b47b5afdd?auto=format&fit=crop&w=1778&q=80&ixid=dW5zcGxhc2guY29tOzs7Ozs%3D');
-  background-size: cover;
-}
-
 .py-5 {
   margin: auto;
+}
+
+.maze-intro-header{
+  min-height: 65vh !important;
+}
+
+.maze-intro-container {
+  padding: 70px;
+}
+
+.intro-map{
+  margin: auto;
+  margin-bottom: 70px;
+}
+
+.steps-number-intro {
+  color: black;
+}
+
+.route-header {
+  text-align: center;
+  margin-top: 40px;
+}
+
+.route-header h1 {
+  font-size: 3em;
+  font-weight: 700;
+}
+
+.card:not([class*="card-outline-"]) {
+    border: 0;
+    margin-bottom: 30px;
 }
