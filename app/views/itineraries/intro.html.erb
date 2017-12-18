@@ -1,9 +1,103 @@
-<h1><%= @itinerary.title %></h1>
-<hr>
-<br>
-<h1><%= @itinerary.description %></h1>
+<div class="intro-container">
+  <h1 class="maze-intro-title"><%= @itinerary.title %></h1>
+  <hr>
+  <br>
+  <p><%= @itinerary.description %></p>
 
-<%= link_to "Enter Maze", @itinerary %>
+  <%= link_to "Enter Maze", @itinerary, class: "btn btn-secondary" %>
+  
+</div>
+
+  <div id='map' class="intro-map"></div>
+
+
+<div class="row">
+  <% @itinerary.locations.each do |location| %>
+  <div class="col-md-4">
+    <%= image_tag location.photo %>
+  </div>
+
+  <% end %>
+</div>
+
+<script>
+
+  mapboxgl.accessToken = 'pk.eyJ1Ijoia2V2aW5zY2hhZmZ0ZXIiLCJhIjoiY2piNm96NGt2MHZxZTJ3bXo3bG5uN2RwMiJ9.mJexXrURcgBO8qfnCsoYkQ';
+
+  var map = new mapboxgl.Map({
+    container: 'map',
+    style: 'mapbox://styles/mapbox/streets-v10',
+    center: [<%= (@itinerary.locations.first.longitude).to_f %>, <%= (@itinerary.locations.first.latitude).to_f %>],
+    zoom: 13
+  });
+
+  map.on('load', function() {
+    getRoute();
+  });
+
+  function getRoute() {
+    var start = [<%= (@itinerary.locations.first.longitude).to_f %>, <%= (@itinerary.locations.first.latitude).to_f %>];
+    var end = [<%= (@itinerary.locations.last.longitude).to_f %>, <%= (@itinerary.locations.last.latitude).to_f %>];
+    var directionsRequest = 'https://api.mapbox.com/directions/v5/mapbox/walking/' + start[0] + ',' + start[1] + ';' + end[0] + ',' + end[1] + '?geometries=geojson&access_token=' + mapboxgl.accessToken;
+    
+
+    $.ajax({
+      method: 'GET',
+      url: directionsRequest,
+    }).done(function(data) {
+      var route = data.routes[0].geometry;
+      map.addLayer({
+        id: 'route',
+        type: 'line',
+        source: {
+          type: 'geojson',
+          data: {
+            type: 'Feature',
+            geometry: route
+          }
+        },
+        paint: {
+          'line-width': 2
+        }
+      });
+      
+      map.addLayer({
+        id: 'start',
+        type: 'circle',
+        source: {
+          type: 'geojson',
+          data: {
+            type: 'Feature',
+            geometry: {
+              type: 'Point',
+              coordinates: start
+            }
+          }
+        }
+      });
+      map.addLayer({
+        id: 'end',
+        type: 'circle',
+        source: {
+          type: 'geojson',
+          data: {
+            type: 'Feature',
+            geometry: {
+              type: 'Point',
+              coordinates: end
+            }
+          }
+        }
+      });
+
+    });
+  }
+
+</script>
+
+
+
+
 
 
 

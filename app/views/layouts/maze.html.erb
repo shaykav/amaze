@@ -25,15 +25,8 @@
   <%= javascript_include_tag 'application', 'mdb.js', 'data-turbolinks-track': 'reload' %>
 </head>
 
-<body class="<%= content_for :body_class %>">
+<body>
 
-  <% if controller.action_name != 'home' %> 
-  <%= render 'layouts/messages' %>
-  <% end %>
-
-  <%= render "shared/application_nav" %> 
-
-  <div <% if controller.action_name != 'home' %> class="home-container padding" <% end %> >
     <%= yield %>
     
   </div>

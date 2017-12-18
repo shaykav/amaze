@@ -1,17 +1,9 @@
+<% content_for :body_class, 'offwhite-background' %>
 <h1>Mazes</h1>
 
 
-<% @itineraries.each do |itinerary| %>
-  
-  <%= link_to maze_intro_path(itinerary) do %>
-<p><%= itinerary.title %></p>
-  <% end %>
-<p><%= itinerary.description %></p>
-
-<hr>
-<% end %>
+<%= render @itineraries %>
 
 
 <%= link_to "Back", root_path %>
-
 

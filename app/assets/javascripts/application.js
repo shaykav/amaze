@@ -16,3 +16,23 @@
 //= require_tree .
 
 
+
+$(document).on('turbolinks:load', function() {
+
+  // alert('hello')
+
+  setTimeout(function(){
+    document.querySelector('.close').click()
+  }, 2250);
+
+  // var wow = new WOW();
+  
+  // if (wow._live) {
+  //   wow.init()
+  // }else{
+  //   wow = undefined
+  // }
+ 
+});
+
+
