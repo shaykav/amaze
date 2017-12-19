@@ -51,7 +51,7 @@ class ItinerariesController < ApplicationController
 
       Itinerary.location_parse_save(locations, @itinerary)
 
-      redirect_to @itinerary, notice: 'Product was successfully updated.' 
+      redirect_to @itinerary, notice: 'Product was successfully updated.'
     else
       render :edit
     end
@@ -71,7 +71,9 @@ class ItinerariesController < ApplicationController
   end
 
   def itinerary_params
-    params.require(:itinerary).permit(:content, :title, :description, :image)
+
+    params.require(:itinerary).permit(:content, :title, :description, :neighborhood_id, :image)
+
   end
 
   def check_user
