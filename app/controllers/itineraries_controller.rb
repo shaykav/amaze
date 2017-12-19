@@ -42,7 +42,9 @@ class ItinerariesController < ApplicationController
 
       redirect_to @itinerary
     else
-      render :new
+      
+      render :new, :layout => 'maze-intro'
+
     end
   end
 
