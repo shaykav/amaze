@@ -24,6 +24,7 @@ class ItinerariesController < ApplicationController
 
   def new
     @itinerary = Itinerary.new
+    render :layout => 'maze-intro'
   end
 
 
