@@ -25,6 +25,7 @@ class ItinerariesController < ApplicationController
 
   def new
     @itinerary = Itinerary.new
+    render :layout => 'maze-intro'
   end
 
 
@@ -42,7 +43,9 @@ class ItinerariesController < ApplicationController
 
       redirect_to @itinerary
     else
-      render :new
+      
+      render :new, :layout => 'maze-intro'
+
     end
   end
 

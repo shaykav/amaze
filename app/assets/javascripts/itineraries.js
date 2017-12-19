@@ -1,6 +1,6 @@
 
 
-$(document).on('turbolinks:load', function() {
+$(document).ready (function() {
 
 
   $('.mdb-select').material_select();
