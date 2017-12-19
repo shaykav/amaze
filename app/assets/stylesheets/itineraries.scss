@@ -3,11 +3,11 @@ h1, h2 {
 }
 
 h3, h4 {
-  font-family: "proxima-nova" ;
+  font-family: "lato" ;
 }
 
 p {
-  font-family: "proxima-nova" !important;
+  font-family: "lato" !important;
 }
 
 body { margin:0; padding:0; }
@@ -99,7 +99,7 @@ p {
 .steps-number {
   color:white;
   font-size: 2.3em;
-  font-family: 'proxima-nova'
+  font-family: 'lato'
 }
 
 #steps:first-child {
@@ -122,16 +122,16 @@ p {
 }
 
 .maze-intro-header{
-  min-height: 65vh !important;
+  min-height: 70vh !important;
 }
 
 .maze-intro-container {
-  padding: 70px;
-  font-family: 'proxima-nova'
+  padding: 20px 70px 70px 70px;
+  font-family: 'lato'
 }
 
 .maze-intro-container h1 {
-  font-family: 'proxima-nova' 
+  font-family: 'lato' 
 }
 
 .intro-map{
@@ -151,7 +151,7 @@ p {
 .route-header h1 {
   font-size: 3em;
   font-weight: 700;
-  font-family: 'proxima-nova'
+  font-family: 'lato'
 }
 
 .card:not([class*="card-outline-"]) {
@@ -161,4 +161,8 @@ p {
 
 .location-card {
   padding: 35px;
+}
+
+a.mapboxgl-ctrl-logo, .mapboxgl-ctrl.mapboxgl-ctrl-attrib {
+  display: none !important;
 }

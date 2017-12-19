@@ -71,8 +71,16 @@
 
 /* Navbar */
 
+.navbar {
+  text-transform: uppercase;
+  font-family: "lato";
+  font-weight: 600;
+  font-size: 0.9em;
+}
+
 .navbar-brand {
   margin-top: 11px;
+  font-family: "Maze";
 }
 
 .sign-up-btn > .btn:hover {
