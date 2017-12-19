@@ -7,15 +7,13 @@
   </div>
 
 
-    <%#= f.label :title %>
-  <div class="md-form">
+    <%= f.label :title %>
     <%= text_field_tag "itinerary[content][][title]" %>
-  </div>
 
-  <div class="md-form">
+
     <%= f.label :description %>
-    <%= text_area_tag("itinerary[content][][description]", '', {class: 'md-textarea'}) %>
-  </div>
+    <%= text_area_tag "itinerary[content][][description]" %>
+
 
 
   <%= hidden_field_tag "itinerary[content][][location]" %>
