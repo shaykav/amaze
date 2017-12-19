@@ -1,14 +1,15 @@
-<div class="jumbo-container">
-  <div class="row mb-5">
-    <div class="col-md-12">
-      <div class="maze-intro-header">
-        <div class="text-white text-center d-flex align-items-center rgba-stylish-light py-5 px-4">
-          <div class="py-5 home-jumbo">
-            <h2 class="card-title pt-3 mb-5 font-bold jumbo-header"><%= @itinerary.title %></h2>
-            <div class="home-container">
-              <p class="px-5 pb-4 jumbo-subtext"><%= @itinerary.description %></p>
-              <%= link_to "Enter Maze", @itinerary, class: "btn btn-secondary" %>
-            </div>
+<% content_for :body_class, 'offwhite-background' %>
+
+<div class="view hm-black-light jarallax maze-intro-header" style="background: url('<%=@itinerary.image.url%>');" data-jarallax='{"speed": 0.2}' >
+  <div class="full-bg-img">
+    <div class="container flex-center">
+      <div class="row pt-5 mt-3">
+        <div class="col-md-12">
+          <div class="text-center">
+            <h1 class="h1-reponsive white-text font-up font-bold mb-3 wow fadeInDown" data-wow-delay="0.3s"><strong><%= @itinerary.title %></strong></h1>
+            <hr class="hr-light mt-4 wow fadeInDown" data-wow-delay="0.4s">
+            <h5 class="font-up mb-5 white-text wow fadeInDown" data-wow-delay="0.4s"><strong><%= @itinerary.description %></strong></h5>
+            <%= link_to 'Enter Maze', itinerary_path(@itinerary), class: "btn btn-lg btn-deep-orange btn-rounded wow fadeInDown" %>
           </div>
         </div>
       </div>
@@ -87,67 +88,145 @@ for (i = 0; i < acc.length; i++) {
 
 </body>
 
-<div class="intro-container">
-  <h1 class="maze-intro-title"><%= @itinerary.title %></h1>
-  <hr>
-  <br>
-  <p><%= @itinerary.description %></p>
-
-  <%= link_to "Enter Maze", @itinerary, class: "btn btn-secondary" %>
-
+<div class="route-header">
+  <h1>Route</h1>
+  <div id="steps"></div>
 </div>
 
+<div class="maze-intro-container">
   <div id='map' class="intro-map"></div>
 
 
-<div class="row">
-  <% @itinerary.locations.each do |location| %>
-  <div class="col-md-4">
-    <%= image_tag location.photo %>
-  </div>
+  <h1>Route Photos</h1>
+  <hr>
 
-  <% end %>
+  <div class="row">
+    <% @itinerary.locations.each do |location| %>
+    <div class="col-md-4">
+      <%= image_tag location.photo, width: '100%', class: "maze-photos" %>
+    </div>
+
+    <% end %>
+  </div>
 </div>
+
+
+
 
 <script>
 
-  mapboxgl.accessToken = 'pk.eyJ1Ijoia2V2aW5zY2hhZmZ0ZXIiLCJhIjoiY2piNm96NGt2MHZxZTJ3bXo3bG5uN2RwMiJ9.mJexXrURcgBO8qfnCsoYkQ';
+  mapboxgl.accessToken = 'pk.eyJ1Ijoia2V2aW5zY2hhZmZ0ZXIiLCJhIjoiY2piNnNkMmQ2OTBiZzMzcnpzM252OGttdSJ9.vp7HQwPNr--uNONxICdJzg';
 
   var map = new mapboxgl.Map({
     container: 'map',
-    style: 'mapbox://styles/mapbox/streets-v10',
-    center: [<%= (@itinerary.locations.first.longitude).to_f %>, <%= (@itinerary.locations.first.latitude).to_f %>],
-    zoom: 13
+    style: 'mapbox://styles/mapbox/streets-v9',
+    center: [<%= @itinerary.locations.second.longitude %>, <%= @itinerary.locations.second.latitude %>],
+    zoom: 12,
+    bearing: 1,
+    pitch: 1
   });
+
+  // Adds route layer to map
 
   map.on('load', function() {
+
     getRoute();
-  });
+
+    var layers = map.getStyle().layers;
+
+    var labelLayerId;
+    for (var i = 0; i < layers.length; i++) {
+        if (layers[i].type === 'symbol' && layers[i].layout['text-field']) {
+            labelLayerId = layers[i].id;
+            break;
+        }
+    }
+
+    map.addLayer({
+            'id': '3d-buildings',
+            'source': 'composite',
+            'source-layer': 'building',
+            'filter': ['==', 'extrude', 'true'],
+            'type': 'fill-extrusion',
+            'minzoom': 15,
+            'paint': {
+                'fill-extrusion-color': '#aaa',
+
+                // use an 'interpolate' expression to add a smooth transition effect to the
+                // buildings as the user zooms in
+                'fill-extrusion-height': [
+                    "interpolate", ["linear"], ["zoom"],
+                    15, 0,
+                    15.05, ["get", "height"]
+                ],
+                'fill-extrusion-base': [
+                    "interpolate", ["linear"], ["zoom"],
+                    15, 0,
+                    15.05, ["get", "min_height"]
+                ],
+                'fill-extrusion-opacity': .6
+            }
+        }, labelLayerId);
+
+
+    });
+
+
 
   function getRoute() {
+
     var start = [<%= (@itinerary.locations.first.longitude).to_f %>, <%= (@itinerary.locations.first.latitude).to_f %>];
     var end = [<%= (@itinerary.locations.last.longitude).to_f %>, <%= (@itinerary.locations.last.latitude).to_f %>];
+<<<<<<< HEAD
     var directionsRequest = 'https://api.mapbox.com/directions/v5/mapbox/walking/' + start[0] + ',' + start[1] + ';' + end[0] + ',' + end[1] + '?geometries=geojson&access_token=' + mapboxgl.accessToken;
 
+=======
+
+
+    var directionsRequest = 'https://api.mapbox.com/optimized-trips/v1/mapbox/walking/' +
+    <% location_size = @itinerary.locations.size %>
+    <% @itinerary.locations.each_with_index do |location, ix| %>
+    '<%=location.longitude%>' + ',' + '<%=location.latitude%><%= (ix + 1 == location_size) ? "" : ";" %>' +
+    <% end %>  '?geometries=geojson' + '&steps=true&source=first&destination=last&roundtrip=false' + '&access_token=' + mapboxgl.accessToken;
+
+    console.log(directionsRequest)
+
+>>>>>>> f8686e33792001883f8b1d34d54585160938ee78
 
     $.ajax({
       method: 'GET',
       url: directionsRequest,
     }).done(function(data) {
-      var route = data.routes[0].geometry;
-      map.addLayer({
-        id: 'route',
-        type: 'line',
-        source: {
-          type: 'geojson',
-          data: {
-            type: 'Feature',
-            geometry: route
+      var route = data.trips[0].geometry.coordinates;
+      var steps = Math.ceil(data.trips[0].distance)
+
+      $('#steps').append(`<h4 class="steps-number-intro"> ${steps} Steps </h4>`);
+
+      console.log(steps)
+
+        map.addLayer({
+          "id": "route",
+          "type": "line",
+          "source": {
+            "type": "geojson",
+            "data": {
+              "type": "Feature",
+              "properties": {},
+              "geometry": {
+                "type": "LineString",
+                "coordinates": route
+              }
+            }
+          },
+          "layout": {
+            "line-join": "round",
+            "line-cap": "round"
+          },
+          "paint": {
+            "line-color": "#3498db",
+            "line-width": 5
           }
-        },
-        paint: {
-          'line-width': 2
-        }
+        });
       });
 
       map.addLayer({
@@ -164,6 +243,7 @@ for (i = 0; i < acc.length; i++) {
           }
         }
       });
+
       map.addLayer({
         id: 'end',
         type: 'circle',
@@ -178,8 +258,7 @@ for (i = 0; i < acc.length; i++) {
           }
         }
       });
-
-    });
   }
+
 
 </script>

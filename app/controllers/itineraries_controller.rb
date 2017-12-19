@@ -11,6 +11,7 @@ class ItinerariesController < ApplicationController
   end
 
   def intro
+    render :layout => 'maze-intro'
   end
 
   def manage_itineraries
@@ -73,7 +74,9 @@ class ItinerariesController < ApplicationController
   end
 
   def itinerary_params
-    params.require(:itinerary).permit(:content, :title, :description, :image)
+
+    params.require(:itinerary).permit(:content, :title, :description, :neighborhood_id, :image)
+
   end
 
   def check_user
