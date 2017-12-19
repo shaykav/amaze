@@ -52,13 +52,13 @@
 /*Styling for notification bar*/
 
  .alert {
-   position:fixed; 
-   top: 80px; 
+   position:fixed;
+   top: 80px;
    width: 75%;
    position: fixed;
    left: 50%;
    margin-left: -37.5%;
-   z-index:9999; 
+   z-index:9999;
  }
 
  .cursor {
@@ -102,7 +102,7 @@
 @media (max-width: 768px) {
     .navbar:not(.top-nav-collapse) {
         background: #82b1ff !important;
-    } 
+    }
 }
 
 h5 {
@@ -158,7 +158,7 @@ section:last-child{
   background-size: cover;
   background-repeat: no-repeat;
   background-attachment: fixed;
-  background-position: center; 
+  background-position: center;
 
 
   &:before {
@@ -169,7 +169,7 @@ section:last-child{
     bottom: 0;
     left: 0;
     background-image: linear-gradient(to bottom right,#002f4b,#dc4225);
-    opacity: .45; 
+    opacity: .45;
   }
 }
 
@@ -184,7 +184,7 @@ section:last-child{
     bottom: 0;
     left: 0;
     background-image: linear-gradient(to bottom right,#002f4b,#dc4225);
-    opacity: .45; 
+    opacity: .45;
   }
 }
 
@@ -192,6 +192,7 @@ section:last-child{
   text-align: center;
 }
 
+<<<<<<< HEAD
 
 
 #main-title {
@@ -201,3 +202,6 @@ section:last-child{
 }
 
 
+=======
+ /* Itinerary new */
+>>>>>>> f8686e33792001883f8b1d34d54585160938ee78
