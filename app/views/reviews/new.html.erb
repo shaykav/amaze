@@ -1,2 +1,15 @@
-<h1>Reviews#new</h1>
-<p>Find me in app/views/reviews/new.html.erb</p>
+<h1>Review</h1>
+
+<div class="review_form">
+  <h1>Write Your Review</h1>
+
+<%= form_for(:review, :url => {:action => 'create'}) do |f| %>
+  <%= render(:partial => "form", :locals => {:f => f}) %>
+
+  <div class="form_buttons">
+    <%= submit_tag("Add") %>
+  </div>
+
+<% end %>
+
+</div>

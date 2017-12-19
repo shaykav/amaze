@@ -1,55 +1,21 @@
 <span class="map-container">
   <div id='map'></div>
   <div id='features'>
+    <p>
+      <strong>Route Name:</strong>
+      <%= @itinerary.description %>
+    </p>
   </span>
 
   <% @itinerary.locations.each do |location| %>
 
-<div class="maze-sections">
 
-  <div id="steps"></div>
-  
   <section id='<%= location.title %>' class='active'>
-    <h2 class="maze-header"><%= location.title %> 
-    <% if location.icon.present? %>
-      <%= image_tag location.icon, width: '25px' %>
-    <% end %>
-      </h2>
-    
-    <% if location.address.present? %>
-      <p class="address-text"><%= location.address %></p>
-    <% end %>
-    </p>
-    <hr class="section-divide">
+    <h3><%= location.title %></h3>
     <p><%= location.description %></p>
-
-
-    <div>  <% if location.website.present? %>
-      <%= link_to "Website", location.website, class: 'btn btn-warning btn-rounded' %>
-      <% end %>
-
-    </div>
-
-    <div> <% if location.photo.present? %>
-     <%= image_tag location.photo, width: '500px', class: "maze-photos" %>
-     <% end %>
-
-   </div>
-      
-      
-    </section>
-</div>
-
+    <p>[<%= (@itinerary.locations.first.latitude).to_f %>, <%= (@itinerary.locations.first.longitude).to_f %> ]</p>
+  </section>
   <% end %>
-</div>
-
-
-<div class="fixed-action-btn" style="bottom: 60px; right: 24px;">
-  <a class="btn-floating btn-lg red" href="<%= maze_intro_path %>">
-    <%= fa_icon "arrow-left" %>
-  </a>
-</div>
-
 
 <script>
 
@@ -58,110 +24,41 @@
   var map = new mapboxgl.Map({
     container: 'map',
     style: 'mapbox://styles/mapbox/streets-v9',
-    center: [<%= @itinerary.locations.first.longitude %>, <%= @itinerary.locations.first.latitude %>],
-    zoom: 18,
-    bearing: 1,
-    pitch: 100
+    center: [<%= (@itinerary.locations.first.longitude).to_f %>, <%= (@itinerary.locations.first.latitude).to_f %>],
+    zoom: 15.5,
+    bearing: 27,
+    pitch: 45
   });
 
   // Adds route layer to map
 
   map.on('load', function() {
-
     getRoute();
-
-    var layers = map.getStyle().layers;
-
-    var labelLayerId;
-    for (var i = 0; i < layers.length; i++) {
-        if (layers[i].type === 'symbol' && layers[i].layout['text-field']) {
-            labelLayerId = layers[i].id;
-            break;
-        }
-    }
-
-    map.addLayer({
-            'id': '3d-buildings',
-            'source': 'composite',
-            'source-layer': 'building',
-            'filter': ['==', 'extrude', 'true'],
-            'type': 'fill-extrusion',
-            'minzoom': 15,
-            'paint': {
-                'fill-extrusion-color': '#aaa',
-
-                // use an 'interpolate' expression to add a smooth transition effect to the
-                // buildings as the user zooms in
-                'fill-extrusion-height': [
-                    "interpolate", ["linear"], ["zoom"],
-                    15, 0,
-                    15.05, ["get", "height"]
-                ],
-                'fill-extrusion-base': [
-                    "interpolate", ["linear"], ["zoom"],
-                    15, 0,
-                    15.05, ["get", "min_height"]
-                ],
-                'fill-extrusion-opacity': .6
-            }
-        }, labelLayerId);
-
-
-    });
-
-
+  });
 
   function getRoute() {
-
     var start = [<%= (@itinerary.locations.first.longitude).to_f %>, <%= (@itinerary.locations.first.latitude).to_f %>];
     var end = [<%= (@itinerary.locations.last.longitude).to_f %>, <%= (@itinerary.locations.last.latitude).to_f %>];
-    
-
-    var directionsRequest = 'https://api.mapbox.com/optimized-trips/v1/mapbox/walking/' + 
-    <% location_size = @itinerary.locations.size %>
-    <% @itinerary.locations.each_with_index do |location, ix| %>
-    '<%=location.longitude%>' + ',' + '<%=location.latitude%><%= (ix + 1 == location_size) ? "" : ";" %>' + 
-    <% end %>  '?geometries=geojson' + '&steps=true&source=first&destination=last&roundtrip=false' + '&access_token=' + mapboxgl.accessToken;
-
-    console.log(directionsRequest)
-    
-
+    var directionsRequest = 'https://api.mapbox.com/directions/v5/mapbox/walking/' + start[0] + ',' + start[1] + ';' + end[0] + ',' + end[1] + '?geometries=geojson&access_token=' + mapboxgl.accessToken;
     $.ajax({
       method: 'GET',
       url: directionsRequest,
     }).done(function(data) {
-      var route = data.trips[0].geometry.coordinates;
-      var steps = Math.ceil(data.trips[0].distance)
-
-      $('#steps').append(`<h1 class="steps-number"> ${steps} Steps </h1>`);
-
-      console.log(steps)
-      
-        map.addLayer({
-          "id": "route",
-          "type": "line",
-          "source": {
-            "type": "geojson",
-            "data": {
-              "type": "Feature",
-              "properties": {},
-              "geometry": {
-                "type": "LineString",
-                "coordinates": route
-              }
-            }
-          },
-          "layout": {
-            "line-join": "round",
-            "line-cap": "round"
-          },
-          "paint": {
-            "line-color": "#3498db",
-            "line-width": 9
+      var route = data.routes[0].geometry;
+      map.addLayer({
+        id: 'route',
+        type: 'line',
+        source: {
+          type: 'geojson',
+          data: {
+            type: 'Feature',
+            geometry: route
           }
-        });
+        },
+        paint: {
+          'line-width': 2
+        }
       });
-      
       map.addLayer({
         id: 'start',
         type: 'circle',
@@ -176,7 +73,6 @@
           }
         }
       });
-
       map.addLayer({
         id: 'end',
         type: 'circle',
@@ -191,6 +87,7 @@
           }
         }
       });
+    });
   }
 
 
@@ -202,8 +99,8 @@
     '<%= location.title %>': {
       bearing: 27,
       center: [<%= location.longitude.to_f %>, <%= location.latitude.to_f %>],
-      zoom: 18,
-      pitch: 100
+      zoom: 15.5,
+      pitch: 20
     },
 
     <% end %>
