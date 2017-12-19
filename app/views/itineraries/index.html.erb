@@ -7,7 +7,7 @@
 
 <style>
 .mapboxgl-popup {
-  max-width: 400px;
+  max-width: 700px;
   font: 12px/20px 'Helvetica Neue', Arial, Helvetica, sans-serif;
 }
 body { margin:0; padding:0; }
@@ -16,7 +16,7 @@ body { margin:0; padding:0; }
 
 
 
-<div class="col-md-12">
+<div class="col-md-12 map-index">
   <div id='map'></div>
 </div>
 
@@ -34,45 +34,45 @@ body { margin:0; padding:0; }
 
   map.on('load', function() {
 
-    
-    map.loadImage('https://upload.wikimedia.org/wikipedia/commons/thumb/6/60/Cat_silhouette.svg/400px-Cat_silhouette.svg.png', function(error, image) {
-            if (error) throw error;
-            map.addImage('cat', image);
 
-    map.addLayer({
-      "id": "places",
-      "type": "symbol",
-      "source": {
-        "type": "geojson",
-        "data": {
-          "type": "FeatureCollection",
-          "features": [
+    map.loadImage('https://cdn4.iconfinder.com/data/icons/small-n-flat/24/star-128.png', function(error, image) {
+      if (error) throw error;
+      map.addImage('cat', image);
 
-          {
+      map.addLayer({
+        "id": "places",
+        "type": "symbol",
+        "source": {
+          "type": "geojson",
+          "data": {
+            "type": "FeatureCollection",
+            "features": [
 
-            <% @itineraries.each do |itinerary| %>
+            {
 
-            "type": "Feature",
-            "properties": {
-              "description": "<strong><%= itinerary.title %></strong><p><%= itinerary.description %> </p>",
-              "icon": "theatre"
-            },
-            "geometry": {
-              "type": "Point",
-              "coordinates": [<%= itinerary.locations.first.longitude %>, <%= itinerary.locations.first.latitude %>]
-            },
+              <% @itineraries.each do |itinerary| %>
 
-            <% end %>
+              "type": "Feature",
+              "properties": {
+                "description": "<strong><%= itinerary.title %></strong><p><%= itinerary.description %> </p> <a class=\"btn btn-sm btn-primary\" href=\"<%= itinerary_path(itinerary) %>\">Enter</a>",
+                "icon": "theatre"
+              },
+              "geometry": {
+                "type": "Point",
+                "coordinates": [<%= itinerary.locations.first.longitude %>, <%= itinerary.locations.first.latitude %>]
+              },
+
+              <% end %>
+            }
+            ]
           }
-          ]
+        },
+        "layout": {
+          "icon-image": "cat",
+          "icon-size": 0.3,
+          "icon-allow-overlap": true
         }
-      },
-      "layout": {
-        "icon-image": "cat",
-        "icon-size": 1.5,
-        "icon-allow-overlap": true
-      }
-    });
+      });
 
     // When a click event occurs on a feature in the places layer, open a popup at the
         // location of the feature, with description HTML from its properties.
@@ -93,12 +93,13 @@ body { margin:0; padding:0; }
           map.getCanvas().style.cursor = '';
         });
       });
-    </script>
+  });
+</script>
 
 
 
 
-    <div class="row">
-      <%= render @itineraries %>
-    </div>
+<div class="row inineraries-index-container">
+  <%= render @itineraries %>
+</div>
 
