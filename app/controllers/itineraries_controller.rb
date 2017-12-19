@@ -4,10 +4,7 @@ class ItinerariesController < ApplicationController
   before_action :check_user, only: [:edit, :update, :destroy]
 
   def show
-    @reviews = Review.all
-
     render :layout => 'maze'
-    @review = Review.new
   end
 
   def intro

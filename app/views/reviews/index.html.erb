@@ -1,29 +1,11 @@
-<p id="notice"><%= notice %></p>
+<h1>Reviews#index</h1>
 
-<h1>Reviews</h1>
+<div id="reviews">
+  <%@reviews.each do |r| %>
 
-<table>
-  <thead>
-    <tr>
-      <th>Comment</th>
-      <th>Product</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
+  <div class="review">
+    <%= simple_format r.content %>
 
-  <tbody>
-    <% @reviews.each do |review| %>
-      <tr>
-        <td><%= review.comment %></td>
-        <td><%= review.product %></td>
-        <td><%= link_to 'Show', review %></td>
-        <td><%= link_to 'Edit', edit_review_path(review) %></td>
-        <td><%= link_to 'Destroy', review, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
-
-<br>
-
-<%= link_to 'New Review', root_path %>
+  </div>
+<% end %>
+</div>
