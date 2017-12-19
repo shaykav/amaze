@@ -46,27 +46,43 @@
 <p><%= 'no reviews yet' if @itinerary.reviews.empty? %></p>
 <% @itinerary.reviews.each do |review| %>
   <p>
-    <%= review.comment %>
+    <%= review.body %>
     <br>
     Added on: <%= review.created_at %>
   </p>
 <% end %>
 
-<button class="accordion">New Review</button>
+<button class="accordion">Write a Review</button>
 
 <div class="panel">
 <p>
+  <div class="New Review">
+
+  </div>
   <div class="review_form">
 
-  <div class="form_buttons">
-    <%# submit_tag("Add") %>
-    <p> hello</p>
-  </div>
-  <!-- troubleshooting here -->
   <%= render "reviews/form" %>
 </div>
 </p>
 </div>
+
+
+<script>
+var acc = document.getElementsByClassName("accordion");
+var i;
+
+for (i = 0; i < acc.length; i++) {
+  acc[i].addEventListener("click", function() {
+      this.classList.toggle("active");
+      var panel = this.nextElementSibling;
+      if (panel.style.display === "block") {
+          panel.style.display = "none";
+      } else {
+          panel.style.display = "block";
+      }
+  });
+}
+</script>
 
 <div class="route-header">
   <h1>Route</h1>

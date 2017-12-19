@@ -8,7 +8,11 @@ class ReviewsController < ApplicationController
   end
 
   def create
-    @review = Review.new(params[:review])
+    @review = @reviewable.Review.new review_params
+    @review.user = current_user
+    @comment.save
+    redirect_to @reviewable, notice: "Your review was successfully created"
+
 
     respond_to do |format|
      if @review.save
@@ -32,8 +36,7 @@ class ReviewsController < ApplicationController
 private
 
 def review_params
-  params.require(:review).permit(:name, :review, :itnerary_id)
-
+  params.require(:review).permit(:body)
 end
 
 end

@@ -1,5 +1,5 @@
-<%= form_for(new_itinerary_review_path(@itinerary), method: 'put') do |f| %>
+<%= form_for(new_itinerary_reviews_path(@itinerary), method: 'put') do |f| %>
   <input type="hidden" value="22" name="itinerary">
-  <%= f.text_area(:body) %>
+  <%= f.text_area(:body, placeholder: "Add a review") %>
   <%= f.submit value: 'submit' %>
 <% end %>

@@ -6,18 +6,20 @@ Rails.application.routes.draw do
 
   get '/manage', to: 'itineraries#manage_itineraries', as: 'manage'
 
+  put '/maze/:id', to: 'itineraries#intro', as: 'review_itinerary'
   devise_for :users
-  
-  resources :users do      
+
+  resources :users do
     resource :reviews
   end
 
   get 'pages/home'
-  
+
   resources :itineraries do
-    resources :reviews
+    resource :reviews, module: :itineraries
   end
 
   resources :itineraries
-  
+
+
 end
