@@ -10,14 +10,13 @@
 // Read Sprockets README (https://github.com/rails/sprockets#sprockets-directives) for details
 // about supported directives.
 //
-//= require turbolinks
 //= require rails-ujs
 //= require jquery
 //= require_tree .
 
 
 
-$(document).on('turbolinks:load', function() {
+$(document).ready (function() {
 
   // alert('hello')
 
@@ -25,14 +24,23 @@ $(document).on('turbolinks:load', function() {
     document.querySelector('.close').click()
   }, 2250);
 
-  // var wow = new WOW();
-  
-  // if (wow._live) {
-  //   wow.init()
-  // }else{
-  //   wow = undefined
-  // }
- 
+var wow = new WOW(
+  {
+    boxClass:     'wow',      // animated element css class (default is wow)
+    animateClass: 'animated', // animation css class (default is animated)
+    offset:       0,          // distance to the element when triggering the animation (default is 0)
+    mobile:       true,       // trigger animations on mobile devices (default is true)
+    live:         true,       // act on asynchronously loaded content (default is true)
+    callback:     function(box) {
+      // the callback is fired every time an animation is started
+      // the argument that is passed in is the DOM node being animated
+    },
+    scrollContainer: null // optional scroll container selector, otherwise use window
+  }
+);
+
+wow.init();
+
 });
 
 

@@ -1,88 +1,104 @@
-<h3>Share your favorite routes so others can discover hidden gems in their city!</h3>
+<% content_for :body_class, 'offwhite-background' %>
+
+<div class="view hm-black-light jarallax itinerary-new-header" data-jarallax='{"speed": 0.2}' >
+  <div class="full-bg-img">
+    <div class="container flex-center">
+      <div class="row pt-5 mt-3">
+        <div class="col-md-12">
+          <div class="text-center">
+            <h1 class="h1-reponsive white-text font-up font-bold mb-3 wow fadeInDown" data-wow-delay="0.3s"><strong>Share Your Experience</strong></h1>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<div class="itinerary-new-body">
 
 
   <% if @itinerary.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@itinerary.errors.count, "error") %> prohibited this product from being saved:</h2>
+  <div id="error_explanation">
+    <h2><%= pluralize(@itinerary.errors.count, "error") %> prohibited this product from being saved:</h2>
 
-      <ul>
+    <ul>
       <% @itinerary.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
+      <li><%= message %></li>
       <% end %>
-      </ul>
-    </div>
+    </ul>
+  </div>
   <% end %>
 
 
 
   <%= form_for @itinerary do |f| %>
 
-    <div class="jumbotron">
-      <h4>What's your maze name?</h4>
-      <br>
+  <div class="row">
+    <div class="col-md-6 mx-auto">
+      <div class="jumbotron">
+        <h4>What's your maze name?</h4>
+        <br>
 
-      <div class="md-form">
-        <%= f.label :title %>
-        <%= f.text_field :title, class: 'form-control' %>
-      </div>
-      <div class="md-form">
-        <%= f.label :description %>
-        <%= f.text_area :description, class: 'form-control md-textarea' %>
-      </div>
+        <div class="md-form">
+          <%= f.label :title %>
+          <%= f.text_field :title, class: 'form-control' %>
+        </div>
 
-    <br>
+        <div class="">
 
-    <h4>Add a photo from your adventure!</h4>
-    <div class="md-form">
+          <%= f.fields_for :neighborhood_itineraries, f.object.neighborhood_itineraries.build do |ni_form|  %>
+          <%= ni_form.collection_select(:neighborhood_id, Neighborhood.all, :id, :name, { :prompt => 'Select Neighborhood' }, {class: 'mdb-select colorful-select dropdown-primary', searchable: 'Search here..'} ) %>
 
-      <%= f.text_area :description, class: 'form-control descr-contain', placeholder: 'Description'  %>
+          <% end %>
+
+        </div>
+
+        <div class="md-form">
+          <%= f.label :description %>
+          <%= f.text_area :description, class: 'form-control md-textarea' %>
+        </div>
+
+        <br>
+
+        <h4>Add a photo from your adventure!</h4>
+
+        <div class="form-group">
+          <label class="btn btn-primary btn-md">
+           Upload Image <%= f.file_field :image, style: 'display: none' %>
+         </label>
+       </div>
+
+     </div>
+   </div>
+  </div>
+
+  <h4>Tell us about your locations</h4>
+
+  <div class="maze-form">
+
+  <div class="row"><% 3.times do |num| %>
+    <%= render partial: 'itineraries/components/location_form', locals: {f:f} %>
+    <% end %></div>
+
+  </div>
+
+  <a href="#" data-added="false" class="add-maze-btn"> Add Another</a>
+
+  <template>
+    <div class="new-wrapper">
+      <%= render partial: 'itineraries/components/location_form', locals: {f:f, is_new: true } %>
+      <span class="remove-form" data-id="">X</span>
     </div>
+  </template>
 
-    <div class="form-group">
-     <label class="btn btn-primary btn-sm">
-       Upload Image <%= f.file_field :image, style: 'display: none' %>
-     </label>
-    </div>
+  <%= hidden_field_tag 'itinerary[locations]', nil %>
 
-    </div>
+  <hr>
 
-
-    <div class="">
-
-
-      <%= f.fields_for :neighborhood_itineraries, f.object.neighborhood_itineraries.build do |ni_form|  %>
-        <%= ni_form.collection_select(:neighborhood_id, Neighborhood.all, :id, :name, { :prompt => 'Select Neighborhood' }, {class: 'mdb-select colorful-select dropdown-primary', searchable: 'Search here..'} ) %>
-
-      <% end %>
-
-    </div>
-
-    <h4>Tell us about your locations</h4>
-
-    <div class="maze-form">
-
-
-      <% 3.times do |num| %>
-        <%= render partial: 'itineraries/components/location_form', locals: {f:f} %>
-      <% end %>
-
-    </div>
-
-    <a href="#" data-added="false" class="add-maze-btn"> Add Another</a>
-
-    <template>
-      <div class="new-wrapper">
-        <%= render partial: 'itineraries/components/location_form', locals: {f:f, is_new: true } %>
-        <span class="remove-form" data-id="">X</span>
-      </div>
-    </template>
-
-    <%= hidden_field_tag 'itinerary[locations]', nil %>
-
-    <hr>
-
-    <%= f.submit 'Create Maze', class: "submit-itinerary" %>
+  <%= f.submit 'Create Maze', class: " btn btn-primary submit-itinerary" %>
   <% end %>
+  </div>
 </div>
 
 

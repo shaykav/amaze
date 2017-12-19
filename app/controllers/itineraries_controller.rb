@@ -26,6 +26,7 @@ class ItinerariesController < ApplicationController
 
   def new
     @itinerary = Itinerary.new
+    render :layout => 'maze-intro'
   end
 
 
@@ -36,13 +37,16 @@ class ItinerariesController < ApplicationController
 
     if @itinerary.save
       # TODO add strong params
+
       locations = params[:itinerary][:content]
 
       Itinerary.location_parse_save(locations, @itinerary)
 
       redirect_to @itinerary
     else
-      render :new
+      
+      render :new, :layout => 'maze-intro'
+
     end
   end
 
