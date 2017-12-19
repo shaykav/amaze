@@ -103,8 +103,8 @@ function initMap(field) {
 
       var lat = place.geometry.location.lat();
       var lng = place.geometry.location.lng();
-
-      var $input = $(this.gm_accessors_.place.Kc.gm_accessors_.input.Kc.b),
+      debugger
+      var $input = $(this.gm_accessors_.place.Jc.gm_accessors_.input.Jc.b),
       isNewWrapper = ($input.attr("data-is-new") === "true");
 
       if (isNewWrapper) {

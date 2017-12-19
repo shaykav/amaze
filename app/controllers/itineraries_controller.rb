@@ -34,6 +34,7 @@ class ItinerariesController < ApplicationController
 
     if @itinerary.save
       # TODO add strong params
+
       locations = params[:itinerary][:content]
 
       Itinerary.location_parse_save(locations, @itinerary)

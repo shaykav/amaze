@@ -1,27 +1,30 @@
-<div class="form-container">
-  <!-- To do: Add location -->
-
-  <div id="pac-container">
-    <input class="pac-input" type="text"
-        placeholder="Enter a location" data-is-new="<%= defined?(is_new) ? true : false %>">
+<div class="col-md-6 ">
+  <div class="card location-card">
+    <div class="form-container">
+      <!-- To do: Add location -->
+    
+      <div id="pac-container">
+        <input class="pac-input" type="text"
+            placeholder="Enter a location" data-is-new="<%= defined?(is_new) ? true : false %>">
+      </div>
+    
+    <div class="md-form">
+          
+          <%= text_field_tag "itinerary[content][][title]", nil, class: 'form-control', placeholder: "Title" %>
+      
+    
+        <%= text_area_tag "itinerary[content][][description]", nil, class: 'form-control', placeholder: "Description" %>
+    
+    </div>
+    
+      <%= hidden_field_tag "itinerary[content][][location]" %>
+      <%= hidden_field_tag "itinerary[content][][photo]" %>
+      <%= hidden_field_tag "itinerary[content][][website]" %>
+      <%= hidden_field_tag "itinerary[content][][address]" %>
+      <%= hidden_field_tag "itinerary[content][][icon]" %>
+    
+    
+      <div id="map" style="display:none"></div>
+    </div>
   </div>
-
-
-    <%= f.label :title %>
-    <%= text_field_tag "itinerary[content][][title]" %>
-
-
-    <%= f.label :description %>
-    <%= text_area_tag "itinerary[content][][description]" %>
-
-
-
-  <%= hidden_field_tag "itinerary[content][][location]" %>
-  <%= hidden_field_tag "itinerary[content][][photo]" %>
-  <%= hidden_field_tag "itinerary[content][][website]" %>
-  <%= hidden_field_tag "itinerary[content][][address]" %>
-  <%= hidden_field_tag "itinerary[content][][icon]" %>
-
-
-  <div id="map" style="display:none"></div>
 </div>
