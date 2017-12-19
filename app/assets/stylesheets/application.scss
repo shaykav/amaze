@@ -14,7 +14,24 @@
  *= require_self
  */
 
+@font-face {  
+        font-family: 'Ikaros-Regular';  
+        src: url('/assets/Ikaros-Regular.otf');
+        font-weight: normal;  
+        font-style: normal;  
+     }  
 
+     @font-face {  
+             font-family: 'Maze';  
+             src: url('/assets/Maze.otf');
+             font-weight: normal;  
+             font-style: normal;  
+          }  
+
+     .content p {  
+        font-family: 'a_sensible_armadilloregular';  
+        font-size: 42px;  
+     }  
 
 
 .home-container {
@@ -177,6 +194,10 @@ section:last-child{
 
 
 
-
+#main-title {
+  font-family: 'Maze' !important;
+  font-size: 9.5rem;
+  font-weight: 800;
+}
 
 

@@ -1,3 +1,15 @@
+h1, h2 {
+  font-family: 'Ikaros-Regular';
+}
+
+h3, h4 {
+  font-family: "proxima-nova" ;
+}
+
+p {
+  font-family: "proxima-nova" !important;
+}
+
 body { margin:0; padding:0; }
 #map { position:absolute; top:0; bottom:0; width:100%; }
 
@@ -87,6 +99,7 @@ p {
 .steps-number {
   color:white;
   font-size: 2.3em;
+  font-family: 'proxima-nova'
 }
 
 #steps:first-child {
@@ -114,6 +127,11 @@ p {
 
 .maze-intro-container {
   padding: 70px;
+  font-family: 'proxima-nova'
+}
+
+.maze-intro-container h1 {
+  font-family: 'proxima-nova' 
 }
 
 .intro-map{
@@ -133,6 +151,7 @@ p {
 .route-header h1 {
   font-size: 3em;
   font-weight: 700;
+  font-family: 'proxima-nova'
 }
 
 .card:not([class*="card-outline-"]) {
