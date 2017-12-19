@@ -52,18 +52,17 @@
   </p>
 <% end %>
 
-<button class="accordion">Write a Review</button>
+<div class="review_accordian">
 
-<div class="panel">
-<p>
-  <div class="New Review">
-
+  <button class="accordion">Write a Review</button>
+  <div class="panel">
+    <p>
+      <div class="review_form">
+        <%= render "reviews/form", review: @itinerary.reviews.new %>
+      </div>
+    </p>
   </div>
-  <div class="review_form">
 
-  <%= render "reviews/form" %>
-</div>
-</p>
 </div>
 
 

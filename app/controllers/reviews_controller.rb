@@ -1,42 +1,23 @@
 class ReviewsController < ApplicationController
   before_action :authenticate_user!
+  # before_action :set_reviewable, only: [:create]
 
-  def index
-    @reviewable = Itinerary.find(params[:itinerary_id])
+def create
+  @review = Review.new(review_params)
+  @review.user_id = current_user.id
+  @review.save
+  redirect_to maze_intro_path(@review.itinerary.id),notice: "Your review was successfully created."
 
-    @reviews = Review.all
-  end
-
-  def create
-    @review = @reviewable.Review.new review_params
-    @review.user = current_user
-    @comment.save
-    redirect_to @reviewable, notice: "Your review was successfully created"
-
-
-    respond_to do |format|
-     if @review.save
-       # format.html { redirect_to @review, notice: 'Review was successfully created.' }
-       format.html { redirect_to @review.product }
-       format.json { render :show, status: :created, location: @review }
-     else
-       format.html { render :new }
-       format.json { render json: @review.errors, status: :unprocessable_entity }
-     end
-   end
-
-    @review.save
-  end
-
-  def new
-    @review = Review.new
-
-  end
+end
 
 private
 
-def review_params
-  params.require(:review).permit(:body)
-end
+  def review_params
+    params.require(:review).permit(:body, :itinerary_id)
+  end
+
+  # def set_reviewable
+  #   @reviewable = Itinerary.find(params[:id])
+  # end
 
 end

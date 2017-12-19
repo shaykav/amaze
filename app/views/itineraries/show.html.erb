@@ -8,14 +8,14 @@
 <div class="maze-sections">
 
   <div id="steps"></div>
-  
+
   <section id='<%= location.title %>' class='active'>
-    <h2 class="maze-header"><%= location.title %> 
+    <h2 class="maze-header"><%= location.title %>
     <% if location.icon.present? %>
       <%= image_tag location.icon, width: '25px' %>
     <% end %>
       </h2>
-    
+
     <% if location.address.present? %>
       <p class="address-text"><%= location.address %></p>
     <% end %>
@@ -35,8 +35,8 @@
      <% end %>
 
    </div>
-      
-      
+
+
     </section>
 </div>
 
@@ -115,16 +115,16 @@
 
     var start = [<%= (@itinerary.locations.first.longitude).to_f %>, <%= (@itinerary.locations.first.latitude).to_f %>];
     var end = [<%= (@itinerary.locations.last.longitude).to_f %>, <%= (@itinerary.locations.last.latitude).to_f %>];
-    
 
-    var directionsRequest = 'https://api.mapbox.com/optimized-trips/v1/mapbox/walking/' + 
+
+    var directionsRequest = 'https://api.mapbox.com/optimized-trips/v1/mapbox/walking/' +
     <% location_size = @itinerary.locations.size %>
     <% @itinerary.locations.each_with_index do |location, ix| %>
-    '<%=location.longitude%>' + ',' + '<%=location.latitude%><%= (ix + 1 == location_size) ? "" : ";" %>' + 
+    '<%=location.longitude%>' + ',' + '<%=location.latitude%><%= (ix + 1 == location_size) ? "" : ";" %>' +
     <% end %>  '?geometries=geojson' + '&steps=true&source=first&destination=last&roundtrip=false' + '&access_token=' + mapboxgl.accessToken;
 
     console.log(directionsRequest)
-    
+
 
     $.ajax({
       method: 'GET',
@@ -136,7 +136,7 @@
       $('#steps').append(`<h1 class="steps-number"> ${steps} Steps </h1>`);
 
       console.log(steps)
-      
+
         map.addLayer({
           "id": "route",
           "type": "line",
@@ -161,7 +161,7 @@
           }
         });
       });
-      
+
       map.addLayer({
         id: 'start',
         type: 'circle',

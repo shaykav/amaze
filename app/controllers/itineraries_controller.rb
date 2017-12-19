@@ -2,7 +2,6 @@ class ItinerariesController < ApplicationController
   before_action :set_product, only: [:show, :intro, :edit, :update, :destroy]
   before_action :authenticate_user!, only: [:new, :create]
   before_action :check_user, only: [:edit, :update, :destroy]
-  before_action :set_reviewable
 
   def show
     render :layout => 'maze'
@@ -67,12 +66,12 @@ class ItinerariesController < ApplicationController
   end
 
 
-  def create
-    @review = @reviewable.Review.new review_params
-    @review.user = current_user
-    @comment.save
-    redirect_to @reviewable, notice: "Your review was successfully created"
-  end
+  # def create
+  #   @review = @reviewable.Review.new review_params
+  #   @review.user = current_user
+  #   @comment.save
+  #   redirect_to maze_intro_path, notice: "Your review was successfully created"
+  # end
 
   private
 
@@ -94,10 +93,6 @@ class ItinerariesController < ApplicationController
 
   def review_params
     params.require(:review).permit(:body)
-  end
-
-  def set_reviewable
-    @reviewable = Itinerary.new(params[:itinerary_id])
   end
 
 end

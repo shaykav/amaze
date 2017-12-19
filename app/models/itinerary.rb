@@ -1,6 +1,6 @@
 class Itinerary < ApplicationRecord
   has_many :locations, dependent: :destroy
-  has_many :reviews, as: :reviewable
+  has_many :reviews
   belongs_to :user
 
   has_many :neighborhood_itineraries
