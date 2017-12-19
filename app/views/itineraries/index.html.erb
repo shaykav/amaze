@@ -34,7 +34,11 @@ body { margin:0; padding:0; }
 
   map.on('load', function() {
 
-    // Add a layer showing the places.
+    
+    map.loadImage('https://upload.wikimedia.org/wikipedia/commons/thumb/6/60/Cat_silhouette.svg/400px-Cat_silhouette.svg.png', function(error, image) {
+            if (error) throw error;
+            map.addImage('cat', image);
+
     map.addLayer({
       "id": "places",
       "type": "symbol",
@@ -64,7 +68,7 @@ body { margin:0; padding:0; }
         }
       },
       "layout": {
-        "icon-image": "star-15",
+        "icon-image": "cat",
         "icon-size": 1.5,
         "icon-allow-overlap": true
       }
