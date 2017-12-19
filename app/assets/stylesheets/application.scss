@@ -14,24 +14,24 @@
  *= require_self
  */
 
-@font-face {  
-        font-family: 'Ikaros-Regular';  
+@font-face {
+        font-family: 'Ikaros-Regular';
         src: url('/assets/Ikaros-Regular.otf');
-        font-weight: normal;  
-        font-style: normal;  
-     }  
+        font-weight: normal;
+        font-style: normal;
+     }
 
-     @font-face {  
-             font-family: 'Maze';  
+     @font-face {
+             font-family: 'Maze';
              src: url('/assets/Maze.otf');
-             font-weight: normal;  
-             font-style: normal;  
-          }  
+             font-weight: normal;
+             font-style: normal;
+          }
 
-     .content p {  
-        font-family: 'a_sensible_armadilloregular';  
-        font-size: 42px;  
-     }  
+     .content p {
+        font-family: 'a_sensible_armadilloregular';
+        font-size: 42px;
+     }
 
 
 .home-container {
@@ -199,4 +199,7 @@ section:last-child{
   font-weight: 800;
 }
 
-
+/* Itinerary new */
+.padd-descr {
+  padding-left: 10px;
+}
