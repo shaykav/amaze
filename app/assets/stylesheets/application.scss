@@ -1,0 +1,178 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, or any plugin's
+ * vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any other CSS/SCSS
+ * files in this directory. Styles in this file should be added after the last require_* statement.
+ * It is generally better to create a new file per style scope.
+ *
+ *= require_tree .
+ *= require_self
+ */
+
+
+
+
+.home-container {
+  // margin-bottom: 100px;
+  margin-top: 30px !important;
+}
+
+.padding {
+    padding: 60px;
+  }
+  @media (max-width: 980px) {
+    body {
+      padding-top: 0;
+    }
+  }
+
+
+/*Styling for notification bar*/
+
+ .alert {
+   position:fixed;
+   top: 80px;
+   width: 75%;
+   position: fixed;
+   left: 50%;
+   margin-left: -37.5%;
+   z-index:9999;
+ }
+
+ .cursor {
+  cursor: pointer;
+}
+
+.view {
+  cursor: pointer;
+}
+
+/* Navbar */
+
+.navbar-brand {
+  margin-top: 11px;
+}
+
+.sign-up-btn > .btn:hover {
+  transition: none !important;
+}
+
+.btn .fa {
+    margin-left: 3px;
+}
+.top-nav-collapse {
+    background-color: #424f95 !important;
+}
+.navbar:not(.top-nav-collapse) {
+    background: transparent !important;
+}
+@media (max-width: 768px) {
+    .navbar:not(.top-nav-collapse) {
+        background: #424f95 !important;
+    }
+}
+
+.navbar a,
+.navbar a:hover {
+  color: #FFF;
+}
+
+@media (max-width: 768px) {
+    .navbar:not(.top-nav-collapse) {
+        background: #82b1ff !important;
+    }
+}
+
+h5 {
+    letter-spacing: 3px;
+}
+
+// Homepage icons
+
+section{
+  opacity: 1;
+}
+
+section:last-child{
+  margin-bottom: 0px;
+}
+
+
+/* Card */
+
+.sign-up {
+  margin: auto;
+  margin-top: 20px;
+
+}
+.sign-up-header {
+  margin: 30px;
+  color: #2c3e50;
+}
+
+.card-container {
+  margin-right: auto;
+  margin-left: auto;
+  padding-right: 25px;
+  padding-left: 25px;
+  width: 100%;
+}
+
+.devise-shared {
+  margin-top: 20px;
+}
+
+.login-padding {
+  margin-bottom: 20px;
+  margin-top: 22px;
+}
+
+.md-form {
+  margin-bottom: 1rem !important;
+}
+
+.login-background {
+  background-image: url('https://images.unsplash.com/photo-1504273066284-53fb4c703113?auto=format&fit=crop&w=1803&q=80&ixid=dW5zcGxhc2guY29tOzs7Ozs%3D');
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-position: center;
+
+
+  &:before {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background-image: linear-gradient(to bottom right,#002f4b,#dc4225);
+    opacity: .45;
+  }
+}
+
+.jarallax {
+  background-image: url('https://images.unsplash.com/photo-1484275367269-4e0b47b5afdd?auto=format&fit=crop&w=1778&q=80&ixid=dW5zcGxhc2guY29tOzs7Ozs%3D ');
+
+  &:before {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background-image: linear-gradient(to bottom right,#002f4b,#dc4225);
+    opacity: .45;
+  }
+}
+
+.button-container {
+  text-align: center;
+}
+
+ /* Itinerary new */

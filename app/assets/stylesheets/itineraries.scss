@@ -1,3 +1,141 @@
-// Place all the styles related to the itineraries controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
+body { margin:0; padding:0; }
+#map { position:absolute; top:0; bottom:0; width:100%; }
+
+#map {
+  position: fixed;
+  width:50%;
+}
+#features {
+  width: 50%;
+  margin-left: 50%;
+  font-family: sans-serif;
+  overflow-y: scroll;
+  background-color: #fafafa;
+}
+section {
+  padding:  25px 50px;
+  line-height: 25px;
+  border-bottom: 1px solid #ddd;
+  opacity: 0.25;
+  font-size: 13px;
+}
+section.active {
+  opacity: 1;
+}
+section:last-child {
+  border-bottom: none;
+  margin-bottom: 1000px;
+}
+
+.maze-sections {
+  text-align: center;
+  border-bottom: 1px solid #ddd;
+}
+
+.maze-sections:last-child{
+  margin-bottom: 900px;
+}
+
+.maze-header {
+  font-size: 3.5em;
+}
+
+p {
+  font-size: 1.5em;
+}
+
+.maze-photos {
+  box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
+  margin: 30px 0px
+}
+
+.section-divide {
+    background-color: black;
+    border: 0 none;
+    color: black;
+    height: 1px;
+    max-width: 500px;
+}
+
+.address-text {
+  font-size: 1.2em;
+}
+
+.intro-map{
+  box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
+  position: static !important;
+  height: 500px;
+}
+
+.maze-intro-title{
+  font-size: 4em;
+}
+
+.intro-container {
+  text-align: center;
+}
+
+.h1-reponsive {
+  font-size: 5em;
+}
+
+.btn-action {
+  margin-left: none;
+  float: right;
+}
+
+.steps-number {
+  color:white;
+  font-size: 2.3em;
+}
+
+#steps:first-child {
+  background: #2c3e50;
+  height: 50px;
+  padding-top: 3px;
+}
+
+.card .card-body h4 {
+    font-weight: 400;
+    color: initial;
+}
+
+.offwhite-background {
+  background: #f7f7f7;
+}
+
+.py-5 {
+  margin: auto;
+}
+
+.maze-intro-header{
+  min-height: 65vh !important;
+}
+
+.maze-intro-container {
+  padding: 70px;
+}
+
+.intro-map{
+  margin: auto;
+  margin-bottom: 70px;
+}
+
+.steps-number-intro {
+  color: black;
+}
+
+.route-header {
+  text-align: center;
+  margin-top: 40px;
+}
+
+.route-header h1 {
+  font-size: 3em;
+  font-weight: 700;
+}
+
+.card:not([class*="card-outline-"]) {
+    border: 0;
+    margin-bottom: 30px;
+}

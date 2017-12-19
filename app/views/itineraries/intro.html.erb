@@ -1,0 +1,196 @@
+<% content_for :body_class, 'offwhite-background' %>
+
+<div class="view hm-black-light jarallax maze-intro-header" style="background: url('<%=@itinerary.image.url%>');" data-jarallax='{"speed": 0.2}' >
+  <div class="full-bg-img">
+    <div class="container flex-center">
+      <div class="row pt-5 mt-3">
+        <div class="col-md-12">
+          <div class="text-center">
+            <h1 class="h1-reponsive white-text font-up font-bold mb-3 wow fadeInDown" data-wow-delay="0.3s"><strong><%= @itinerary.title %></strong></h1>
+            <hr class="hr-light mt-4 wow fadeInDown" data-wow-delay="0.4s">
+            <h5 class="font-up mb-5 white-text wow fadeInDown" data-wow-delay="0.4s"><strong><%= @itinerary.description %></strong></h5>
+            <%= link_to 'Enter Maze', itinerary_path(@itinerary), class: "btn btn-lg btn-deep-orange btn-rounded wow fadeInDown" %>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<div class="route-header">
+  <h1>Route</h1>
+  <div id="steps"></div>
+</div>
+
+<div class="maze-intro-container">
+  <div id='map' class="intro-map"></div>
+  
+  
+  <h1>Route Photos</h1>
+  <hr>
+
+  <div class="row">
+    <% @itinerary.locations.each do |location| %>
+    <div class="col-md-4">
+      <%= image_tag location.photo, width: '100%', class: "maze-photos" %>
+    </div>
+  
+    <% end %>
+  </div>
+</div>
+
+
+
+
+<script>
+
+  mapboxgl.accessToken = 'pk.eyJ1Ijoia2V2aW5zY2hhZmZ0ZXIiLCJhIjoiY2piNnNkMmQ2OTBiZzMzcnpzM252OGttdSJ9.vp7HQwPNr--uNONxICdJzg';
+
+  var map = new mapboxgl.Map({
+    container: 'map',
+    style: 'mapbox://styles/mapbox/streets-v9',
+    center: [<%= @itinerary.locations.second.longitude %>, <%= @itinerary.locations.second.latitude %>],
+    zoom: 12,
+    bearing: 1,
+    pitch: 1
+  });
+
+  // Adds route layer to map
+
+  map.on('load', function() {
+
+    getRoute();
+
+    var layers = map.getStyle().layers;
+
+    var labelLayerId;
+    for (var i = 0; i < layers.length; i++) {
+        if (layers[i].type === 'symbol' && layers[i].layout['text-field']) {
+            labelLayerId = layers[i].id;
+            break;
+        }
+    }
+
+    map.addLayer({
+            'id': '3d-buildings',
+            'source': 'composite',
+            'source-layer': 'building',
+            'filter': ['==', 'extrude', 'true'],
+            'type': 'fill-extrusion',
+            'minzoom': 15,
+            'paint': {
+                'fill-extrusion-color': '#aaa',
+
+                // use an 'interpolate' expression to add a smooth transition effect to the
+                // buildings as the user zooms in
+                'fill-extrusion-height': [
+                    "interpolate", ["linear"], ["zoom"],
+                    15, 0,
+                    15.05, ["get", "height"]
+                ],
+                'fill-extrusion-base': [
+                    "interpolate", ["linear"], ["zoom"],
+                    15, 0,
+                    15.05, ["get", "min_height"]
+                ],
+                'fill-extrusion-opacity': .6
+            }
+        }, labelLayerId);
+
+
+    });
+
+
+
+  function getRoute() {
+
+    var start = [<%= (@itinerary.locations.first.longitude).to_f %>, <%= (@itinerary.locations.first.latitude).to_f %>];
+    var end = [<%= (@itinerary.locations.last.longitude).to_f %>, <%= (@itinerary.locations.last.latitude).to_f %>];
+    
+
+    var directionsRequest = 'https://api.mapbox.com/optimized-trips/v1/mapbox/walking/' + 
+    <% location_size = @itinerary.locations.size %>
+    <% @itinerary.locations.each_with_index do |location, ix| %>
+    '<%=location.longitude%>' + ',' + '<%=location.latitude%><%= (ix + 1 == location_size) ? "" : ";" %>' + 
+    <% end %>  '?geometries=geojson' + '&steps=true&source=first&destination=last&roundtrip=false' + '&access_token=' + mapboxgl.accessToken;
+
+    console.log(directionsRequest)
+    
+
+    $.ajax({
+      method: 'GET',
+      url: directionsRequest,
+    }).done(function(data) {
+      var route = data.trips[0].geometry.coordinates;
+      var steps = Math.ceil(data.trips[0].distance)
+
+      $('#steps').append(`<h4 class="steps-number-intro"> ${steps} Steps </h4>`);
+
+      console.log(steps)
+      
+        map.addLayer({
+          "id": "route",
+          "type": "line",
+          "source": {
+            "type": "geojson",
+            "data": {
+              "type": "Feature",
+              "properties": {},
+              "geometry": {
+                "type": "LineString",
+                "coordinates": route
+              }
+            }
+          },
+          "layout": {
+            "line-join": "round",
+            "line-cap": "round"
+          },
+          "paint": {
+            "line-color": "#3498db",
+            "line-width": 5
+          }
+        });
+      });
+      
+      map.addLayer({
+        id: 'start',
+        type: 'circle',
+        source: {
+          type: 'geojson',
+          data: {
+            type: 'Feature',
+            geometry: {
+              type: 'Point',
+              coordinates: start
+            }
+          }
+        }
+      });
+
+      map.addLayer({
+        id: 'end',
+        type: 'circle',
+        source: {
+          type: 'geojson',
+          data: {
+            type: 'Feature',
+            geometry: {
+              type: 'Point',
+              coordinates: end
+            }
+          }
+        }
+      });
+  }
+
+  
+</script>
+
+
+
+
+
+
+

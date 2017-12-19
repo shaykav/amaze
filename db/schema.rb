@@ -10,8 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-
-ActiveRecord::Schema.define(version: 20171214192010) do
+ActiveRecord::Schema.define(version: 20171217220958) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -22,6 +21,10 @@ ActiveRecord::Schema.define(version: 20171214192010) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.bigint "user_id"
+    t.string "image_file_name"
+    t.string "image_content_type"
+    t.integer "image_file_size"
+    t.datetime "image_updated_at"
     t.index ["user_id"], name: "index_itineraries_on_user_id"
   end
 
@@ -34,7 +37,25 @@ ActiveRecord::Schema.define(version: 20171214192010) do
     t.bigint "itinerary_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "website"
+    t.string "address"
+    t.string "icon"
     t.index ["itinerary_id"], name: "index_locations_on_itinerary_id"
+  end
+
+  create_table "neighborhood_itineraries", force: :cascade do |t|
+    t.bigint "neighborhood_id"
+    t.bigint "itinerary_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["itinerary_id"], name: "index_neighborhood_itineraries_on_itinerary_id"
+    t.index ["neighborhood_id"], name: "index_neighborhood_itineraries_on_neighborhood_id"
+  end
+
+  create_table "neighborhoods", force: :cascade do |t|
+    t.string "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "reviews", force: :cascade do |t|
@@ -66,4 +87,6 @@ ActiveRecord::Schema.define(version: 20171214192010) do
 
   add_foreign_key "itineraries", "users"
   add_foreign_key "locations", "itineraries"
+  add_foreign_key "neighborhood_itineraries", "itineraries"
+  add_foreign_key "neighborhood_itineraries", "neighborhoods"
 end
