@@ -6,7 +6,7 @@
       <div class="row pt-5 mt-3">
         <div class="col-md-12">
           <div class="text-center">
-            <h1 class="h1-reponsive white-text font-up font-bold mb-3 wow fadeInDown" data-wow-delay="0.3s"><strong>Share Your Experience</strong></h1>
+            <h1 class="h1-reponsive white-text font-up font-bold mb-3 wow fadeInDown" data-wow-delay="0.3s"><strong class="new-header">Share Your Experience</strong></h1>
           </div>
         </div>
       </div>
@@ -37,7 +37,7 @@
   <div class="row">
     <div class="col-md-6 mx-auto">
       <div class="jumbotron">
-        <h4>What's your maze name?</h4>
+        <h3>What's your maze name?</h3>
         <br>
 
         <div class="md-form">
@@ -61,10 +61,10 @@
 
         <br>
 
-        <h4>Add a photo from your adventure!</h4>
+        
 
-        <div class="form-group">
-          <label class="btn btn-primary btn-md">
+        <div class="form-group image-btn">
+          <label class="btn btn-deep-orange btn-lg btn-rounded">
            Upload Image <%= f.file_field :image, style: 'display: none' %>
          </label>
        </div>
@@ -73,7 +73,8 @@
    </div>
   </div>
 
-  <h4>Tell us about your locations</h4>
+  <h3 class="location-header">Tell us about your locations</h3>
+  <hr class="location-ruler">
 
   <div class="maze-form">
 

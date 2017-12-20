@@ -3,22 +3,22 @@
   <div id='features'>
   </span>
 
-  <% @itinerary.locations.each do |location| %>
+  <% @itinerary.locations.reverse.each do |location| %>
 
-<div class="maze-sections">
+  <div class="maze-sections">
 
-  <div id="steps"></div>
-  
-  <section id='<%= location.title %>' class='active'>
-    <h2 class="maze-header"><%= location.title %> 
-    <% if location.icon.present? %>
-      <%= image_tag location.icon, width: '25px' %>
-    <% end %>
-      </h2>
+    <div id="steps"></div>
     
-    <% if location.address.present? %>
+    <section id='<%= location.title %>' class='active'>
+      <h2 class="maze-header"><%= location.title %> 
+        <% if location.icon.present? %>
+        <%= image_tag location.icon, width: '25px' %>
+        <% end %>
+      </h2>
+      
+      <% if location.address.present? %>
       <p class="address-text"><%= location.address %></p>
-    <% end %>
+      <% end %>
     </p>
     <hr class="section-divide">
     <p><%= location.description %></p>
@@ -35,12 +35,12 @@
      <% end %>
 
    </div>
-      
-      
-    </section>
+   
+   
+ </section>
 </div>
 
-  <% end %>
+<% end %>
 </div>
 
 
@@ -58,7 +58,7 @@
   var map = new mapboxgl.Map({
     container: 'map',
     style: 'mapbox://styles/mapbox/streets-v9',
-    center: [<%= @itinerary.locations.first.longitude %>, <%= @itinerary.locations.first.latitude %>],
+    center: [<%= @itinerary.locations.reverse.first.longitude %>, <%= @itinerary.locations.reverse.first.latitude %>],
     zoom: 18,
     bearing: 1,
     pitch: 100
@@ -74,40 +74,40 @@
 
     var labelLayerId;
     for (var i = 0; i < layers.length; i++) {
-        if (layers[i].type === 'symbol' && layers[i].layout['text-field']) {
-            labelLayerId = layers[i].id;
-            break;
-        }
+      if (layers[i].type === 'symbol' && layers[i].layout['text-field']) {
+        labelLayerId = layers[i].id;
+        break;
+      }
     }
 
     map.addLayer({
-            'id': '3d-buildings',
-            'source': 'composite',
-            'source-layer': 'building',
-            'filter': ['==', 'extrude', 'true'],
-            'type': 'fill-extrusion',
-            'minzoom': 15,
-            'paint': {
-                'fill-extrusion-color': '#aaa',
+      'id': '3d-buildings',
+      'source': 'composite',
+      'source-layer': 'building',
+      'filter': ['==', 'extrude', 'true'],
+      'type': 'fill-extrusion',
+      'minzoom': 15,
+      'paint': {
+        'fill-extrusion-color': '#aaa',
 
                 // use an 'interpolate' expression to add a smooth transition effect to the
                 // buildings as the user zooms in
                 'fill-extrusion-height': [
-                    "interpolate", ["linear"], ["zoom"],
-                    15, 0,
-                    15.05, ["get", "height"]
+                "interpolate", ["linear"], ["zoom"],
+                15, 0,
+                15.05, ["get", "height"]
                 ],
                 'fill-extrusion-base': [
-                    "interpolate", ["linear"], ["zoom"],
-                    15, 0,
-                    15.05, ["get", "min_height"]
+                "interpolate", ["linear"], ["zoom"],
+                15, 0,
+                15.05, ["get", "min_height"]
                 ],
                 'fill-extrusion-opacity': .6
-            }
-        }, labelLayerId);
+              }
+            }, labelLayerId);
 
 
-    });
+  });
 
 
 
@@ -137,66 +137,73 @@
 
       console.log(steps)
       
-        map.addLayer({
-          "id": "route",
-          "type": "line",
-          "source": {
-            "type": "geojson",
-            "data": {
-              "type": "Feature",
-              "properties": {},
-              "geometry": {
-                "type": "LineString",
-                "coordinates": route
-              }
-            }
-          },
-          "layout": {
-            "line-join": "round",
-            "line-cap": "round"
-          },
-          "paint": {
-            "line-color": "#3498db",
-            "line-width": 9
-          }
-        });
-      });
-      
       map.addLayer({
-        id: 'start',
-        type: 'circle',
-        source: {
-          type: 'geojson',
-          data: {
-            type: 'Feature',
-            geometry: {
-              type: 'Point',
-              coordinates: start
+        "id": "route",
+        "type": "line",
+        "source": {
+          "type": "geojson",
+          "data": {
+            "type": "Feature",
+            "properties": {},
+            "geometry": {
+              "type": "LineString",
+              "coordinates": route
             }
           }
+        },
+        "layout": {
+          "line-join": "round",
+          "line-cap": "round"
+        },
+        "paint": {
+          "line-color": "#3498db",
+          "line-width": 9
         }
       });
+    });
 
-      map.addLayer({
-        id: 'end',
-        type: 'circle',
-        source: {
-          type: 'geojson',
-          data: {
-            type: 'Feature',
-            geometry: {
-              type: 'Point',
-              coordinates: end
-            }
+    map.addControl(new mapboxgl.GeolocateControl({
+      positionOptions: {
+        enableHighAccuracy: true
+      },
+      trackUserLocation: true
+    }));
+    
+    map.addLayer({
+      id: 'start',
+      type: 'circle',
+      source: {
+        type: 'geojson',
+        data: {
+          type: 'Feature',
+          geometry: {
+            type: 'Point',
+            coordinates: start
           }
         }
-      });
+      }
+    });
+
+    map.addLayer({
+      id: 'end',
+      type: 'circle',
+      source: {
+        type: 'geojson',
+        data: {
+          type: 'Feature',
+          geometry: {
+            type: 'Point',
+            coordinates: end
+          }
+        }
+      }
+    });
   }
 
 
   var chapters = {
 
-    <% @itinerary.locations.each do |location| %>
+    <% @itinerary.locations.reverse.each do |location| %>
 
 
     '<%= location.title %>': {
