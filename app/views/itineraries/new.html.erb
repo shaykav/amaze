@@ -63,8 +63,10 @@
 
         
 
+
         <div class="form-group image-btn">
           <label class="btn btn-deep-orange btn-lg btn-rounded">
+
            Upload Image <%= f.file_field :image, style: 'display: none' %>
          </label>
        </div>
@@ -87,7 +89,7 @@
 
     <div class="col-md-2 mx-auto text-center">
 
-      <a href="#" data-added="false" class="add-maze-btn btn-floating btn-lg green"><i class="fa fa-plus"></i> </a>
+      <a href="#" data-added="false" class="add-maze-btn btn-floating btn-md green"><i class="fa fa-plus"></i> </a>
 
       <template>
         <div class="new-wrapper">
@@ -103,7 +105,9 @@
 
   <hr>
 
-  <%= f.submit 'Create Maze', class: " btn btn-primary submit-itinerary" %>
+    <div class="text-center">
+      <%= f.submit 'Create Maze', class: "btn btn-primary btn-rounded submit-itinerary" %>
+    </div>
   <% end %>
   </div>
 </div>
