@@ -11,17 +11,11 @@ def create
 end
 
 def edit
-  @review = Review.find(params[:id])
+
 end
 
 def update
-  @review = Review.find(params[:id])
 
-  if @review.update_attributes(params_review)
-    redirect_to maze_intro_path(@review.itinerary.id)
-  else
-    render "edit"
-  end
 end
 
 
@@ -37,9 +31,7 @@ private
     params.require(:review).permit(:body, :itinerary_id)
   end
 
-  def params_review
-    params.require(:review).permit(:body)
-  end
+
   # def set_reviewable
   #   @reviewable = Itinerary.find(params[:id])
   # end
