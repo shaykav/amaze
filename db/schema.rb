@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171217220958) do
+ActiveRecord::Schema.define(version: 20171220180145) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -25,6 +25,8 @@ ActiveRecord::Schema.define(version: 20171217220958) do
     t.string "image_content_type"
     t.integer "image_file_size"
     t.datetime "image_updated_at"
+    t.bigint "neighborhood_id"
+    t.index ["neighborhood_id"], name: "index_itineraries_on_neighborhood_id"
     t.index ["user_id"], name: "index_itineraries_on_user_id"
   end
 
@@ -85,6 +87,7 @@ ActiveRecord::Schema.define(version: 20171217220958) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "itineraries", "neighborhoods"
   add_foreign_key "itineraries", "users"
   add_foreign_key "locations", "itineraries"
   add_foreign_key "neighborhood_itineraries", "itineraries"
