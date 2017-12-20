@@ -8,6 +8,9 @@ class Itinerary < ApplicationRecord
   has_many :neighborhood_itineraries
   has_many :neighborhoods, through: :neighborhood_itineraries
 
+  has_many :favorites
+  has_many :users, through: :favorites
+
   accepts_nested_attributes_for :neighborhood_itineraries
 
   attr_accessor :content

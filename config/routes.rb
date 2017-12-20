@@ -1,5 +1,15 @@
 Rails.application.routes.draw do
 
+  get 'favorites/index'
+
+  get 'favorites/show'
+
+  get 'favorites/new'
+
+  get 'favorites/create'
+
+  get 'favorites/destroy'
+
   root 'pages#home'
 
   get '/maze/:id', to: 'itineraries#intro', as: 'maze_intro'

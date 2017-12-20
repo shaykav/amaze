@@ -6,4 +6,7 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :trackable, :validatable
   has_many :itineraries
 
+  has_many :favorites
+  has_many :itineraries, through: :favorites
+
 end
