@@ -1,26 +1,19 @@
+# This file should contain all the record creation needed to seed the database with its default values.
+# The data can then be loaded with the rails db:seed command (or created alongside the database with db:setup).
 #
-# Itinerary.create!([
-#   {title: "Miamisdf", description: "dsfsd"},
-#   {title: "Miami 2", description: "asdasfsdfsdf"}
-# ])
-# Location.create!([
-#   {title: "Wyncode Academy", description: "sdfsfsdf", photo: "https://lh3.googleusercontent.com/p/AF1QipMLbOEjVkOcQxd6KW9ldTFNuFjv-tszrlz-ssKv=w400-k", latitude: "25.8030467", longitude: "-80.20437329999999", itinerary_id: 1},
-#   {title: "Miami Seaquarium", description: "dsfsdf", photo: "https://lh3.googleusercontent.com/p/AF1QipPIydtBVbWqkKsB5K6-bNnGDOiwidhOIpibzRmV=w400-k", latitude: "25.735003", longitude: "-80.164105", itinerary_id: 1},
-#   {title: "Miami Beach", description: "csdf", photo: "https://lh3.googleusercontent.com/p/AF1QipPEcn4NT6msq5us_Alj2OWdF8Pk4VZ-WDtdMPCI=w400-k", latitude: "25.790654", longitude: "-80.1300455", itinerary_id: 1},
-#   {title: "Miami Seaquarium", description: "sdfsdfsdf", photo: "https://lh3.googleusercontent.com/p/AF1QipPIydtBVbWqkKsB5K6-bNnGDOiwidhOIpibzRmV=w400-k", latitude: "25.735003", longitude: "-80.164105", itinerary_id: 2},
-#   {title: "Miami Beach", description: "cvsdvdfvdfgdf", photo: "https://lh3.googleusercontent.com/p/AF1QipPEcn4NT6msq5us_Alj2OWdF8Pk4VZ-WDtdMPCI=w400-k", latitude: "25.790654", longitude: "-80.1300455", itinerary_id: 2},
-#   {title: "Wyncode Academy", description: "sdvsdfsdfsdfsdf", photo: "https://lh3.googleusercontent.com/p/AF1QipMLbOEjVkOcQxd6KW9ldTFNuFjv-tszrlz-ssKv=w400-k", latitude: "25.8030467", longitude: "-80.20437329999999", itinerary_id: 2}
-# ])
-# # Review.create!([
-# #   {body: "First comment", reviewable_type: "Itinerary", reviewable_id: 1},
-# #   {body: "First comment", reviewable_type: "Itinerary", reviewable_id: 1},
-# #   {body: nil, reviewable_type: "Itinerary", reviewable_id: 2},
-# #   {body: nil, reviewable_type: "Itinerary", reviewable_id: 2},
-# #   {body: nil, reviewable_type: "Itinerary", reviewable_id: 2},
-# #   {body: nil, reviewable_type: "Itinerary", reviewable_id: 2},
-# #   {body: nil, reviewable_type: "Itinerary", reviewable_id: 2},
-# #   {body: nil, reviewable_type: "Itinerary", reviewable_id: 2},
-# #   {body: nil, reviewable_type: "Itinerary", reviewable_id: 1},
-# #   {body: nil, reviewable_type: "Itinerary", reviewable_id: 1}
-# # ])
-# # TODOs delete after changing migration
+# Examples:
+#
+#   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
+#   Character.create(name: 'Luke', movie: movies.first)
+
+
+wynwood = Neighborhood.find_or_create_by(name: "Wynwood")
+brickell = Neighborhood.find_or_create_by(name: "Brickell")
+south_beach = Neighborhood.find_or_create_by(name: "South Beach")
+downtown_miami = Neighborhood.find_or_create_by(name: "Downtown Miami")
+coconut_grove = Neighborhood.find_or_create_by(name: "Coconut Grove")
+little_havana = Neighborhood.find_or_create_by(name: "Little Havana")
+design_district = Neighborhood.find_or_create_by(name: "Design District")
+midtown_miami = Neighborhood.find_or_create_by(name: "Midtown Miami")
+little_haiti = Neighborhood.find_or_create_by(name: "Little Haiti")
+overtown = Neighborhood.find_or_create_by(name: "Overtown")

@@ -37,7 +37,7 @@
   <div class="row">
     <div class="col-md-6 mx-auto">
       <div class="jumbotron">
-        <h3>What's your maze name?</h3>
+        <h3 class="text-center">What's Your Maze Name?</h3>
         <br>
 
         <div class="md-form">
@@ -47,10 +47,7 @@
 
         <div class="">
 
-          <%= f.fields_for :neighborhood_itineraries, f.object.neighborhood_itineraries.build do |ni_form|  %>
-          <%= ni_form.collection_select(:neighborhood_id, Neighborhood.all, :id, :name, { :prompt => 'Select Neighborhood' }, {class: 'mdb-select colorful-select dropdown-primary', searchable: 'Search here..'} ) %>
-
-          <% end %>
+          <%= f.select "neighborhood_id", options_from_collection_for_select(Neighborhood.all, 'id', 'name', (nil)), {:prompt => 'Select Neighborhood' }, {:class=>"mdb-select colorful-select dropdown-primary", searchable: 'Search here..' } %>
 
         </div>
 
@@ -61,7 +58,7 @@
 
         <br>
 
-        
+
 
 
         <div class="form-group image-btn">
@@ -75,7 +72,7 @@
    </div>
   </div>
 
-  <h3 class="location-header">Tell us about your locations</h3>
+  <h3 class="location-header">Enter Your Route Destinations</h3>
   <hr class="location-ruler">
 
   <div class="maze-form">
