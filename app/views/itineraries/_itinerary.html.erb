@@ -5,9 +5,9 @@
 
         <div class="view overlay hm-white-slight">
             <%= image_tag itinerary.image.url(:medium), width: '100%', class: 'image-fluid cursor' %>
-            
+
             <div class="mask"></div>
-            
+
         </div>
 
         <div class="btn-floating btn-action"><i class="fa fa-chevron-right"></i></div>
@@ -20,10 +20,8 @@
 
         <div class="card-data">
             <ul>
-                <li><i class="fa fa-clock-o"></i> 05/10/2015</li>
+                <li><i class="fa fa-clock-o"></i><%= itinerary.created_at.strftime('%m/%d/%Y') %></li>
                 <li><a href="#"><i class="fa fa-comments-o"></i>12</a></li>
-                <li><a href="#"><i class="fa fa-facebook"> </i>21</a></li>
-                <li><a href="#"><i class="fa fa-twitter"> </i>5</a></li>
             </ul>
         </div>
 
