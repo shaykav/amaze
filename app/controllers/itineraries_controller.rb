@@ -22,6 +22,7 @@ class ItinerariesController < ApplicationController
 
   def index
     @itineraries = Itinerary.all
+    render :layout => 'maze-intro'
   end
 
   def new
