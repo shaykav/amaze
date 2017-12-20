@@ -77,20 +77,26 @@
 
   <div class="maze-form">
 
-  <div class="row"><% 3.times do |num| %>
+  <div class="row"><% 4.times do |num| %>
     <%= render partial: 'itineraries/components/location_form', locals: {f:f} %>
     <% end %></div>
 
   </div>
+  <div class="row">
 
-  <a href="#" data-added="false" class="add-maze-btn"> Add Another</a>
+    <div class="col-md-2 mx-auto text-center">
 
-  <template>
-    <div class="new-wrapper">
-      <%= render partial: 'itineraries/components/location_form', locals: {f:f, is_new: true } %>
-      <span class="remove-form" data-id="">X</span>
+      <a href="#" data-added="false" class="add-maze-btn btn-floating btn-lg blue-gradient"><i class="fa fa-plus"></i> </a>
+
+      <template>
+        <div class="new-wrapper">
+          <%= render partial: 'itineraries/components/location_form', locals: {f:f, is_new: true } %>
+        </div>
+      </template>
+
     </div>
-  </template>
+
+  </div>
 
   <%= hidden_field_tag 'itinerary[locations]', nil %>
 

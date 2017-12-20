@@ -3,6 +3,10 @@
     <div class="form-container">
       <!-- To do: Add location -->
 
+      <% if defined?(is_new) %>
+        <a class="btn-floating btn-sm red remove-form pull-right" data-id=""><i class="fa fa-minus"></i></a>
+      <% end %>
+
       <div id="pac-container">
         <input class="pac-input" type="text"
             placeholder="Enter a location" data-is-new="<%= defined?(is_new) ? true : false %>">
