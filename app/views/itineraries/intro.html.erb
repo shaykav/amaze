@@ -46,9 +46,19 @@
 <p><%= 'no reviews yet' if @itinerary.reviews.empty? %></p>
 <% @itinerary.reviews.each do |review| %>
   <p>
-    <%= review.body %>
+    <div class="user-email">
+    </div>
+    <div class="review_body">
+      <%= review.body %>
+    </div>
+    <%= link_to "Edit Review", edit_review_path(review) %>
+    
+    <%= link_to "Delete", review, :confirm => "Are you Sure?", :method => :delete %>
     <br>
-    Added on: <%= review.created_at %>
+    Reviewed By: <%= review.user.email %>
+    <br>
+  <%= time_ago_in_words(review.created_at)%> ago
+
   </p>
 <% end %>
 
