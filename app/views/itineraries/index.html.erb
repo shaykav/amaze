@@ -21,12 +21,22 @@ body { margin:0; padding:0; }
 </div>
 
 <script>
+
+<% if @itineraries.any? %>
+  var lng = <%= @itineraries.first.locations.first.longitude %>;
+  var lat = <%= @itineraries.first.locations.first.latitude %>;
+<% else %>
+  var lng = 25.75791;
+  var lat = -80.2007997;
+<% end %>
+
+
   mapboxgl.accessToken = 'pk.eyJ1Ijoia2V2aW5zY2hhZmZ0ZXIiLCJhIjoiY2piNm96NGt2MHZxZTJ3bXo3bG5uN2RwMiJ9.mJexXrURcgBO8qfnCsoYkQ';
 
   var map = new mapboxgl.Map({
     container: 'map',
     style: 'mapbox://styles/mapbox/streets-v9',
-    center: [<%= @itineraries.first.locations.first.longitude %>, <%= @itineraries.first.locations.first.latitude %>],
+    center: [lng, lat],
     zoom: 11.15
   });
 
@@ -104,6 +114,7 @@ body { margin:0; padding:0; }
         });
       });
   });
+  
 </script>
 
 

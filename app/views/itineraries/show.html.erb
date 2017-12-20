@@ -34,7 +34,6 @@
     <div> <% if location.photo.present? %>
      <%= image_tag location.photo, width: '500px', class: "maze-photos" %>
      <% end %>
-
    </div>
    
  </section>
@@ -78,6 +77,8 @@
         break;
       }
     }
+
+
 
     map.addLayer({
       'id': '3d-buildings',
@@ -129,6 +130,8 @@
     }).done(function(data) {
       var route = data.trips[0].geometry.coordinates;
       var steps = Math.ceil(data.trips[0].distance)
+      var arrows = route.reverse();
+      console.log(arrows)
 
       $('#steps').append(`<h1 class="steps-number"> ${steps} Steps </h1>`);
 
@@ -157,7 +160,34 @@
           "line-width": 9
         }
       });
+
+      map.addLayer({
+        id: 'routearrows',
+        type: 'symbol',
+        source: 'route',
+        layout: {
+          'symbol-placement': 'line',
+          'text-field': '▶',
+          'text-size': {
+            base: 1,
+            stops: [[12, 24], [22, 60]]
+          },
+          'symbol-spacing': {
+            base: 1,
+            stops: [[12, 30], [22, 160]]
+          },
+          'text-keep-upright': false
+        },
+        paint: {
+          'text-color': '#3887be',
+          'text-halo-color': 'hsl(55, 11%, 96%)',
+          'text-halo-width': 3  
+        }
+      }, 'waterway-label');
+
     });
+
+
 
     map.addControl(new mapboxgl.GeolocateControl({
       positionOptions: {

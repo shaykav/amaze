@@ -91,14 +91,14 @@
     margin-left: 3px;
 }
 .top-nav-collapse {
-    background-color: #424f95 !important;
+    background-color: #3d4451 !important;
 }
 .navbar:not(.top-nav-collapse) {
     background: transparent !important;
 }
 @media (max-width: 768px) {
     .navbar:not(.top-nav-collapse) {
-        background: #424f95 !important;
+        background: #3d4451 !important;
     }
 }
 
@@ -203,8 +203,8 @@ section:last-child{
 
 #main-title {
   font-family: 'Maze' !important;
-  font-size: 9.5rem;
-  font-weight: 800;
+  font-size: 13.5rem;
+  font-weight: 300;
 }
 
 /* Itinerary new */
@@ -226,3 +226,7 @@ section:last-child{
   padding: 60px;
 }
 
+.section .section-heading {
+  font-size: 3.5em;
+  margin-top: 0.5em !important;
+}
