@@ -1,1 +1,12 @@
 <h1>Edit Post</h1>
+
+<%= form_for @review do |f| %>
+<p>
+<%= f.text_field :body %>
+</p>
+
+<p>
+<%= f.submit "Update Your Review" %>
+</p>
+
+<% end %>
