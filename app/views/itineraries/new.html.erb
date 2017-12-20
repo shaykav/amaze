@@ -1,12 +1,12 @@
 <% content_for :body_class, 'offwhite-background' %>
 
-<div class="view hm-black-light jarallax itinerary-new-header" data-jarallax='{"speed": 0.2}' >
+<div class="view hm-black-light jarallax itinerary-new-header" data-jarallax='{"speed": 0.2}'>
   <div class="full-bg-img">
     <div class="container flex-center">
       <div class="row pt-5 mt-3">
         <div class="col-md-12">
           <div class="text-center">
-            <h1 class="h1-reponsive white-text font-up font-bold mb-3 wow fadeInDown" data-wow-delay="0.3s"><strong>Share Your Experience</strong></h1>
+            <h1 class="h1-reponsive white-text font-up font-bold mb-3 wow fadeInDown" data-wow-delay="0.3s"><strong class="new-header">Share Your Experience</strong></h1>
           </div>
         </div>
       </div>
@@ -37,7 +37,7 @@
   <div class="row">
     <div class="col-md-6 mx-auto">
       <div class="jumbotron">
-        <h4>What's your maze name?</h4>
+        <h3>What's your maze name?</h3>
         <br>
 
         <div class="md-form">
@@ -61,10 +61,10 @@
 
         <br>
 
-        <h4>Add a photo from your adventure!</h4>
+        
 
-        <div class="form-group">
-          <label class="btn btn-primary btn-md">
+        <div class="form-group image-btn">
+          <label class="btn btn-deep-orange btn-lg btn-rounded">
            Upload Image <%= f.file_field :image, style: 'display: none' %>
          </label>
        </div>
@@ -73,24 +73,31 @@
    </div>
   </div>
 
-  <h4>Tell us about your locations</h4>
+  <h3 class="location-header">Tell us about your locations</h3>
+  <hr class="location-ruler">
 
   <div class="maze-form">
 
-  <div class="row"><% 3.times do |num| %>
+  <div class="row"><% 4.times do |num| %>
     <%= render partial: 'itineraries/components/location_form', locals: {f:f} %>
     <% end %></div>
 
   </div>
+  <div class="row">
 
-  <a href="#" data-added="false" class="add-maze-btn"> Add Another</a>
+    <div class="col-md-2 mx-auto text-center">
 
-  <template>
-    <div class="new-wrapper">
-      <%= render partial: 'itineraries/components/location_form', locals: {f:f, is_new: true } %>
-      <span class="remove-form" data-id="">X</span>
+      <a href="#" data-added="false" class="add-maze-btn btn-floating btn-lg green"><i class="fa fa-plus"></i> </a>
+
+      <template>
+        <div class="new-wrapper">
+          <%= render partial: 'itineraries/components/location_form', locals: {f:f, is_new: true } %>
+        </div>
+      </template>
+
     </div>
-  </template>
+
+  </div>
 
   <%= hidden_field_tag 'itinerary[locations]', nil %>
 

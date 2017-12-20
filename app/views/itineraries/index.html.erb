@@ -11,7 +11,7 @@
   font: 12px/20px 'Helvetica Neue', Arial, Helvetica, sans-serif;
 }
 body { margin:0; padding:0; }
-#map { position:relative; height:600px; width: 100%; }
+#map { position:relative; height:500px; width: 100%; }
 </style>
 
 
@@ -73,6 +73,16 @@ body { margin:0; padding:0; }
           "icon-allow-overlap": true
         }
       });
+
+      map.addControl(new mapboxgl.NavigationControl());
+
+
+      map.addControl(new mapboxgl.GeolocateControl({
+          positionOptions: {
+              enableHighAccuracy: true
+          },
+          trackUserLocation: true
+      }));
 
     // When a click event occurs on a feature in the places layer, open a popup at the
         // location of the feature, with description HTML from its properties.
