@@ -60,12 +60,12 @@ ActiveRecord::Schema.define(version: 20171217220958) do
 
   create_table "reviews", force: :cascade do |t|
     t.text "body"
-    t.string "reviewable_type"
-    t.bigint "reviewable_id"
+    t.bigint "user_id"
+    t.bigint "itinerary_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["reviewable_id", "reviewable_type"], name: "index_reviews_on_reviewable_id_and_reviewable_type"
-    t.index ["reviewable_type", "reviewable_id"], name: "index_reviews_on_reviewable_type_and_reviewable_id"
+    t.index ["itinerary_id"], name: "index_reviews_on_itinerary_id"
+    t.index ["user_id"], name: "index_reviews_on_user_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -89,4 +89,6 @@ ActiveRecord::Schema.define(version: 20171217220958) do
   add_foreign_key "locations", "itineraries"
   add_foreign_key "neighborhood_itineraries", "itineraries"
   add_foreign_key "neighborhood_itineraries", "neighborhoods"
+  add_foreign_key "reviews", "itineraries"
+  add_foreign_key "reviews", "users"
 end

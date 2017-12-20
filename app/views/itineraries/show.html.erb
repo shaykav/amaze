@@ -7,6 +7,7 @@
 
   <div class="maze-sections">
 
+
     <div id="steps"></div>
     
     <section id='<%= location.title %>' class='active'>
@@ -36,20 +37,18 @@
 
    </div>
    
-   
  </section>
+
 </div>
 
 <% end %>
 </div>
-
 
 <div class="fixed-action-btn" style="bottom: 60px; right: 24px;">
   <a class="btn-floating btn-lg red" href="<%= maze_intro_path %>">
     <%= fa_icon "arrow-left" %>
   </a>
 </div>
-
 
 <script>
 
@@ -110,21 +109,19 @@
   });
 
 
-
   function getRoute() {
 
     var start = [<%= (@itinerary.locations.first.longitude).to_f %>, <%= (@itinerary.locations.first.latitude).to_f %>];
     var end = [<%= (@itinerary.locations.last.longitude).to_f %>, <%= (@itinerary.locations.last.latitude).to_f %>];
-    
 
-    var directionsRequest = 'https://api.mapbox.com/optimized-trips/v1/mapbox/walking/' + 
+
+    var directionsRequest = 'https://api.mapbox.com/optimized-trips/v1/mapbox/walking/' +
     <% location_size = @itinerary.locations.size %>
     <% @itinerary.locations.each_with_index do |location, ix| %>
-    '<%=location.longitude%>' + ',' + '<%=location.latitude%><%= (ix + 1 == location_size) ? "" : ";" %>' + 
+    '<%=location.longitude%>' + ',' + '<%=location.latitude%><%= (ix + 1 == location_size) ? "" : ";" %>' +
     <% end %>  '?geometries=geojson' + '&steps=true&source=first&destination=last&roundtrip=false' + '&access_token=' + mapboxgl.accessToken;
 
     console.log(directionsRequest)
-    
 
     $.ajax({
       method: 'GET',
@@ -136,7 +133,7 @@
       $('#steps').append(`<h1 class="steps-number"> ${steps} Steps </h1>`);
 
       console.log(steps)
-      
+
       map.addLayer({
         "id": "route",
         "type": "line",
@@ -200,7 +197,6 @@
     });
   }
 
-
   var chapters = {
 
     <% @itinerary.locations.reverse.each do |location| %>
@@ -215,8 +211,6 @@
 
     <% end %>
   };
-
-
 
 // On every scroll event, check which element is on screen
 window.onscroll = function() {
