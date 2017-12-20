@@ -64,7 +64,7 @@
         <h4>Add a photo from your adventure!</h4>
 
         <div class="form-group">
-          <label class="btn btn-primary btn-md">
+          <label class="btn btn-primary btn-rounded btn-md">
            Upload Image <%= f.file_field :image, style: 'display: none' %>
          </label>
        </div>
@@ -86,7 +86,7 @@
 
     <div class="col-md-2 mx-auto text-center">
 
-      <a href="#" data-added="false" class="add-maze-btn btn-floating btn-lg green"><i class="fa fa-plus"></i> </a>
+      <a href="#" data-added="false" class="add-maze-btn btn-floating btn-md green"><i class="fa fa-plus"></i> </a>
 
       <template>
         <div class="new-wrapper">
@@ -102,7 +102,9 @@
 
   <hr>
 
-  <%= f.submit 'Create Maze', class: " btn btn-primary submit-itinerary" %>
+    <div class="text-center">
+      <%= f.submit 'Create Maze', class: "btn btn-primary btn-rounded submit-itinerary" %>
+    </div>
   <% end %>
   </div>
 </div>
