@@ -9,6 +9,7 @@ class ItinerariesController < ApplicationController
 
   def intro
     render :layout => 'maze-intro'
+
   end
 
   def manage_itineraries
@@ -17,6 +18,7 @@ class ItinerariesController < ApplicationController
 
   def edit
   end
+
 
   def index
     @itineraries = Itinerary.all
@@ -69,6 +71,13 @@ class ItinerariesController < ApplicationController
   end
 
 
+  # def create
+  #   @review = @reviewable.Review.new review_params
+  #   @review.user = current_user
+  #   @comment.save
+  #   redirect_to maze_intro_path, notice: "Your review was successfully created"
+  # end
+
   private
 
   def set_product
@@ -85,6 +94,10 @@ class ItinerariesController < ApplicationController
     if current_user.id != @itinerary.user_id
       redirect_to root_url, alert: "Sorry, this listing belongs to someone else"
     end
+  end
+
+  def review_params
+    params.require(:review).permit(:body)
   end
 
 end

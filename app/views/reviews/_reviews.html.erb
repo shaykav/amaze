@@ -1,0 +1,8 @@
+<p><%= 'no reviews yet' if @itinerary.reviews.empty? %></p>
+<% reviewable.reviews.each do |review| %>
+  <div>
+    <%= review.body %>
+  </div>
+    Added on: <%= review.created_at %>
+  </p>
+<% end %>

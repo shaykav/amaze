@@ -1,3 +1,28 @@
+<style>
+.accordion {
+    background-color: #eee;
+    color: #444;
+    cursor: pointer;
+    padding: 18px;
+    width: 100%;
+    border: none;
+    text-align: left;
+    outline: none;
+    font-size: 15px;
+    transition: 0.4s;
+}
+
+.active, .accordion:hover {
+    background-color: #ccc;
+}
+
+.panel {
+    padding: 0 18px;
+    display: none;
+    background-color: white;
+}
+</style>
+
 <% content_for :body_class, 'offwhite-background' %>
 
 <div class="view hm-black-light jarallax maze-intro-header" style="background: url('<%=@itinerary.image.url%>');" data-jarallax='{"speed": 0.2}' >
@@ -17,6 +42,46 @@
   </div>
 </div>
 
+<h3>Reviews</h3>
+<p><%= 'no reviews yet' if @itinerary.reviews.empty? %></p>
+<% @itinerary.reviews.each do |review| %>
+  <p>
+    <%= review.body %>
+    <br>
+    Added on: <%= review.created_at %>
+  </p>
+<% end %>
+
+<div class="review_accordian">
+
+  <button class="accordion">Write a Review</button>
+  <div class="panel">
+    <p>
+      <div class="review_form">
+        <%= render "reviews/form", review: @itinerary.reviews.new %>
+      </div>
+    </p>
+  </div>
+
+</div>
+
+
+<script>
+var acc = document.getElementsByClassName("accordion");
+var i;
+
+for (i = 0; i < acc.length; i++) {
+  acc[i].addEventListener("click", function() {
+      this.classList.toggle("active");
+      var panel = this.nextElementSibling;
+      if (panel.style.display === "block") {
+          panel.style.display = "none";
+      } else {
+          panel.style.display = "block";
+      }
+  });
+}
+</script>
 
 <div class="route-header">
   <h1>Route</h1>
@@ -25,8 +90,8 @@
 
 <div class="maze-intro-container">
   <div id='map' class="intro-map"></div>
-  
-  
+
+
   <h1>Route Photos</h1>
   <hr>
 
@@ -35,7 +100,7 @@
     <div class="col-md-4">
       <%= image_tag location.photo, width: '100%', class: "maze-photos" %>
     </div>
-  
+
     <% end %>
   </div>
 </div>
@@ -107,16 +172,16 @@
 
     var start = [<%= (@itinerary.locations.first.longitude).to_f %>, <%= (@itinerary.locations.first.latitude).to_f %>];
     var end = [<%= (@itinerary.locations.last.longitude).to_f %>, <%= (@itinerary.locations.last.latitude).to_f %>];
-    
 
-    var directionsRequest = 'https://api.mapbox.com/optimized-trips/v1/mapbox/walking/' + 
+
+    var directionsRequest = 'https://api.mapbox.com/optimized-trips/v1/mapbox/walking/' +
     <% location_size = @itinerary.locations.size %>
     <% @itinerary.locations.each_with_index do |location, ix| %>
-    '<%=location.longitude%>' + ',' + '<%=location.latitude%><%= (ix + 1 == location_size) ? "" : ";" %>' + 
+    '<%=location.longitude%>' + ',' + '<%=location.latitude%><%= (ix + 1 == location_size) ? "" : ";" %>' +
     <% end %>  '?geometries=geojson' + '&steps=true&source=first&destination=last&roundtrip=false' + '&access_token=' + mapboxgl.accessToken;
 
     console.log(directionsRequest)
-    
+
 
     $.ajax({
       method: 'GET',
@@ -128,7 +193,7 @@
       $('#steps').append(`<h4 class="steps-number-intro"> ${steps} Steps </h4>`);
 
       console.log(steps)
-      
+
         map.addLayer({
           "id": "route",
           "type": "line",
@@ -153,7 +218,7 @@
           }
         });
       });
-      
+
       map.addLayer({
         id: 'start',
         type: 'circle',
@@ -185,12 +250,5 @@
       });
   }
 
-  
+
 </script>
-
-
-
-
-
-
-
