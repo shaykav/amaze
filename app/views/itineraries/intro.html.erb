@@ -1,28 +1,3 @@
-<style>
-.accordion {
-    background-color: #eee;
-    color: #444;
-    cursor: pointer;
-    padding: 18px;
-    width: 100%;
-    border: none;
-    text-align: left;
-    outline: none;
-    font-size: 15px;
-    transition: 0.4s;
-}
-
-.active, .accordion:hover {
-    background-color: #ccc;
-}
-
-.panel {
-    padding: 0 18px;
-    display: none;
-    background-color: white;
-}
-</style>
-
 <% content_for :body_class, 'offwhite-background' %>
 
 <div class="view hm-black-light jarallax maze-intro-header" style="background: url('<%=@itinerary.image.url%>');" data-jarallax='{"speed": 0.2}' >
@@ -42,57 +17,6 @@
   </div>
 </div>
 
-<h3>Reviews</h3>
-<p><%= 'No reviews yet.' if @itinerary.reviews.empty? %></p>
-<% @itinerary.reviews.each do |review| %>
-  <p>
-    <div class="user-email">
-    </div>
-    <div class="review_body">
-      <%= review.body %>
-    </div>
-    <%= link_to "Edit Review", edit_review_path(review) %>
-
-    <%= link_to "Delete", review, :confirm => "Are you Sure?", :method => :delete %>
-    <br>
-    Reviewed By: <%= review.user.email %>
-    <br>
-  <%= time_ago_in_words(review.created_at)%> ago
-
-  </p>
-<% end %>
-
-<div class="review_accordian">
-
-  <button class="accordion">Write a Review</button>
-  <div class="panel">
-    <p>
-      <div class="review_form">
-        <%= render "reviews/form", review: @itinerary.reviews.new %>
-      </div>
-    </p>
-  </div>
-
-</div>
-
-
-<script>
-var acc = document.getElementsByClassName("accordion");
-var i;
-
-for (i = 0; i < acc.length; i++) {
-  acc[i].addEventListener("click", function() {
-      this.classList.toggle("active");
-      var panel = this.nextElementSibling;
-      if (panel.style.display === "block") {
-          panel.style.display = "none";
-      } else {
-          panel.style.display = "block";
-      }
-  });
-}
-</script>
-
 <div class="route-header">
   <h1>Route</h1>
   <div id="steps"></div>
@@ -100,6 +24,44 @@ for (i = 0; i < acc.length; i++) {
 
 <div class="maze-intro-container">
   <div id='map' class="intro-map"></div>
+
+<div class="col-md-6 mx-auto">
+  
+    <h3>Reviews</h3>
+    <hr>
+    <p><%= 'No reviews yet' if @itinerary.reviews.empty? %></p>
+    <% @itinerary.reviews.each do |review| %>
+    <p>
+      <div class="user-email">
+      </div>
+      <div class="review_body">
+        <%= review.body %>
+      </div>
+      <%= link_to "Edit Review", edit_review_path(review) %>
+      
+      <%= link_to "Delete", review, :confirm => "Are you Sure?", :method => :delete %>
+      <br>
+      Reviewed By: <%= review.user.email %>
+      <br>
+      <%= time_ago_in_words(review.created_at)%> ago
+  
+    </p>
+    <% end %>
+  
+    <div class="review_accordian">
+  
+      <button class="accordion">Write a Review</button>
+      <div class="panel">
+        <p>
+          <div class="review_form">
+            <%= render "reviews/form", review: @itinerary.reviews.new %>
+          </div>
+        </p>
+      </div>
+  
+    </div>
+</div>
+
 
 
   <h1>Route Photos</h1>
@@ -119,6 +81,7 @@ for (i = 0; i < acc.length; i++) {
 
 
 <script>
+
 
   mapboxgl.accessToken = 'pk.eyJ1Ijoia2V2aW5zY2hhZmZ0ZXIiLCJhIjoiY2piNnNkMmQ2OTBiZzMzcnpzM252OGttdSJ9.vp7HQwPNr--uNONxICdJzg';
 
@@ -261,4 +224,26 @@ for (i = 0; i < acc.length; i++) {
   }
 
 
+</script>
+
+
+
+
+
+
+<script>
+var acc = document.getElementsByClassName("accordion");
+var i;
+
+for (i = 0; i < acc.length; i++) {
+  acc[i].addEventListener("click", function() {
+      this.classList.toggle("active");
+      var panel = this.nextElementSibling;
+      if (panel.style.display === "block") {
+          panel.style.display = "none";
+      } else {
+          panel.style.display = "block";
+      }
+  });
+}
 </script>
