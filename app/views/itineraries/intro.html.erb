@@ -52,7 +52,7 @@
       <%= review.body %>
     </div>
     <%= link_to "Edit Review", edit_review_path(review) %>
-    
+
     <%= link_to "Delete", review, :confirm => "Are you Sure?", :method => :delete %>
     <br>
     Reviewed By: <%= review.user.email %>
@@ -75,6 +75,14 @@
 
 </div>
 
+
+<!-- <% if current_user.favorited_itineraries.include? @itinerary %>
+  <%#= '' %>
+<% else %>
+  <%#= 'Favorite' %>
+<% end %> -->
+
+<%= link_to_toggle_itinerary_favorite(@itinerary, current_user) %>
 
 <script>
 var acc = document.getElementsByClassName("accordion");

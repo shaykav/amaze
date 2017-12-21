@@ -1,14 +1,14 @@
 Rails.application.routes.draw do
 
-  get 'favorites/index'
-
-  get 'favorites/show'
-
-  get 'favorites/new'
-
-  get 'favorites/create'
-
-  get 'favorites/destroy'
+  # get 'favorites/index'
+  #
+  # get 'favorites/show'
+  #
+  # get 'favorites/new'
+  #
+  # get 'favorites/create'
+  #
+  # get 'favorites/destroy'
 
   root 'pages#home'
 
@@ -24,6 +24,8 @@ Rails.application.routes.draw do
 
   get 'pages/home'
 
-  resources :itineraries
+  resources :itineraries do
+    resources :favorites, only: %w(create destroy), :controller => 'itineraries/favorites'
+  end
 
 end

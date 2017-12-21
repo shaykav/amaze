@@ -7,6 +7,6 @@ class User < ApplicationRecord
   has_many :itineraries
 
   has_many :favorites
-  has_many :itineraries, through: :favorites
+  has_many :favorited_itineraries, through: :favorites, source: :itinerary
 
 end
