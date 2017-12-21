@@ -8,6 +8,7 @@ class ItinerariesController < ApplicationController
   end
 
   def intro
+    @review = Review.new(review_params)
     render :layout => 'maze-intro'
 
   end

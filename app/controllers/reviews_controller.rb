@@ -4,7 +4,8 @@ class ReviewsController < ApplicationController
 
 def create
   @review = Review.new(review_params)
-  @review.user_email = current_user.email
+  # @review.user_id = current_user.id
+  @review.itinerary_id = @itinerary.id
   @review.save
   redirect_to maze_intro_path(@review.itinerary.id),notice: "Your review was successfully created."
 
