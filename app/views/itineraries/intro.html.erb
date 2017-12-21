@@ -17,6 +17,23 @@
   </div>
 </div>
 
+<div class="pull-right">
+  <%= link_to_toggle_itinerary_favorite(@itinerary, current_user) %>
+</div>
+<script>
+  //console.log('hello world');
+  var colorClasses = {
+        Favorited: 'favorite btn btn-primary btn-rounded',
+        notFavorited: 'favorite btn btn-outline-primary btn-rounded waves-effect',
+      },
+      _classes = Object.values(colorClasses).join(' ');
+      $('#fav_button').click(() => {
+        $("#fav_button").toggleClass(_classes);
+      });
+
+</script>
+
+
 <div class="route-header">
   <h1>Route</h1>
   <div id="steps"></div>
@@ -26,7 +43,7 @@
   <div id='map' class="intro-map"></div>
 
 <div class="col-md-6 mx-auto">
-  
+
     <h3>Reviews</h3>
     <hr>
     <p><%= 'No reviews yet' if @itinerary.reviews.empty? %></p>
@@ -37,10 +54,10 @@
       <div class="review_body">
         <%= review.body %>
       </div>
-     
+
       <% if current_user and review.user_id == current_user.id %>
         <%= link_to "Edit", edit_review_path(review) %>
-        
+
         <%= link_to "Delete", review, :confirm => "Are you Sure?", :method => :delete %>
 
       <% end %>
@@ -48,12 +65,12 @@
       Reviewed By: <%= review.user.email %>
       <br>
       <%= time_ago_in_words(review.created_at)%> ago
-  
+
     </p>
     <% end %>
-  
+
     <div class="review_accordian">
-  
+
       <button class="accordion">Write a Review</button>
       <div class="panel">
         <p>
@@ -62,7 +79,7 @@
           </div>
         </p>
       </div>
-  
+
     </div>
 </div>
 
@@ -80,6 +97,14 @@
     <% end %>
   </div>
 </div>
+
+
+
+<!-- <% if current_user.favorited_itineraries.include? @itinerary %>
+  <%#= '' %>
+<% else %>
+  <%#= 'Favorite' %>
+<% end %> -->
 
 
 <script>
