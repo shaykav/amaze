@@ -17,6 +17,10 @@
   </div>
 </div>
 
+<div class="pull-right">
+  <%= link_to_toggle_itinerary_favorite(@itinerary, current_user) %>
+</div>
+
 
 <div class="route-header">
   <h1>Route</h1>
@@ -85,10 +89,6 @@
 <% else %>
   <%#= 'Favorite' %>
 <% end %> -->
-
-<%= link_to_toggle_itinerary_favorite(@itinerary, current_user) %>
-
-
 
 
 <script>

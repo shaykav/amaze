@@ -5,17 +5,17 @@ module ItinerariesHelper
     if user.favorited_itineraries.include? itinerary
       favorite = Favorite.find_by(itinerary_id: itinerary.id, user_id: user.id)
       url = itinerary_favorite_path(itinerary, favorite)
-      link_to_with_icon('icon-star', 'Favorite', url, {
+      link_to_with_icon('icon-star', 'Favorited', url, {
         method: 'DELETE',
         remote: true,
-        class: 'favorite btn btn-primary',
+        class: 'favorite btn btn-primary btn-rounded',
       })
     else
       url = itinerary_favorites_path(itinerary)
       link_to_with_icon('icon-star', 'Favorite', url, {
         method: 'POST',
         remote: true,
-        class: 'favorite btn',
+        class: 'favorite btn btn-outline-primary btn-rounded waves-effect',
       })
     end
   end
