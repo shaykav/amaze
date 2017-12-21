@@ -17,6 +17,23 @@
   </div>
 </div>
 
+<div class="pull-right">
+  <%= link_to_toggle_itinerary_favorite(@itinerary, current_user) %>
+</div>
+<script>
+  //console.log('hello world');
+  var colorClasses = {
+        Favorited: 'favorite btn btn-primary btn-rounded',
+        notFavorited: 'favorite btn btn-outline-primary btn-rounded waves-effect',
+      },
+      _classes = Object.values(colorClasses).join(' ');
+      $('#fav_button').click(() => {
+        $("#fav_button").toggleClass(_classes);
+      });
+
+</script>
+
+
 <div class="route-header">
   <h1>Route</h1>
   <div id="steps"></div>
@@ -80,6 +97,7 @@
     <% end %>
   </div>
 </div>
+
 
 
 <script>

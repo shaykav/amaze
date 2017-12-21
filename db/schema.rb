@@ -10,10 +10,19 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171220180145) do
+ActiveRecord::Schema.define(version: 20171220194217) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "favorites", force: :cascade do |t|
+    t.bigint "user_id"
+    t.bigint "itinerary_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["itinerary_id"], name: "index_favorites_on_itinerary_id"
+    t.index ["user_id"], name: "index_favorites_on_user_id"
+  end
 
   create_table "itineraries", force: :cascade do |t|
     t.string "title"
@@ -87,6 +96,8 @@ ActiveRecord::Schema.define(version: 20171220180145) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "favorites", "itineraries"
+  add_foreign_key "favorites", "users"
   add_foreign_key "itineraries", "neighborhoods"
   add_foreign_key "itineraries", "users"
   add_foreign_key "locations", "itineraries"

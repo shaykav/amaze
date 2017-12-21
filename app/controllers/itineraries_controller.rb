@@ -4,6 +4,7 @@ class ItinerariesController < ApplicationController
   before_action :check_user, only: [:edit, :update, :destroy]
 
   def show
+    @favorite = Favorite.new
     render :layout => 'maze'
   end
 
