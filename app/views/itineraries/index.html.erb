@@ -65,7 +65,7 @@ body { margin:0; padding:0; }
               "type": "Feature",
               "properties": {
                 "description": "<strong><%= itinerary.title %></strong><p><%= itinerary.description %> </p> <a class=\"btn btn-sm btn-primary\" href=\"<%= itinerary_path(itinerary) %>\">Enter</a>",
-                "icon": "theatre"
+                "icon": "cat"
               },
               "geometry": {
                 "type": "Point",
@@ -78,8 +78,8 @@ body { margin:0; padding:0; }
           }
         },
         "layout": {
-          "icon-image": "cat",
-          "icon-size": 0.3,
+          "icon-image": "{icon}",
+          "icon-size": 0.2,
           "icon-allow-overlap": true
         }
       });

@@ -217,7 +217,7 @@ a.mapboxgl-ctrl-logo, .mapboxgl-ctrl.mapboxgl-ctrl-attrib {
     border-radius: 5px;
 }
 
-.active, .accordion:hover {
+.accordion:hover {
     background-color: #ccc;
 }
 
@@ -225,4 +225,16 @@ a.mapboxgl-ctrl-logo, .mapboxgl-ctrl.mapboxgl-ctrl-attrib {
     padding: 8px 18px 1px 18px;
     display: none;
     background-color: white;
+    border-radius: 0px 0px 5px 5px;
+}
+
+.user-email {
+  font-weight: bold;
+  font-size: 1.1em;
+  margin-bottom: 5px;
+}
+.time-ago {
+  font-style: italic ;
+  font-size: 0.7em;
+  margin-top: 5px;
 }
