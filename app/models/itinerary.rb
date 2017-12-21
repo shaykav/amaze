@@ -39,6 +39,7 @@ class Itinerary < ApplicationRecord
             location.longitude = parsed_loc[:lng]
           end
         end
+        byebug
         location.save
       end
     end
