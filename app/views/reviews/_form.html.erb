@@ -2,6 +2,6 @@
   <%= f.text_area(:body, placeholder: "Add a review") %>
 
   <%= f.hidden_field :itinerary_id, value: @itinerary.id %>
-  <%= f.submit value: 'Add Review' %>
+  <%= f.submit value: 'Add Review', class: "btn btn-rounded btn-primary btn-sm" %>
 
 <% end %>

@@ -21,7 +21,7 @@
         <div class="card-data">
             <ul>
                 <li><i class="fa fa-clock-o"></i><%= itinerary.created_at.strftime('%m/%d/%Y') %></li>
-                <li><a href="#"><i class="fa fa-comments-o"></i>12</a></li>
+                <li><a href="#"><i class="fa fa-comments-o"></i><%= itinerary.reviews.count %></a></li>
             </ul>
         </div>
 
