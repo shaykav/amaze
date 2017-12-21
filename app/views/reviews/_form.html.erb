@@ -1,5 +1,5 @@
 <%= form_for(review) do |f| %>
   <%= f.text_area(:body, placeholder: "Add a review") %>
-  <!-- <%= f.text_field :itinerary_id, value: @itinerary.id%> -->
-  <%= f.submit value: 'submit' %>
+  <%= f.text_field :itinerary_id, value: @itinerary.id%>
+  <%= f.submit value: 'Add Review' %>
 <% end %>
