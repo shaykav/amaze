@@ -10,7 +10,7 @@ Rails.application.routes.draw do
   #
   # get 'favorites/destroy'
 
-  # get '/favorites', to: 'favorites#manage_favorites', as 'favorites' 
+  get '/favorites', to: 'itineraries/favorites#manage_favorites', as: 'favorites' 
 
   root 'pages#home'
 
