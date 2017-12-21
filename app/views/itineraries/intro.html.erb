@@ -37,9 +37,13 @@
       <div class="review_body">
         <%= review.body %>
       </div>
-      <%= link_to "Edit Review", edit_review_path(review) %>
-      
-      <%= link_to "Delete", review, :confirm => "Are you Sure?", :method => :delete %>
+     
+      <% if current_user and review.user_id == current_user.id %>
+        <%= link_to "Edit", edit_review_path(review) %>
+        
+        <%= link_to "Delete", review, :confirm => "Are you Sure?", :method => :delete %>
+
+      <% end %>
       <br>
       Reviewed By: <%= review.user.email %>
       <br>
@@ -76,8 +80,6 @@
     <% end %>
   </div>
 </div>
-
-
 
 
 <script>
