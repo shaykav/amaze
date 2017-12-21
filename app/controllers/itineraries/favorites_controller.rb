@@ -8,4 +8,8 @@ class Itineraries::FavoritesController < ApplicationController
     Favorite.find(params[:id]).destroy
   end
 
+  def manage_favorites
+    @favorites = Favorite.where(user_id: current_user.id, itinerary_id: favorited_itineraries)
+  end
+
 end

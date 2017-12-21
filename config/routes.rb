@@ -10,6 +10,8 @@ Rails.application.routes.draw do
   #
   # get 'favorites/destroy'
 
+  # get '/favorites', to: 'favorites#manage_favorites', as 'favorites' 
+
   root 'pages#home'
 
   get '/maze/:id', to: 'itineraries#intro', as: 'maze_intro'
