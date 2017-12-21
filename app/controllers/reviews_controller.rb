@@ -3,9 +3,10 @@ class ReviewsController < ApplicationController
   # before_action :set_reviewable, only: [:create]
 
 def create
+
   @review = Review.new(review_params)
-  # @review.user_id = current_user.id
-  @review.itinerary_id = @itinerary.id
+  @review.user = current_user
+  @review.user.email = current_user.email
   @review.save
   redirect_to maze_intro_path(@review.itinerary.id),notice: "Your review was successfully created."
 
