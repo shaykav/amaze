@@ -108,7 +108,7 @@
   var map = new mapboxgl.Map({
     container: 'map',
     style: 'mapbox://styles/mapbox/streets-v9',
-    center: [<%= @itinerary.locations.second.longitude %>, <%= @itinerary.locations.second.latitude %>],
+    center: [<%= @itinerary.locations.first.longitude %>, <%= @itinerary.locations.first.latitude %>],
     zoom: 12,
     bearing: 1,
     pitch: 1

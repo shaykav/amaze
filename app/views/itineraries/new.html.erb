@@ -55,8 +55,13 @@
 
         <div class="form-group image-btn">
           <label class="btn btn-deep-orange btn-lg btn-rounded">
-           Upload Image <%= f.file_field :image, style: 'display: none' %>
+           Upload Image <%= f.file_field :image, style: 'display: none', id: "pictureInput" %>
          </label>
+
+        <div class="col-md-6 mx-auto">
+           <div id="target"></div>
+        </div>
+
        </div>
 
      </div>
@@ -102,3 +107,4 @@
 
 
 <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAV8h_serLSbuH25YoZmcnS4lylLnuhilk&libraries=places&callback=initMap"></script>
+

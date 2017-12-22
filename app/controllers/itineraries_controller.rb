@@ -41,7 +41,7 @@ class ItinerariesController < ApplicationController
       # TODO add strong params
 
       locations = params[:itinerary][:content]
-      byebug
+
       Itinerary.location_parse_save(locations, @itinerary)
 
       redirect_to @itinerary
