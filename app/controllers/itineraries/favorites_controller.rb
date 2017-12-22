@@ -2,10 +2,6 @@ class Itineraries::FavoritesController < ApplicationController
 
   def create
     Favorite.find_or_create_by(user_id: current_user.id, itinerary_id: params[:itinerary_id])
-    respond_to do |format|
-      format.html
-      format.js {  }
-    end
   end
 
   def destroy
