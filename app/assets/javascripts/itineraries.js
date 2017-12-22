@@ -48,7 +48,7 @@ var maze = {
     clonedForm = $(formContainer);
 
     clonedForm.find(".remove-form").attr('data-id', +new Date)
-    $('.maze-form').append(clonedForm)
+    $('.maze-form .row').append(clonedForm)
     initMap( clonedForm.find(".pac-input:visible") )
   },
   deleteForm: function(el){
@@ -121,7 +121,7 @@ function initMap(field) {
 
       var lat = place.geometry.location.lat();
       var lng = place.geometry.location.lng();
-      debugger
+      
       var $input = $(this.gm_accessors_.place.Jc.gm_accessors_.input.Jc.b),
       isNewWrapper = ($input.attr("data-is-new") === "true");
 

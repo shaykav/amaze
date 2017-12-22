@@ -4,14 +4,10 @@ class Itinerary < ApplicationRecord
   has_many :reviews, dependent: :destroy
 
   belongs_to :user
-  has_one :neighborhood
-  # has_many :neighborhood_itineraries
-  # has_many :neighborhoods, through: :neighborhood_itineraries
+  belongs_to :neighborhood
 
   has_many :favorites
   has_many :favoritors, through: :favorites, source: :user
-
-  # accepts_nested_attributes_for :neighborhood_itineraries
 
   attr_accessor :content
 
@@ -42,6 +38,10 @@ class Itinerary < ApplicationRecord
         location.save
       end
     end
+  end
+
+  def reviews_count
+    return self.reviews.count
   end
 
 end
