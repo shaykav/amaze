@@ -9,7 +9,8 @@ class Itineraries::FavoritesController < ApplicationController
   end
 
   def manage_favorites
-    @favorites = Favorite.where(user_id: current_user.id, itinerary_id: favorited_itineraries)
+    @favorites = Favorite.where(user_id: current_user.id)
+    render 'favorites/manage_favorites'
   end
 
 end
