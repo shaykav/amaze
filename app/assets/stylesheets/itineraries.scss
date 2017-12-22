@@ -113,9 +113,25 @@ p {
     color: initial;
 }
 
-.card .card-data ul li {
-  font-size: 16px;
-  padding-left: 50px !important;
+.icon-float {
+  display: flex;
+  justify-content: center;
+}
+
+.icon-float li {
+  float: right;
+}
+
+.move-center {
+  padding-left: 85px;
+}
+
+.move-right {
+  margin-left: auto;
+}
+
+.right-side {
+  margin-left: auto;
 }
 
 .offwhite-background {
@@ -257,4 +273,27 @@ a.mapboxgl-ctrl-logo, .mapboxgl-ctrl.mapboxgl-ctrl-attrib {
 
 .navbar .dropdown-menu a {
   color: #FFF !important;
+}
+
+#fav_button {
+  font-size: 25px;
+  color: #F9DC5C;
+  border-color: #F9DC5C;
+  border-radius: 50%;
+  border-width: 2px;
+  border-style: solid;
+  width: 60px;
+  height: 60px;
+  position: relative;
+  text-align: center;
+  line-height: 55px;
+  transition-delay: 2s;
+}
+
+.fa .fa-star-o:before:hover {
+  background-color: #F9DC5C;
+}
+
+.star-pad {
+  padding-bottom: 30px;
 }

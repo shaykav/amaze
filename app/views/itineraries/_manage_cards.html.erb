@@ -2,19 +2,19 @@
 
 <div class="col-md-4">
   <div class="card">
-    
+
     <%= image_tag itinerary.image.url(:medium), width: '100%', class: 'image-fluid cursor' %>
-    
+
     <div class="card-body">
-      
+
       <h4 class="card-title"><%= itinerary.title %></h4>
-      
+
       <p class="card-text"><%= itinerary.description %></p>
       <div class="button-container">
         <div class="dropdown-divider"></div>
-        <%= link_to "View", itinerary, class: 'btn btn-primary btn-md' %>
-        <%= link_to "Edit", edit_itinerary_path(itinerary), class: 'btn btn-amber btn-md' %>
-        <%= link_to 'Delete', itinerary, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-danger btn-md'  %>
+        <%= link_to "View", itinerary, class: 'btn btn-outline-primary btn-rounded waves-effect btn-sm' %>
+        <%= link_to "Edit", edit_itinerary_path(itinerary), class: 'btn btn-outline-warning btn-rounded waves-effect btn-sm' %>
+        <%= link_to 'Delete', itinerary, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-outline-danger btn-rounded waves-effect btn-sm'  %>
       </div>
     </div>
   </div>

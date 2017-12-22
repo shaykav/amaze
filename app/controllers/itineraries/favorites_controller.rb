@@ -10,7 +10,7 @@ class Itineraries::FavoritesController < ApplicationController
 
   def manage_favorites
     @favorites = Favorite.where(user_id: current_user.id)
-    render 'favorites/manage_favorites'
+    render 'favorites/manage_favorites', :layout => 'maze-intro'
   end
 
 end

@@ -1,7 +1,7 @@
 <div class="col-md-4">
 
     <%= link_to maze_intro_path(itinerary) do %>
-    <div class="card maze-cards-index">
+      <div class="card maze-cards-index">
 
         <div class="view overlay hm-white-slight">
             <%= image_tag itinerary.image.url(:medium), width: '100%', class: 'image-fluid cursor' %>
@@ -19,9 +19,10 @@
         </div>
 
         <div class="card-data">
-            <ul>
-                <li><i class="fa fa-clock-o"></i><%= itinerary.created_at.strftime('%m/%d/%Y') %></li>
-                <li><a href="#"><i class="fa fa-comments-o"></i><%= itinerary.reviews.count %></a></li>
+            <ul class="icon-float">
+                <li class="move-center"><i class="fa fa-clock-o"></i><%= itinerary.created_at.strftime('%m/%d/%Y') %></li>
+                <li class="move-right"><a href="#"><i class="fa fa-comments-o right-side"></i><%= itinerary.reviews.count %></a></li>
+                <li><a href="#"><i class="fa fa-star-o"></i><%= itinerary.favoritors.count %></a></li>
             </ul>
         </div>
 
