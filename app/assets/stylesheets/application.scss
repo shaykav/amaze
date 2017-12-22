@@ -227,6 +227,34 @@ section:last-child{
 }
 
 .section .section-heading {
-  font-size: 3.5em;
-  margin-top: 0.5em !important;
+  font-size: 4em;
+  margin-top: 0em !important;
+}
+
+.most-reviewed {
+  background-color: #f7f7f7;
+  min-height: 700px;
+  min-width: 100%;
+  padding: 80px;
+}
+
+.most-reviewed h1 {
+  text-align: center;
+  font-size: 3em;
+}
+
+.card .card-data {
+    background-color: #3d4451;
+    text-align: center;
+    height: auto;
+    padding: 10px;
+}
+
+.card .btn-action {
+    margin: -23px 20px;
+    margin-left: auto;
+    background-color: #8bb1f9;
+    height: 47px;
+    width: 47px;
+    line-height: 0;
 }

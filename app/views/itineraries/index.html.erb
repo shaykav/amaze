@@ -58,28 +58,27 @@ body { margin:0; padding:0; }
             "type": "FeatureCollection",
             "features": [
 
-            {
-
               <% @itineraries.each do |itinerary| %>
+                {
 
-              "type": "Feature",
-              "properties": {
-                "description": "<strong><%= itinerary.title %></strong><p><%= itinerary.description %> </p> <a class=\"btn btn-sm btn-primary\" href=\"<%= itinerary_path(itinerary) %>\">Enter</a>",
-                "icon": "cat"
-              },
-              "geometry": {
-                "type": "Point",
-                "coordinates": [<%= itinerary.locations.first.longitude %>, <%= itinerary.locations.first.latitude %>]
-              },
+                  "type": "Feature",
+                  "properties": {
+                    "description": "<strong><%= itinerary.title %></strong><p><%= itinerary.description %> </p> <a class=\"btn btn-sm btn-primary\" href=\"<%= itinerary_path(itinerary) %>\">Enter</a>",
+                    "icon": "cat"
+                  },
+                  "geometry": {
+                    "type": "Point",
+                    "coordinates": [<%= itinerary.locations.first.longitude %>, <%= itinerary.locations.first.latitude %>]
+                  },
 
+                },
               <% end %>
-            }
             ]
           }
         },
         "layout": {
           "icon-image": "{icon}",
-          "icon-size": 0.2,
+          "icon-size": 0.3,
           "icon-allow-overlap": true
         }
       });
@@ -117,7 +116,13 @@ body { margin:0; padding:0; }
   
 </script>
 
+  <%#= form_tag(itineraries_path, :method=>:get) do %>
+   <%#= select_tag "neighborhood_id", options_from_collection_for_select(Neighborhood.all, 'id', 'name', (nil)), {:prompt => 'Select Neighborhood' }, {:class=>"mdb-select colorful-select dropdown-primary", searchable: 'Search here..' } %>
+   <%#= submit_tag 'Search', class: 'btn btn-md btn-primary' %>
+  <%# end %> 
 
+
+ <%#= f.select "neighborhood_id", options_from_collection_for_select(Neighborhood.all, 'id', 'name', (nil)), {:prompt => 'Select Neighborhood' }, {:class=>"mdb-select colorful-select dropdown-primary", searchable: 'Search here..' } %>
 
 
 <div class="row inineraries-index-container">

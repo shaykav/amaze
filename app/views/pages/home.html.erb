@@ -16,36 +16,47 @@
   </div>
 </div>
 
-
-<section class="section feature-box">
-
-  <h1 class="section-heading pt-4">What is a maze?</h1>
-
-  <p class="section-description lead grey-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.</p>
-
-  <div class="row features-big">
-
-    <div class="col-md-4 mb-r">
-      <i class="fa fa-area-chart red-text"></i>
-      <h5 class="feature-title">Analytics</h5>
-      <p class="grey-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Reprehenderit maiores nam, aperiam minima assumenda deleniti hic.</p>
+<div class="itinerary-new-body">
+  
+  <section class="section feature-box">
+  
+    <h1 class="section-heading pt-4">What is a Maze?</h1>
+  
+    <p class="section-description lead grey-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.</p>
+  
+    <div class="row features-big">
+  
+      <div class="col-md-4 mb-r">
+        <i class="fa fa-area-chart red-text"></i>
+        <h5 class="feature-title">Analytics</h5>
+        <p class="grey-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Reprehenderit maiores nam, aperiam minima assumenda deleniti hic.</p>
+      </div>
+  
+      <div class="col-md-4 mb-r">
+        <i class="fa fa-book cyan-text"></i>
+        <h5 class="feature-title">Tutorials</h5>
+        <p class="grey-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Reprehenderit maiores nam, aperiam minima assumenda deleniti hic.</p>
+      </div>
+  
+      <div class="col-md-4 mb-r">
+        <i class="fa fa-coffee orange-text"></i>
+        <h5 class="feature-title">Relax</h5>
+        <p class="grey-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Reprehenderit maiores nam, aperiam minima assumenda deleniti hic.</p>
+      </div>
     </div>
 
-    <div class="col-md-4 mb-r">
-      <i class="fa fa-book cyan-text"></i>
-      <h5 class="feature-title">Tutorials</h5>
-      <p class="grey-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Reprehenderit maiores nam, aperiam minima assumenda deleniti hic.</p>
-    </div>
+  
+  </section>
+</div>
 
-    <div class="col-md-4 mb-r">
-      <i class="fa fa-coffee orange-text"></i>
-      <h5 class="feature-title">Relax</h5>
-      <p class="grey-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Reprehenderit maiores nam, aperiam minima assumenda deleniti hic.</p>
-    </div>
+<div class="most-reviewed">
+  <h1>Most Popular Mazes</h1>
+  <hr>
+  <div class="row">
+    <%= render partial: 'itineraries/itinerary', collection: @itineraries %>
   </div>
-
-</section>
-
+  
+</div>
 
 
 
