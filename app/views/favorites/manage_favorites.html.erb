@@ -1,4 +1,5 @@
-<% @favorites.each do |favorite| %>
-  <%= favorite.title %>
-  <%= favorite.description %>
-<% end %>
+<% content_for :body_class, 'offwhite-background' %>
+
+<div class="row">
+  <%= render partial: "favorites/favorite_cards"  %>
+</div>
