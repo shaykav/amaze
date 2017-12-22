@@ -5893,7 +5893,7 @@ button:focus {
       font-size: 0.9375rem;
       font-weight: 300;
       padding: 10px;
-      color: #000 !important; }
+      color: #000 ; }
       .navbar .dropdown-menu a:hover {
         color: #fff !important; }
     @media (max-width: 600px) {
