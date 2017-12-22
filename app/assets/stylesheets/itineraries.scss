@@ -113,9 +113,25 @@ p {
     color: initial;
 }
 
-.card .card-data ul li {
-  font-size: 16px;
-  padding-left: 50px !important;
+.icon-float {
+  display: flex;
+  justify-content: center;
+}
+
+.icon-float li {
+  float: right;
+}
+
+.move-center {
+  padding-left: 85px;
+}
+
+.move-right {
+  margin-left: auto;
+}
+
+.right-side {
+  margin-left: auto;
 }
 
 .offwhite-background {

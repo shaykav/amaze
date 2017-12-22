@@ -23,7 +23,8 @@
           <div class="card-data">
               <ul>
                   <li><i class="fa fa-clock-o"></i><%= favorite.itinerary.created_at.strftime('%m/%d/%Y') %></li>
-                  <li><a href="#"><i class="fa fa-comments-o"></i>12</a></li>
+                  <li><a href="#"><i class="fa fa-comments-o"></i><%=  favorite.itinerary.reviews.count %></a></li>
+                  <li><a href="#"><i class="fa fa-star-o"></i><%= favorite.itinerary.favoritors.count %></a></li>
               </ul>
           </div>
 
