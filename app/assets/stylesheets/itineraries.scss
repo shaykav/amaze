@@ -287,7 +287,6 @@ a.mapboxgl-ctrl-logo, .mapboxgl-ctrl.mapboxgl-ctrl-attrib {
   position: relative;
   text-align: center;
   line-height: 55px;
-  transition-delay: 2s;
 }
 
 .fa .fa-star-o:before:hover {
@@ -296,4 +295,8 @@ a.mapboxgl-ctrl-logo, .mapboxgl-ctrl.mapboxgl-ctrl-attrib {
 
 .star-pad {
   padding-bottom: 30px;
+}
+
+.jarallax {
+  min-height: 600px !important;
 }

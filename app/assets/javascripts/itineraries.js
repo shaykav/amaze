@@ -2,7 +2,6 @@
 
 $(document).ready (function() {
 
-
   $('.mdb-select').material_select();
 
 
@@ -121,7 +120,7 @@ function initMap(field) {
 
       var lat = place.geometry.location.lat();
       var lng = place.geometry.location.lng();
-      
+
       var $input = $(this.gm_accessors_.place.Jc.gm_accessors_.input.Jc.b),
       isNewWrapper = ($input.attr("data-is-new") === "true");
 
