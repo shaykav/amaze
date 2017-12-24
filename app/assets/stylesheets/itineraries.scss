@@ -290,6 +290,7 @@ a.mapboxgl-ctrl-logo, .mapboxgl-ctrl.mapboxgl-ctrl-attrib {
 }
 
 #fav_button:hover {
+  color: #F9DC5C !important;
   border-color: #F9DC5C;
   border-radius: 50%;
   border-width: 5px;
@@ -314,6 +315,7 @@ a.mapboxgl-ctrl-logo, .mapboxgl-ctrl.mapboxgl-ctrl-attrib {
 }
 
 .star-redirect:hover {
+  color: #F9DC5C;
   border-color: #F9DC5C;
   border-radius: 50%;
   border-width: 5px;
@@ -376,4 +378,3 @@ a:hover {
 .neighborhood-select .select-wrapper {
     min-width: 427px;
 }
-
