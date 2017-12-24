@@ -287,13 +287,22 @@ a.mapboxgl-ctrl-logo, .mapboxgl-ctrl.mapboxgl-ctrl-attrib {
   position: relative;
   text-align: center;
   line-height: 55px;
-  transition-delay: 2s;
 }
 
-.fa .fa-star-o:before:hover {
-  background-color: #F9DC5C;
+#fav_button:hover {
+  border-color: #F9DC5C;
+  border-radius: 50%;
+  border-width: 5px;
+  border-style: solid;
+  width: 60px;
+  height: 60px;
+  line-height: 50px;
 }
 
 .star-pad {
   padding-bottom: 30px;
+}
+
+.jarallax {
+  min-height: 600px !important;
 }

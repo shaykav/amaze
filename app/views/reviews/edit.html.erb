@@ -1,12 +1,18 @@
-<h1>Edit Post</h1>
+<% content_for :body_class, 'offwhite-background' %>
 
-<%= form_for @review do |f| %>
-<p>
-<%= f.text_field :body %>
-</p>
+<div class="jumbotron col-md-6 mx-auto">
 
-<p>
-<%= f.submit "Update Your Review" %>
-</p>
+  <h1 class="text-center">Edit Review</h1>
 
-<% end %>
+  <%= form_for @review do |f| %>
+  <p>
+  <%= f.text_field :body %>
+  </p>
+
+  <p class="text-center">
+  <%= f.submit "Update", class: "btn btn-primary btn-rounded" %>
+  </p>
+
+  <% end %>
+
+</div>
