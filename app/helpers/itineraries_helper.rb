@@ -2,7 +2,7 @@ module ItinerariesHelper
 
   def link_to_toggle_itinerary_favorite(itinerary, user)
 
-    if user.favorited_itineraries.include? itinerary
+    if user.favorited_itineraries.include? itinerary and current_user
       favorite = Favorite.find_by(itinerary_id: itinerary.id, user_id: user.id)
       url = itinerary_favorite_path(itinerary, favorite)
       link_to('', url, {

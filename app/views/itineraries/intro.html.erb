@@ -10,7 +10,13 @@
             <hr class="hr-light mt-4 wow fadeInDown" data-wow-delay="0.4s">
             <h5 class="mb-5 white-text wow fadeInDown" data-wow-delay="0.4s"><strong><%= @itinerary.description %></strong></h5>
             <div class="star-pad text-center">
-              <%= link_to_toggle_itinerary_favorite(@itinerary, current_user) %>
+              <% if current_user %>
+                <%= link_to_toggle_itinerary_favorite(@itinerary, current_user) %>
+              <% else %>
+                <%= link_to user_session_path do %>
+                  <i class="fa fa-star-o star-redirect" aria-hidden="true"></i>
+                <% end %>
+              <% end %>
             </div>
             <script>
               //console.log('hello world');

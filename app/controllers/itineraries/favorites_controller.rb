@@ -1,4 +1,6 @@
 class Itineraries::FavoritesController < ApplicationController
+  before_action :authenticate_user!
+
 
   def create
     Favorite.find_or_create_by(user_id: current_user.id, itinerary_id: params[:itinerary_id])

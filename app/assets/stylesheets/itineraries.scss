@@ -299,6 +299,31 @@ a.mapboxgl-ctrl-logo, .mapboxgl-ctrl.mapboxgl-ctrl-attrib {
   line-height: 50px;
 }
 
+.star-redirect {
+  font-size: 25px;
+  color: #F9DC5C;
+  border-color: #F9DC5C;
+  border-radius: 50%;
+  border-width: 2px;
+  border-style: solid;
+  width: 60px;
+  height: 60px;
+  position: relative;
+  text-align: center;
+  line-height: 55px;
+}
+
+.star-redirect:hover {
+  border-color: #F9DC5C;
+  border-radius: 50%;
+  border-width: 5px;
+  border-style: solid;
+  width: 60px;
+  height: 60px;
+  line-height: 50px;
+}
+
+
 .star-pad {
   padding-bottom: 30px;
 }
