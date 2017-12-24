@@ -104,14 +104,14 @@
     margin-left: 3px;
 }
 .top-nav-collapse {
-    background-color: #3d4451 !important;
+    background-color: #34495e !important;
 }
 .navbar:not(.top-nav-collapse) {
     background: transparent !important;
 }
 @media (max-width: 768px) {
     .navbar:not(.top-nav-collapse) {
-        background: #3d4451 !important;
+        background: #34495e !important;
     }
 }
 
@@ -122,7 +122,7 @@
 
 @media (max-width: 768px) {
     .navbar:not(.top-nav-collapse) {
-        background: #82b1ff !important;
+        background: #34495e !important;
     }
 }
 
@@ -262,7 +262,7 @@ section:last-child{
 }
 
 .card .card-data {
-    background-color: #3d4451;
+    background-color: #34495e;
     text-align: center;
     height: auto;
     padding: 10px;
