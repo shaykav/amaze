@@ -60,9 +60,13 @@
       </div>
 
       <% if current_user and review.user_id == current_user.id %>
-        <%= link_to "Edit", edit_review_path(review) %>
+        <%= link_to edit_review_path(review) do %>
+          <i class="fa fa-pencil" aria-hidden="true"></i>
+        <% end %>
 
-        <%= link_to "Delete", review, :confirm => "Are you Sure?", :method => :delete %>
+        <%= link_to review, method: :delete, data: { confirm: 'Are you sure?' } do %>
+          <i class="fa fa-trash" aria-hidden="true"></i>
+        <% end %>
       <% end %>
 
     </p>
