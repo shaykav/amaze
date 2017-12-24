@@ -12,13 +12,13 @@
       <p class="card-text text-truncate"><%= itinerary.description %></p>
       <div class="button-container">
         <div class="dropdown-divider"></div>
-        <%= link_to itinerary, class: "btn-floating btn-sm blue-gradient" do %>
+        <%= link_to itinerary, class: "btn-floating btn-sm blue" do %>
           <i class="fa fa-eye"></i>
         <% end %>
-        <%= link_to edit_itinerary_path(itinerary), class: "btn-floating btn-sm blue-gradient" do %>
+        <%= link_to edit_itinerary_path(itinerary), class: "btn-floating btn-sm blue" do %>
           <i class="fa fa-pencil"></i>
         <% end %>
-        <%= link_to itinerary, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn-floating btn-sm blue-gradient" do %>
+        <%= link_to itinerary, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn-floating btn-sm blue" do %>
           <i class="fa fa-trash"></i>
         <% end %>
       </div>
