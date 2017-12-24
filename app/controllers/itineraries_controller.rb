@@ -22,7 +22,14 @@ class ItinerariesController < ApplicationController
 
 
   def index
-    @itineraries = Itinerary.all
+
+    if !params[:neighborhood_id].blank?
+      @itineraries = Itinerary.where(neighborhood_id: params[:neighborhood_id]).order("created_at DESC")
+    else
+      @itineraries = Itinerary.all.order("created_at DESC")
+    end
+
+    
     render :layout => 'maze-intro'
   end
 

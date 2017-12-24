@@ -306,3 +306,44 @@ a.mapboxgl-ctrl-logo, .mapboxgl-ctrl.mapboxgl-ctrl-attrib {
 .jarallax {
   min-height: 600px !important;
 }
+
+.mapboxgl-popup-content {
+    position: relative;
+    background: #fff;
+    border-radius: 3px;
+    box-shadow: 0 1px 2px rgba(0,0,0,0.10);
+    padding: 10px 10px 15px;
+    pointer-events: auto;
+    text-align: center;
+    min-width: 170px;
+    max-width: 300px;
+    padding-top: 20px;
+}
+
+.go-btn {
+  padding-top: 13.5px !important;
+  background-color: #97c15b !important;
+}
+
+.go-btn a, .go-btn a:hover {
+  color: #FFF !important;
+  font-weight: 700;
+
+}
+
+a:hover {
+  color: #FFF !important;
+}
+
+.itn-description {
+  font-size: 1.15em
+}
+
+.itn-title {
+  font-size: 1.3em;
+  font-weight: bold;
+}
+
+.neighborhood-select {
+    margin: 30px 900px 0px 100px;
+}
