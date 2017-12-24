@@ -83,8 +83,17 @@
   font-family: "Maze";
 }
 
+.sign-up-btn .btn[class*="btn-outline-"] {
+    padding-top: .76rem;
+    padding-bottom: .76rem;
+    font-weight: 700;
+    font-family: lato;
+    font-size: 0.9em;
+}
+
 .sign-up-btn > .btn:hover {
   transition: none !important;
+  background-color: #f57c00;
 }
 
 .btn .fa {
