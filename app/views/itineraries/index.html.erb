@@ -128,7 +128,7 @@ body { margin:0; padding:0; }
     <%= form_tag(itineraries_path, method: 'get') do %>
     <!-- <label for="category_id">Select Instrument:</label> -->
     <%= select_tag :neighborhood_id, options_from_collection_for_select(Neighborhood.all, 'id', 'name', (nil)), class: 'masthead-select mdb-select colorful-select dropdown-primary side', prompt: "Select Neighborhood" %>
-    <%= submit_tag 'Search', class: 'btn btn-md btn-primary' %>
+    <%= submit_tag 'Search', class: 'btn btn-rounded btn-primary btn-md ' %>
     <% end %>
   </div>
 

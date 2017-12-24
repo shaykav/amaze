@@ -14,6 +14,10 @@
  *= require_self
  */
 
+ .side {
+  display: inline-block;
+ }
+
 @font-face {
         font-family: 'Ikaros-Regular';
         src: url('/assets/Ikaros-Regular.otf');
