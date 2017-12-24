@@ -258,9 +258,23 @@ section:last-child{
 .card .btn-action {
     margin: -23px 20px;
     margin-left: auto;
-    background-color: #8bb1f9;
+    background-color: #ee7850;
     height: 47px;
     width: 47px;
     line-height: 0;
 }
 
+#rotate {
+  border-radius: 50%;
+  -webkit-transition: -webkit-transform .7s ease-in-out;
+          transition:         transform .7s ease-in-out;
+}
+
+.maze-cards-index:hover {
+
+  #rotate {
+    -webkit-transform: rotate(90deg);
+    transform: rotate(90deg);
+  }
+
+}
