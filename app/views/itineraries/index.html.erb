@@ -132,7 +132,13 @@ body { margin:0; padding:0; }
     <% end %>
   </div>
 
-<div class="row inineraries-index-container">
-  <%= render @itineraries %>
-</div>
+
+  <% if @itineraries.any? %>
+    <div class="row inineraries-index-container">
+      <%= render @itineraries %>
+    </div>
+  <% else %>
+    <h1 class="no-itineraries">No Itineraries for This Neighborhood</h1>
+  <% end %>
+
 
