@@ -322,6 +322,7 @@ a.mapboxgl-ctrl-logo, .mapboxgl-ctrl.mapboxgl-ctrl-attrib {
   border-style: solid;
   width: 60px;
   height: 60px;
+  text-align: center;
   line-height: 50px;
 }
 
@@ -358,9 +359,9 @@ a.mapboxgl-ctrl-logo, .mapboxgl-ctrl.mapboxgl-ctrl-attrib {
 
 }
 
-a:hover {
-  color: #FFF !important;
-}
+// a:hover {
+//   color: #FFF !important;
+// }
 
 .itn-description {
   font-size: 1.15em

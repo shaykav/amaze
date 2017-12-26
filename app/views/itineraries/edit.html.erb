@@ -1,50 +1,85 @@
-<h1>Editing Product</h1>
+<div class="jumbotron col-md-6 mx-auto">
 
-<% if @itinerary.errors.any? %>
-  <div id="error_explanation">
-    <h2><%= pluralize(@itinerary.errors.count, "error") %> prohibited this product from being saved:</h2>
+  <h1 class="text-center">Edit Maze</h1>
 
-    <ul>
-    <% @itinerary.errors.full_messages.each do |message| %>
-      <li><%= message %></li>
-    <% end %>
-    </ul>
-  </div>
-<% end %>
+  <% if @itinerary.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@itinerary.errors.count, "error") %> prohibited this product from being saved:</h2>
 
-
-<%= form_for @itinerary do |f| %>
-
-<%= f.label :title %>
-<%= f.text_field :title %>
-
-<%= f.label :description %>
-<%= f.text_area :description %>
-
-  <div class="maze-form">
-
-
-    <% 3.times do |num| %>
-      <%= render partial: 'itineraries/components/location_form', locals: {f:f} %>
-    <% end %>
-    
-  </div>
-
-  <a href="#" data-added="false" class="add-maze-btn"> Add Another</a>
-  
-  <template>
-    <div class="new-wrapper">
-      <%= render partial: 'itineraries/components/location_form', locals: {f:f, is_new: true } %>
-      <span class="remove-form" data-id="">X</span>
+      <ul>
+      <% @itinerary.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
     </div>
-  </template>
+  <% end %>
+
+
+  <%= form_for @itinerary do |f| %>
+
+  <%= f.label :title %>
+  <%= f.text_field :title %>
+  <br>
+  <br>
+  <div class="">
+
+    <%= f.select "neighborhood_id", options_from_collection_for_select(Neighborhood.all, 'id', 'name', (nil)), {:prompt => 'Select Neighborhood' }, {:class=>"mdb-select colorful-select dropdown-primary", searchable: 'Search here..' } %>
+
+  </div>
+  <br>
+  <%= f.label :description %>
+  <%= f.text_area :description %>
+  <br>
+  <br>
+  <div class="form-group image-btn">
+    <label class="btn btn-deep-orange btn-lg btn-rounded">
+     Update Image <%= f.file_field :image, style: 'display: none', id: "pictureInput" %>
+   </label>
+
+  <div class="col-md-6 mx-auto">
+     <div id="target"></div>
+  </div>
+
+ </div>
+
+
+
+
+</div>
+
+  <hr class="location-ruler">
+
+<div class="maze-form">
+
+  <div class="row"><% 4.times do |num| %>
+    <%= render partial: 'itineraries/components/location_form', locals: {f:f} %>
+    <% end %></div>
+
+  </div>
+  <div class="row">
+
+    <div class="col-md-2 mx-auto text-center">
+
+      <a href="#" data-added="false" class="add-maze-btn btn-floating btn-md green"><i class="fa fa-plus"></i> </a>
+
+      <template>
+          <%= render partial: 'itineraries/components/location_form', locals: {f:f, is_new: true } %>
+      </template>
+
+    </div>
+
+  </div>
 
   <%= hidden_field_tag 'itinerary[locations]', nil %>
 
+  <hr>
 
-  <%= f.submit 'Create', class: "submit-itinerary" %>
-<% end %>
-
+    <div class="text-center">
+      <%= f.submit 'Update Maze', class: "btn btn-primary btn-rounded submit-itinerary" %>
+    </div>
+  <% end %>
+  </div>
+</div>
 
 
 <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAV8h_serLSbuH25YoZmcnS4lylLnuhilk&libraries=places&callback=initMap"></script>
