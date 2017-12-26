@@ -17,8 +17,13 @@
 
 <div class="itinerary-new-body">
 
-<div class="row">
-  <%= render partial: "favorites/favorite_cards"  %>
-</div>
+
+  <% if current_user.favorited_itineraries.present? %>
+    <div class="row">
+    <%= render partial: "favorites/favorite_cards" %>
+    </div>
+  <% else %>
+    <p class="empty-default">You haven't favorited any mazes yet!</p>
+  <% end %>
 
 </div>

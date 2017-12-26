@@ -18,6 +18,7 @@ class ItinerariesController < ApplicationController
   end
 
   def edit
+    @itinerary = Itinerary.find(params[:id])
   end
 
 
@@ -29,7 +30,7 @@ class ItinerariesController < ApplicationController
       @itineraries = Itinerary.all.order("created_at DESC")
     end
 
-    
+
     render :layout => 'maze-intro'
   end
 
