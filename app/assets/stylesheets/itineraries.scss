@@ -290,6 +290,7 @@ a.mapboxgl-ctrl-logo, .mapboxgl-ctrl.mapboxgl-ctrl-attrib {
 }
 
 #fav_button:hover {
+  color: #F9DC5C !important;
   border-color: #F9DC5C;
   border-radius: 50%;
   border-width: 5px;
@@ -299,8 +300,41 @@ a.mapboxgl-ctrl-logo, .mapboxgl-ctrl.mapboxgl-ctrl-attrib {
   line-height: 50px;
 }
 
+.star-redirect {
+  font-size: 25px;
+  color: #F9DC5C;
+  border-color: #F9DC5C;
+  border-radius: 50%;
+  border-width: 2px;
+  border-style: solid;
+  width: 60px;
+  height: 60px;
+  position: relative;
+  text-align: center;
+  line-height: 55px;
+}
+
+.star-redirect:hover {
+  color: #F9DC5C;
+  border-color: #F9DC5C;
+  border-radius: 50%;
+  border-width: 5px;
+  border-style: solid;
+  width: 60px;
+  height: 60px;
+  text-align: center;
+  line-height: 50px;
+}
+
+
 .star-pad {
   padding-bottom: 30px;
+}
+
+.empty-default {
+  text-align: center;
+  font-size: 2em;
+  color: #757575;
 }
 
 .jarallax {
@@ -331,9 +365,9 @@ a.mapboxgl-ctrl-logo, .mapboxgl-ctrl.mapboxgl-ctrl-attrib {
 
 }
 
-a:hover {
-  color: #FFF !important;
-}
+// a:hover {
+//   color: #FFF !important;
+// }
 
 .itn-description {
   font-size: 1.15em
@@ -351,4 +385,3 @@ a:hover {
 .neighborhood-select .select-wrapper {
     min-width: 427px;
 }
-

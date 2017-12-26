@@ -1,5 +1,10 @@
 <% content_for :body_class, 'offwhite-background' %>
 
-<div class="row">
+
+<% if current_user.itineraries.present? %>
+  <div class="row">
   <%= render partial: "manage_cards"  %>
-</div>
+  </div>
+<% else %>
+  <p class="empty-default">You haven't created any mazes yet!</p>
+<% end %>
