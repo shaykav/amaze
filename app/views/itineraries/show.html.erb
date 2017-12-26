@@ -229,11 +229,16 @@
 
   var chapters = {
 
-    <% @itinerary.locations.reverse.each do |location| %>
+    <% @itinerary.locations.reverse.each_with_index do |location, ix| %>
 
+      <% if ix == 0 %>
+      <% rand = 1 %>
+      <% else %>
+      <% rand = rand(0..130) %>
+      <% end %>
 
     '<%= location.title %>': {
-      bearing: 27,
+      bearing: <%= rand %>,
       center: [<%= location.longitude.to_f %>, <%= location.latitude.to_f %>],
       zoom: 18,
       pitch: 100

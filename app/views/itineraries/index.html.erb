@@ -26,8 +26,8 @@ body { margin:0; padding:0; }
   var lng = <%= @itineraries.first.locations.first.longitude %>;
   var lat = <%= @itineraries.first.locations.first.latitude %>;
 <% else %>
-  var lng = 25.75791;
-  var lat = -80.2007997;
+  var lat = 25.75791;
+  var lng = -80.2007997;
 <% end %>
 
 
@@ -116,14 +116,6 @@ body { margin:0; padding:0; }
 
 </script>
 
-  <%#= form_tag(itineraries_path, :method=>:get) do %>
-   <%#= select_tag "neighborhood_id", options_from_collection_for_select(Neighborhood.all, 'id', 'name', (nil)), {:prompt => 'Select Neighborhood' }, {:class=>"mdb-select colorful-select dropdown-primary", searchable: 'Search here..' } %>
-   <%#= submit_tag 'Search', class: 'btn btn-md btn-primary' %>
-  <%# end %>
-
-
- <%#= f.select "neighborhood_id", options_from_collection_for_select(Neighborhood.all, 'id', 'name', (nil)), {:prompt => 'Select Neighborhood' }, {:class=>"mdb-select colorful-select dropdown-primary", searchable: 'Search here..' } %>
-
  <div class="neighborhood-select">
     <%= form_tag(itineraries_path, method: 'get') do %>
     <!-- <label for="category_id">Select Instrument:</label> -->
@@ -132,8 +124,6 @@ body { margin:0; padding:0; }
     <% end %>
   </div>
 
-<<<<<<< HEAD
-
   <% if @itineraries.any? %>
     <div class="row inineraries-index-container">
       <%= render @itineraries %>
@@ -141,10 +131,3 @@ body { margin:0; padding:0; }
   <% else %>
     <h1 class="no-itineraries">No Itineraries for This Neighborhood</h1>
   <% end %>
-
-
-=======
-<div class="row inineraries-index-container">
-  <%= render @itineraries %>
-</div>
->>>>>>> bac74d2287caf688fafa4ac68a2970653384bb4d
