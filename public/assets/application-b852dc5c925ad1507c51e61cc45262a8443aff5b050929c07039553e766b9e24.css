@@ -146,142 +146,142 @@ p {
 }
 
 /* line 111, /Users/shailaaa93/Desktop/wyncode/final_project/amaze/app/assets/stylesheets/itineraries.scss */
+.card .card-data ul {
+  padding-left: 0;
+}
+
+/* line 115, /Users/shailaaa93/Desktop/wyncode/final_project/amaze/app/assets/stylesheets/itineraries.scss */
 .card .card-body h4 {
   font-weight: 400;
   color: initial;
 }
 
-/* line 116, /Users/shailaaa93/Desktop/wyncode/final_project/amaze/app/assets/stylesheets/itineraries.scss */
+/* line 120, /Users/shailaaa93/Desktop/wyncode/final_project/amaze/app/assets/stylesheets/itineraries.scss */
 .icon-float {
   display: flex;
   justify-content: center;
 }
 
-/* line 121, /Users/shailaaa93/Desktop/wyncode/final_project/amaze/app/assets/stylesheets/itineraries.scss */
+/* line 125, /Users/shailaaa93/Desktop/wyncode/final_project/amaze/app/assets/stylesheets/itineraries.scss */
 .icon-float li {
   float: right;
 }
 
-/* line 125, /Users/shailaaa93/Desktop/wyncode/final_project/amaze/app/assets/stylesheets/itineraries.scss */
-.move-center {
-  padding-left: 85px;
-}
-
-/* line 129, /Users/shailaaa93/Desktop/wyncode/final_project/amaze/app/assets/stylesheets/itineraries.scss */
+/* line 133, /Users/shailaaa93/Desktop/wyncode/final_project/amaze/app/assets/stylesheets/itineraries.scss */
 .move-right {
   margin-left: auto;
 }
 
-/* line 133, /Users/shailaaa93/Desktop/wyncode/final_project/amaze/app/assets/stylesheets/itineraries.scss */
+/* line 137, /Users/shailaaa93/Desktop/wyncode/final_project/amaze/app/assets/stylesheets/itineraries.scss */
 .right-side {
   margin-left: auto;
 }
 
-/* line 137, /Users/shailaaa93/Desktop/wyncode/final_project/amaze/app/assets/stylesheets/itineraries.scss */
+/* line 141, /Users/shailaaa93/Desktop/wyncode/final_project/amaze/app/assets/stylesheets/itineraries.scss */
 .offwhite-background {
   background: #f7f7f7;
 }
 
-/* line 141, /Users/shailaaa93/Desktop/wyncode/final_project/amaze/app/assets/stylesheets/itineraries.scss */
+/* line 145, /Users/shailaaa93/Desktop/wyncode/final_project/amaze/app/assets/stylesheets/itineraries.scss */
 .py-5 {
   margin: auto;
 }
 
-/* line 145, /Users/shailaaa93/Desktop/wyncode/final_project/amaze/app/assets/stylesheets/itineraries.scss */
+/* line 149, /Users/shailaaa93/Desktop/wyncode/final_project/amaze/app/assets/stylesheets/itineraries.scss */
 .maze-intro-header {
   min-height: 70vh !important;
 }
 
-/* line 149, /Users/shailaaa93/Desktop/wyncode/final_project/amaze/app/assets/stylesheets/itineraries.scss */
+/* line 153, /Users/shailaaa93/Desktop/wyncode/final_project/amaze/app/assets/stylesheets/itineraries.scss */
 .maze-intro-container {
   padding: 20px 70px 70px 70px;
   font-family: "lato";
 }
 
-/* line 154, /Users/shailaaa93/Desktop/wyncode/final_project/amaze/app/assets/stylesheets/itineraries.scss */
+/* line 158, /Users/shailaaa93/Desktop/wyncode/final_project/amaze/app/assets/stylesheets/itineraries.scss */
 .maze-intro-container h1 {
   font-family: "lato";
 }
 
-/* line 158, /Users/shailaaa93/Desktop/wyncode/final_project/amaze/app/assets/stylesheets/itineraries.scss */
+/* line 162, /Users/shailaaa93/Desktop/wyncode/final_project/amaze/app/assets/stylesheets/itineraries.scss */
 .intro-map {
   margin: auto;
   margin-bottom: 70px;
 }
 
-/* line 163, /Users/shailaaa93/Desktop/wyncode/final_project/amaze/app/assets/stylesheets/itineraries.scss */
+/* line 167, /Users/shailaaa93/Desktop/wyncode/final_project/amaze/app/assets/stylesheets/itineraries.scss */
 .steps-number-intro {
   color: black;
 }
 
-/* line 167, /Users/shailaaa93/Desktop/wyncode/final_project/amaze/app/assets/stylesheets/itineraries.scss */
+/* line 171, /Users/shailaaa93/Desktop/wyncode/final_project/amaze/app/assets/stylesheets/itineraries.scss */
 .route-header {
   text-align: center;
   margin-top: 40px;
 }
 
-/* line 172, /Users/shailaaa93/Desktop/wyncode/final_project/amaze/app/assets/stylesheets/itineraries.scss */
+/* line 176, /Users/shailaaa93/Desktop/wyncode/final_project/amaze/app/assets/stylesheets/itineraries.scss */
 .route-header h1 {
   font-size: 3em;
   font-weight: 700;
   font-family: "lato";
 }
 
-/* line 178, /Users/shailaaa93/Desktop/wyncode/final_project/amaze/app/assets/stylesheets/itineraries.scss */
+/* line 182, /Users/shailaaa93/Desktop/wyncode/final_project/amaze/app/assets/stylesheets/itineraries.scss */
 .card:not([class*="card-outline-"]) {
   border: 0;
   margin-bottom: 30px;
 }
 
-/* line 183, /Users/shailaaa93/Desktop/wyncode/final_project/amaze/app/assets/stylesheets/itineraries.scss */
+/* line 187, /Users/shailaaa93/Desktop/wyncode/final_project/amaze/app/assets/stylesheets/itineraries.scss */
 .location-card {
   padding: 35px;
 }
 
-/* line 187, /Users/shailaaa93/Desktop/wyncode/final_project/amaze/app/assets/stylesheets/itineraries.scss */
+/* line 191, /Users/shailaaa93/Desktop/wyncode/final_project/amaze/app/assets/stylesheets/itineraries.scss */
 a.mapboxgl-ctrl-logo, .mapboxgl-ctrl.mapboxgl-ctrl-attrib {
   display: none !important;
 }
 
-/* line 191, /Users/shailaaa93/Desktop/wyncode/final_project/amaze/app/assets/stylesheets/itineraries.scss */
+/* line 195, /Users/shailaaa93/Desktop/wyncode/final_project/amaze/app/assets/stylesheets/itineraries.scss */
 .inineraries-index-container {
   padding: 50px;
 }
 
-/* line 195, /Users/shailaaa93/Desktop/wyncode/final_project/amaze/app/assets/stylesheets/itineraries.scss */
+/* line 199, /Users/shailaaa93/Desktop/wyncode/final_project/amaze/app/assets/stylesheets/itineraries.scss */
 .new-header {
   font-family: 'Ikaros-Regular';
 }
 
-/* line 199, /Users/shailaaa93/Desktop/wyncode/final_project/amaze/app/assets/stylesheets/itineraries.scss */
+/* line 203, /Users/shailaaa93/Desktop/wyncode/final_project/amaze/app/assets/stylesheets/itineraries.scss */
 .select-wrapper input.select-dropdown {
   color: #757575;
   font-weight: 300;
 }
 
-/* line 204, /Users/shailaaa93/Desktop/wyncode/final_project/amaze/app/assets/stylesheets/itineraries.scss */
+/* line 208, /Users/shailaaa93/Desktop/wyncode/final_project/amaze/app/assets/stylesheets/itineraries.scss */
 .image-btn {
   text-align: center;
 }
 
-/* line 208, /Users/shailaaa93/Desktop/wyncode/final_project/amaze/app/assets/stylesheets/itineraries.scss */
+/* line 212, /Users/shailaaa93/Desktop/wyncode/final_project/amaze/app/assets/stylesheets/itineraries.scss */
 .location-header {
   text-align: center;
   font-size: 2.7em;
   margin-top: 40px;
 }
 
-/* line 214, /Users/shailaaa93/Desktop/wyncode/final_project/amaze/app/assets/stylesheets/itineraries.scss */
+/* line 218, /Users/shailaaa93/Desktop/wyncode/final_project/amaze/app/assets/stylesheets/itineraries.scss */
 .location-ruler {
   margin-bottom: 40px;
 }
 
-/* line 218, /Users/shailaaa93/Desktop/wyncode/final_project/amaze/app/assets/stylesheets/itineraries.scss */
+/* line 222, /Users/shailaaa93/Desktop/wyncode/final_project/amaze/app/assets/stylesheets/itineraries.scss */
 .route-container {
   height: 150px;
 }
 
-/* line 222, /Users/shailaaa93/Desktop/wyncode/final_project/amaze/app/assets/stylesheets/itineraries.scss */
+/* line 226, /Users/shailaaa93/Desktop/wyncode/final_project/amaze/app/assets/stylesheets/itineraries.scss */
 .accordion {
   background-color: #eee;
   color: #444;
@@ -296,12 +296,12 @@ a.mapboxgl-ctrl-logo, .mapboxgl-ctrl.mapboxgl-ctrl-attrib {
   border-radius: 5px;
 }
 
-/* line 236, /Users/shailaaa93/Desktop/wyncode/final_project/amaze/app/assets/stylesheets/itineraries.scss */
+/* line 240, /Users/shailaaa93/Desktop/wyncode/final_project/amaze/app/assets/stylesheets/itineraries.scss */
 .accordion:hover {
   background-color: #ccc;
 }
 
-/* line 240, /Users/shailaaa93/Desktop/wyncode/final_project/amaze/app/assets/stylesheets/itineraries.scss */
+/* line 244, /Users/shailaaa93/Desktop/wyncode/final_project/amaze/app/assets/stylesheets/itineraries.scss */
 .panel {
   padding: 8px 18px 1px 18px;
   display: none;
@@ -309,45 +309,45 @@ a.mapboxgl-ctrl-logo, .mapboxgl-ctrl.mapboxgl-ctrl-attrib {
   border-radius: 0px 0px 5px 5px;
 }
 
-/* line 247, /Users/shailaaa93/Desktop/wyncode/final_project/amaze/app/assets/stylesheets/itineraries.scss */
+/* line 251, /Users/shailaaa93/Desktop/wyncode/final_project/amaze/app/assets/stylesheets/itineraries.scss */
 .user-email {
   font-weight: bold;
   font-size: 1.1em;
   margin-bottom: 5px;
 }
 
-/* line 252, /Users/shailaaa93/Desktop/wyncode/final_project/amaze/app/assets/stylesheets/itineraries.scss */
+/* line 256, /Users/shailaaa93/Desktop/wyncode/final_project/amaze/app/assets/stylesheets/itineraries.scss */
 .time-ago {
   font-style: italic;
   font-size: 0.7em;
   margin-top: 5px;
 }
 
-/* line 258, /Users/shailaaa93/Desktop/wyncode/final_project/amaze/app/assets/stylesheets/itineraries.scss */
+/* line 262, /Users/shailaaa93/Desktop/wyncode/final_project/amaze/app/assets/stylesheets/itineraries.scss */
 #target {
   max-height: 400px;
   max-width: 400px;
 }
 
-/* line 263, /Users/shailaaa93/Desktop/wyncode/final_project/amaze/app/assets/stylesheets/itineraries.scss */
+/* line 267, /Users/shailaaa93/Desktop/wyncode/final_project/amaze/app/assets/stylesheets/itineraries.scss */
 #target img {
   width: 100%;
   margin-top: 30px;
 }
 
-/* line 268, /Users/shailaaa93/Desktop/wyncode/final_project/amaze/app/assets/stylesheets/itineraries.scss */
+/* line 272, /Users/shailaaa93/Desktop/wyncode/final_project/amaze/app/assets/stylesheets/itineraries.scss */
 .dropdown .dropdown-menu {
   padding: 0.5rem;
   background: #3e4450;
   border: none;
 }
 
-/* line 274, /Users/shailaaa93/Desktop/wyncode/final_project/amaze/app/assets/stylesheets/itineraries.scss */
+/* line 278, /Users/shailaaa93/Desktop/wyncode/final_project/amaze/app/assets/stylesheets/itineraries.scss */
 .navbar .dropdown-menu a {
   color: #FFF !important;
 }
 
-/* line 278, /Users/shailaaa93/Desktop/wyncode/final_project/amaze/app/assets/stylesheets/itineraries.scss */
+/* line 282, /Users/shailaaa93/Desktop/wyncode/final_project/amaze/app/assets/stylesheets/itineraries.scss */
 #fav_button {
   font-size: 25px;
   color: #F9DC5C;
@@ -362,7 +362,7 @@ a.mapboxgl-ctrl-logo, .mapboxgl-ctrl.mapboxgl-ctrl-attrib {
   line-height: 55px;
 }
 
-/* line 292, /Users/shailaaa93/Desktop/wyncode/final_project/amaze/app/assets/stylesheets/itineraries.scss */
+/* line 296, /Users/shailaaa93/Desktop/wyncode/final_project/amaze/app/assets/stylesheets/itineraries.scss */
 #fav_button:hover {
   color: #F9DC5C !important;
   border-color: #F9DC5C;
@@ -374,7 +374,7 @@ a.mapboxgl-ctrl-logo, .mapboxgl-ctrl.mapboxgl-ctrl-attrib {
   line-height: 50px;
 }
 
-/* line 303, /Users/shailaaa93/Desktop/wyncode/final_project/amaze/app/assets/stylesheets/itineraries.scss */
+/* line 307, /Users/shailaaa93/Desktop/wyncode/final_project/amaze/app/assets/stylesheets/itineraries.scss */
 .star-redirect {
   font-size: 25px;
   color: #F9DC5C;
@@ -389,7 +389,7 @@ a.mapboxgl-ctrl-logo, .mapboxgl-ctrl.mapboxgl-ctrl-attrib {
   line-height: 55px;
 }
 
-/* line 317, /Users/shailaaa93/Desktop/wyncode/final_project/amaze/app/assets/stylesheets/itineraries.scss */
+/* line 321, /Users/shailaaa93/Desktop/wyncode/final_project/amaze/app/assets/stylesheets/itineraries.scss */
 .star-redirect:hover {
   color: #F9DC5C;
   border-color: #F9DC5C;
@@ -402,24 +402,24 @@ a.mapboxgl-ctrl-logo, .mapboxgl-ctrl.mapboxgl-ctrl-attrib {
   line-height: 50px;
 }
 
-/* line 330, /Users/shailaaa93/Desktop/wyncode/final_project/amaze/app/assets/stylesheets/itineraries.scss */
+/* line 334, /Users/shailaaa93/Desktop/wyncode/final_project/amaze/app/assets/stylesheets/itineraries.scss */
 .star-pad {
   padding-bottom: 30px;
 }
 
-/* line 334, /Users/shailaaa93/Desktop/wyncode/final_project/amaze/app/assets/stylesheets/itineraries.scss */
+/* line 338, /Users/shailaaa93/Desktop/wyncode/final_project/amaze/app/assets/stylesheets/itineraries.scss */
 .empty-default {
   text-align: center;
   font-size: 2em;
   color: #757575;
 }
 
-/* line 340, /Users/shailaaa93/Desktop/wyncode/final_project/amaze/app/assets/stylesheets/itineraries.scss */
+/* line 344, /Users/shailaaa93/Desktop/wyncode/final_project/amaze/app/assets/stylesheets/itineraries.scss */
 .maze-intro-header .jarallax {
   min-height: 600px !important;
 }
 
-/* line 344, /Users/shailaaa93/Desktop/wyncode/final_project/amaze/app/assets/stylesheets/itineraries.scss */
+/* line 348, /Users/shailaaa93/Desktop/wyncode/final_project/amaze/app/assets/stylesheets/itineraries.scss */
 .mapboxgl-popup-content {
   position: relative;
   background: #fff;
@@ -433,41 +433,41 @@ a.mapboxgl-ctrl-logo, .mapboxgl-ctrl.mapboxgl-ctrl-attrib {
   padding-top: 20px;
 }
 
-/* line 357, /Users/shailaaa93/Desktop/wyncode/final_project/amaze/app/assets/stylesheets/itineraries.scss */
+/* line 361, /Users/shailaaa93/Desktop/wyncode/final_project/amaze/app/assets/stylesheets/itineraries.scss */
 .go-btn {
   padding-top: 13.5px !important;
   background-color: #97c15b !important;
 }
 
-/* line 362, /Users/shailaaa93/Desktop/wyncode/final_project/amaze/app/assets/stylesheets/itineraries.scss */
+/* line 366, /Users/shailaaa93/Desktop/wyncode/final_project/amaze/app/assets/stylesheets/itineraries.scss */
 .go-btn a, .go-btn a:hover {
   color: #FFF !important;
   font-weight: 700;
 }
 
-/* line 372, /Users/shailaaa93/Desktop/wyncode/final_project/amaze/app/assets/stylesheets/itineraries.scss */
+/* line 376, /Users/shailaaa93/Desktop/wyncode/final_project/amaze/app/assets/stylesheets/itineraries.scss */
 .itn-description {
   font-size: 1.15em;
 }
 
-/* line 376, /Users/shailaaa93/Desktop/wyncode/final_project/amaze/app/assets/stylesheets/itineraries.scss */
+/* line 380, /Users/shailaaa93/Desktop/wyncode/final_project/amaze/app/assets/stylesheets/itineraries.scss */
 .itn-title {
   font-size: 1.3em;
   font-weight: bold;
 }
 
-/* line 381, /Users/shailaaa93/Desktop/wyncode/final_project/amaze/app/assets/stylesheets/itineraries.scss */
+/* line 385, /Users/shailaaa93/Desktop/wyncode/final_project/amaze/app/assets/stylesheets/itineraries.scss */
 .neighborhood-select {
   margin-top: 41px;
   text-align: center;
 }
 
-/* line 386, /Users/shailaaa93/Desktop/wyncode/final_project/amaze/app/assets/stylesheets/itineraries.scss */
+/* line 390, /Users/shailaaa93/Desktop/wyncode/final_project/amaze/app/assets/stylesheets/itineraries.scss */
 .neighborhood-select .select-wrapper {
   min-width: 350px;
 }
 
-/* line 390, /Users/shailaaa93/Desktop/wyncode/final_project/amaze/app/assets/stylesheets/itineraries.scss */
+/* line 394, /Users/shailaaa93/Desktop/wyncode/final_project/amaze/app/assets/stylesheets/itineraries.scss */
 .no-itineraries {
   margin-top: 90px;
   text-align: center;
