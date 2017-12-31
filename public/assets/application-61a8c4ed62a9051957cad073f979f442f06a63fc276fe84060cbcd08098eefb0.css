@@ -15116,54 +15116,69 @@ section:last-child {
   #main-title {
     font-size: 13rem;
   }
+
+  /* line 227, /Users/shailaaa93/Desktop/wyncode/final_project/amaze/app/assets/stylesheets/application.scss */
+  .h1-reponsive {
+    font-size: 5em;
+  }
 }
 @media all and (max-width: 1024px) {
-  /* line 230, /Users/shailaaa93/Desktop/wyncode/final_project/amaze/app/assets/stylesheets/application.scss */
+  /* line 233, /Users/shailaaa93/Desktop/wyncode/final_project/amaze/app/assets/stylesheets/application.scss */
   #main-title {
     font-size: 10rem;
   }
+
+  /* line 236, /Users/shailaaa93/Desktop/wyncode/final_project/amaze/app/assets/stylesheets/application.scss */
+  .h1-reponsive {
+    font-size: 4em;
+  }
 }
 @media all and (max-width: 600px) {
-  /* line 236, /Users/shailaaa93/Desktop/wyncode/final_project/amaze/app/assets/stylesheets/application.scss */
+  /* line 242, /Users/shailaaa93/Desktop/wyncode/final_project/amaze/app/assets/stylesheets/application.scss */
   #main-title {
     font-size: 7rem;
   }
+
+  /* line 245, /Users/shailaaa93/Desktop/wyncode/final_project/amaze/app/assets/stylesheets/application.scss */
+  .h1-reponsive {
+    font-size: 3em;
+  }
 }
 /* Itinerary new */
-/* line 242, /Users/shailaaa93/Desktop/wyncode/final_project/amaze/app/assets/stylesheets/application.scss */
+/* line 251, /Users/shailaaa93/Desktop/wyncode/final_project/amaze/app/assets/stylesheets/application.scss */
 .padd-descr {
   padding-left: 10px;
 }
 
-/* line 246, /Users/shailaaa93/Desktop/wyncode/final_project/amaze/app/assets/stylesheets/application.scss */
+/* line 255, /Users/shailaaa93/Desktop/wyncode/final_project/amaze/app/assets/stylesheets/application.scss */
 .itinerary-new-header {
   min-height: 65vh !important;
   background-image: url("/images/miami_walker.jpg");
 }
 
-/* line 251, /Users/shailaaa93/Desktop/wyncode/final_project/amaze/app/assets/stylesheets/application.scss */
+/* line 260, /Users/shailaaa93/Desktop/wyncode/final_project/amaze/app/assets/stylesheets/application.scss */
 .favorites-new-header {
   min-height: 65vh !important;
   background-image: url("/images/cafe_miami.jpg");
 }
 
-/* line 257, /Users/shailaaa93/Desktop/wyncode/final_project/amaze/app/assets/stylesheets/application.scss */
+/* line 266, /Users/shailaaa93/Desktop/wyncode/final_project/amaze/app/assets/stylesheets/application.scss */
 .map-index {
   padding: 0px !important;
 }
 
-/* line 261, /Users/shailaaa93/Desktop/wyncode/final_project/amaze/app/assets/stylesheets/application.scss */
+/* line 270, /Users/shailaaa93/Desktop/wyncode/final_project/amaze/app/assets/stylesheets/application.scss */
 .itinerary-new-body {
   padding: 60px;
 }
 
-/* line 265, /Users/shailaaa93/Desktop/wyncode/final_project/amaze/app/assets/stylesheets/application.scss */
+/* line 274, /Users/shailaaa93/Desktop/wyncode/final_project/amaze/app/assets/stylesheets/application.scss */
 .section .section-heading {
   font-size: 4em;
   margin-top: 0em !important;
 }
 
-/* line 270, /Users/shailaaa93/Desktop/wyncode/final_project/amaze/app/assets/stylesheets/application.scss */
+/* line 279, /Users/shailaaa93/Desktop/wyncode/final_project/amaze/app/assets/stylesheets/application.scss */
 .most-reviewed {
   background-color: #f7f7f7;
   min-height: 700px;
@@ -15171,13 +15186,13 @@ section:last-child {
   padding: 80px;
 }
 
-/* line 277, /Users/shailaaa93/Desktop/wyncode/final_project/amaze/app/assets/stylesheets/application.scss */
+/* line 286, /Users/shailaaa93/Desktop/wyncode/final_project/amaze/app/assets/stylesheets/application.scss */
 .most-reviewed h1 {
   text-align: center;
   font-size: 3em;
 }
 
-/* line 282, /Users/shailaaa93/Desktop/wyncode/final_project/amaze/app/assets/stylesheets/application.scss */
+/* line 291, /Users/shailaaa93/Desktop/wyncode/final_project/amaze/app/assets/stylesheets/application.scss */
 .card .card-data {
   background-color: #34495e;
   text-align: center;
@@ -15185,7 +15200,7 @@ section:last-child {
   padding: 10px;
 }
 
-/* line 289, /Users/shailaaa93/Desktop/wyncode/final_project/amaze/app/assets/stylesheets/application.scss */
+/* line 298, /Users/shailaaa93/Desktop/wyncode/final_project/amaze/app/assets/stylesheets/application.scss */
 .card .btn-action {
   margin: -23px 20px;
   margin-left: auto;
@@ -15195,14 +15210,14 @@ section:last-child {
   line-height: 0;
 }
 
-/* line 298, /Users/shailaaa93/Desktop/wyncode/final_project/amaze/app/assets/stylesheets/application.scss */
+/* line 307, /Users/shailaaa93/Desktop/wyncode/final_project/amaze/app/assets/stylesheets/application.scss */
 #rotate {
   border-radius: 50%;
   -webkit-transition: -webkit-transform .7s ease-in-out;
   transition: transform .7s ease-in-out;
 }
 
-/* line 306, /Users/shailaaa93/Desktop/wyncode/final_project/amaze/app/assets/stylesheets/application.scss */
+/* line 315, /Users/shailaaa93/Desktop/wyncode/final_project/amaze/app/assets/stylesheets/application.scss */
 .maze-cards-index:hover #rotate {
   -webkit-transform: rotate(90deg);
   transform: rotate(90deg);
