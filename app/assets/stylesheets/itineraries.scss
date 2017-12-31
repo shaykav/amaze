@@ -108,6 +108,10 @@ p {
   padding-top: 3px;
 }
 
+.card .card-data ul {
+  padding-left: 0;
+}
+
 .card .card-body h4 {
     font-weight: 400;
     color: initial;
@@ -122,9 +126,9 @@ p {
   float: right;
 }
 
-.move-center {
-  padding-left: 85px;
-}
+// .move-center {
+//   padding-left: 85px;
+// }
 
 .move-right {
   margin-left: auto;
