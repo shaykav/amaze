@@ -9,14 +9,14 @@
 
 
     <div id="steps"></div>
-    
+
     <section id='<%= location.title %>' class='active'>
-      <h2 class="maze-header"><%= location.title %> 
+      <h2 class="maze-header"><%= location.title %>
         <% if location.icon.present? %>
         <%= image_tag location.icon, width: '25px' %>
         <% end %>
       </h2>
-      
+
       <% if location.address.present? %>
       <p class="address-text"><%= location.address %></p>
       <% end %>
@@ -35,7 +35,7 @@
      <%= image_tag location.photo, width: '500px', class: "maze-photos" %>
      <% end %>
    </div>
-   
+
  </section>
 
 </div>
@@ -133,7 +133,7 @@
       var arrows = route.reverse();
       console.log(arrows)
 
-      $('#steps').append(`<h1 class="steps-number"> ${steps} Steps </h1>`);
+      $('#steps').append('<h1 class="steps-number"> ' + steps + ' Steps </h1>');
 
       console.log(steps)
 
@@ -181,7 +181,7 @@
         paint: {
           'text-color': '#3887be',
           'text-halo-color': 'hsl(55, 11%, 96%)',
-          'text-halo-width': 3  
+          'text-halo-width': 3
         }
       }, 'waterway-label');
 
@@ -195,7 +195,7 @@
       },
       trackUserLocation: true
     }));
-    
+
     map.addLayer({
       id: 'start',
       type: 'circle',
