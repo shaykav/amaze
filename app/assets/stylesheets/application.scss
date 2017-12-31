@@ -213,11 +213,28 @@ section:last-child{
   text-align: center;
 }
 
-
 #main-title {
   font-family: 'Maze' !important;
-  font-size: 13.5rem;
+  font-size: 13rem;
   font-weight: 300;
+}
+
+@media all and (max-width: 1200px) {
+  #main-title {
+    font-size: 13rem;
+  }
+}
+
+@media all and (max-width: 1024px) {
+  #main-title {
+    font-size: 10rem;
+  }
+}
+
+@media all and (max-width: 600px) {
+  #main-title {
+    font-size: 7rem;
+  }
 }
 
 /* Itinerary new */
