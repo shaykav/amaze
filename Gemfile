@@ -59,3 +59,6 @@ gem 'jquery-rails'
 gem 'popper_js', '~> 1.12.3'
 gem "font-awesome-rails"
 gem "paperclip", "~> 5.0.0"
+gem 'dotenv-rails'
+gem 'aws-sdk', '~> 2.3'
+gem 'fog-aws'
