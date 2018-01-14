@@ -15133,10 +15133,10 @@ section:last-child {
     font-size: 4em;
   }
 }
-@media all and (max-width: 600px) {
+@media all and (max-width: 414px) {
   /* line 242, /Users/shailaaa93/Desktop/wyncode/final_project/amaze/app/assets/stylesheets/application.scss */
   #main-title {
-    font-size: 7rem;
+    font-size: 5.9rem;
   }
 
   /* line 245, /Users/shailaaa93/Desktop/wyncode/final_project/amaze/app/assets/stylesheets/application.scss */
