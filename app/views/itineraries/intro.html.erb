@@ -112,7 +112,7 @@
 <script>
 
 
-  mapboxgl.accessToken = 'pk.eyJ1Ijoia2V2aW5zY2hhZmZ0ZXIiLCJhIjoiY2piNnNkMmQ2OTBiZzMzcnpzM252OGttdSJ9.vp7HQwPNr--uNONxICdJzg';
+  mapboxgl.accessToken = <%= ENV['MAPBOX'] %>
 
   var map = new mapboxgl.Map({
     container: 'map',

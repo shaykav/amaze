@@ -31,7 +31,7 @@ body { margin:0; padding:0; }
 <% end %>
 
 
-  mapboxgl.accessToken = 'pk.eyJ1Ijoia2V2aW5zY2hhZmZ0ZXIiLCJhIjoiY2piNm96NGt2MHZxZTJ3bXo3bG5uN2RwMiJ9.mJexXrURcgBO8qfnCsoYkQ';
+  mapboxgl.accessToken = <%= ENV['MAPBOX'] %>
 
   var map = new mapboxgl.Map({
     container: 'map',
