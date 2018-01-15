@@ -31,7 +31,7 @@ body { margin:0; padding:0; }
 <% end %>
 
 
-  mapboxgl.accessToken = <%= ENV['MAPBOX'] %>
+  mapboxgl.accessToken = '<%= ENV['MAPBOX'] %>'
 
   var map = new mapboxgl.Map({
     container: 'map',
